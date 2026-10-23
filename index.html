@@ -19,9 +19,9 @@
   --lagoon-2: #134a4c;
   --lagoon-3: #1d5f61;
   --deep: #0a2a2b;
-  --flamingo: #f4a6b8;
-  --flamingo-d: #e88aa0;
-  --rose-ink: #a83c5c;
+  --flamingo: #c2a56e;
+  --flamingo-d: #ad8f57;
+  --rose-ink: #7d6232;
   --sand: #f6efe8;
   --sand-2: #ece2d6;
   --ink: #132322;
@@ -166,9 +166,9 @@ button { font: inherit; }
 .quote blockquote { margin: 0; font-family: var(--serif); font-size: clamp(1.8rem, 1.1rem + 2.2vw, 3.4rem); line-height: 1.12; max-width: 28ch; }
 .quote cite { display: block; margin-top: 18px; font-family: var(--sans); font-style: normal; color: var(--soft); font-size: .95rem; }
 
-.rest-cta { margin-top: var(--gap); background: var(--flamingo); color: var(--lagoon); border-radius: var(--r); padding: clamp(32px, 5vw, 72px); display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items: center; overflow: hidden; position: relative; }
+.rest-cta { margin-top: var(--gap); background: var(--lagoon); color: var(--sand); border-radius: var(--r); padding: clamp(32px, 5vw, 72px); display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items: center; overflow: hidden; position: relative; }
 .rest-cta h3 { font-size: clamp(2.6rem, 1.4rem + 3.6vw, 5.2rem); line-height: .95; }
-.rest-cta p { margin-top: 14px; max-width: 42ch; }
+.rest-cta p { margin-top: 14px; max-width: 42ch; color: var(--mist); }
 .rest-cta .btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
 
 /* ---------- HOTEL ---------- */
@@ -455,7 +455,7 @@ button { font: inherit; }
 
       <div class="rest-cta up">
         <div><h3>¿Le guardamos mesa?</h3><p>Llámenos para reservar o para preguntar el menú de hoy. Grupos y celebraciones, consúltenos.</p></div>
-        <div class="btns"><a class="btn btn--dark" href="tel:+34722856875"><svg><use href="#phone"/></svg>722 85 68 75</a><a class="btn btn--ghost" href="https://wa.me/34722856875?text=Hola%2C%20quer%C3%ADa%20reservar%20mesa%20en%20La%20Barca" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a></div>
+        <div class="btns"><a class="btn" href="tel:+34722856875"><svg><use href="#phone"/></svg>722 85 68 75</a><a class="btn btn--ghost" href="https://wa.me/34722856875?text=Hola%2C%20quer%C3%ADa%20reservar%20mesa%20en%20La%20Barca" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a></div>
       </div>
     </div>
   </section>
@@ -495,7 +495,7 @@ button { font: inherit; }
   <section class="gallery" id="galeria" aria-labelledby="t-gal">
     <div class="w">
       <div class="head"><div><small>Galería</small><h2 id="t-gal" class="split">Pase y <em>mire</em></h2></div><p class="up">Toque cualquier foto para verla en grande.</p></div>
-      <div class="filters" role="group" aria-label="Filtrar fotos"><button aria-pressed="true" data-f="todo">Todo</button><button aria-pressed="false" data-f="rest">Restaurante</button><button aria-pressed="false" data-f="hotel">Hotel</button></div>
+      <div class="filters" role="group" aria-label="Filtrar fotos"><button aria-pressed="true" data-f="rest">Restaurante</button><button aria-pressed="false" data-f="hotel">Hotel</button></div>
       <div class="grid" id="grid">
         <figure data-c="rest" class="up"><img src="img/comedor.jpg" alt="Comedor principal" loading="lazy"><figcaption>Comedor principal</figcaption></figure>
         <figure data-c="hotel" class="up"><img src="img/hab-roja.jpg" alt="Habitación doble con toallas" loading="lazy"><figcaption>Habitación doble</figcaption></figure>
@@ -653,8 +653,9 @@ button { font: inherit; }
   $$('.filters button').forEach(b => b.addEventListener('click', () => {
     $$('.filters button').forEach(x => x.setAttribute('aria-pressed', x === b));
     const f = b.dataset.f;
-    figs.forEach(fg => { const show = f === 'todo' || fg.dataset.c === f; fg.classList.toggle('hide', !show); });
+    figs.forEach(fg => { fg.classList.toggle('hide', fg.dataset.c !== f); if (fg.dataset.c === f) requestAnimationFrame(() => fg.classList.add('in')); });
   }));
+  figs.forEach(fg => fg.classList.toggle('hide', fg.dataset.c !== 'rest'));
   const lb = $('#lb'), lbimg = $('#lbimg'), lbcap = $('#lbcap'); let li = 0, lastFocus;
   const visible = () => figs.filter(f => !f.classList.contains('hide'));
   function openLb(fig) { const v = visible(); li = v.indexOf(fig); paint(); lastFocus = document.activeElement; lb.classList.add('on'); $('#lbx').focus(); }
