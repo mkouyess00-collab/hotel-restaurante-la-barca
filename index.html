@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel Restaurante La Barca · Pedro Muñoz</title>
+<meta name="description" content="Hotel de tres estrellas y restaurante en Pedro Muñoz (Ciudad Real), junto a la laguna. Habitaciones con aire acondicionado, parking gratuito, menú del día, comidas, cenas y terraza.">
+<meta name="theme-color" content="#f4eee4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #f4eee4;
+  --sand: #e8dccb;
+  --ink: #1c1512;
+  --ink-soft: #5b4b42;
+  --wine: #6d1b26;
+  --wine-2: #551520;
+  --wine-3: #7f2733;
+  --lake: #1f4d5c;
+  --lake-2: #173e4a;
+  --lake-3: #2a6172;
+  --gold: #d6a868;
+  --on-dark: #f4eee4;
+  --on-dark-soft: #d9cbbb;
+
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Manrope", system-ui, sans-serif;
+
+  --s-small: 0.9375rem;
+  --s-body: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
+  --s-lead: clamp(1.4rem, 1.1rem + 1.1vw, 2.1rem);
+  --s-head: clamp(3rem, 1.4rem + 6vw, 8rem);
+  --s-mega: clamp(4rem, 1rem + 11vw, 13.5rem);
+
+  --m: clamp(16px, 3.2vw, 48px);
+  --gap: clamp(112px, 12vw, 190px);
+  --ease-out: cubic-bezier(.16,1,.3,1);
+  --ease-io: cubic-bezier(.76,0,.24,1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: var(--s-body); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+img, iframe { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 400; line-height: .95; letter-spacing: -0.025em; font-variation-settings: "opsz" 144; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+::selection { background: var(--wine); color: var(--cream); }
+.w { padding-inline: var(--m); max-width: 1680px; margin-inline: auto; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* botones */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .6em; height: 58px; padding: 0 30px; border: 0; border-radius: 999px; background: var(--wine); color: var(--cream); font: 700 1rem/1 var(--sans); text-decoration: none; cursor: pointer; white-space: nowrap; transition: transform 400ms var(--ease-out), background-color 220ms ease, color 220ms ease, box-shadow 220ms ease; }
+.btn:active { transform: scale(.96); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn--lake { background: var(--lake); }
+.btn--cream { background: var(--cream); color: var(--ink); }
+.btn--line { background: transparent; color: inherit; box-shadow: inset 0 0 0 2px currentColor; }
+.link { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: .25em; text-decoration-thickness: 2px; transition: text-decoration-color 200ms ease; }
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { background: var(--wine-2); }
+  .btn--lake:hover { background: var(--lake-2); }
+  .btn--cream:hover { background: var(--sand); }
+  .btn--line:hover { background: var(--cream); color: var(--ink); box-shadow: none; }
+  .link:hover { text-decoration-color: currentColor; }
+}
+
+/* progreso */
+.progress { position: fixed; inset: 0 0 auto 0; height: 4px; background: var(--gold); transform-origin: left; transform: scaleX(0); z-index: 60; pointer-events: none; }
+
+/* cabecera */
+.bar { position: fixed; inset: 0 0 auto 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px var(--m); background: var(--cream); transition: transform 400ms var(--ease-out), padding 300ms ease; }
+.bar.is-hidden { transform: translateY(-100%); }
+.brand { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
+.brand b { font-family: var(--serif); font-weight: 600; font-size: 1.75rem; letter-spacing: -0.02em; }
+.brand span { font-size: .8125rem; font-weight: 500; margin-top: 4px; color: var(--ink-soft); }
+.bar nav { display: flex; align-items: center; gap: clamp(14px, 2.2vw, 34px); font-weight: 500; }
+.bar nav a:not(.btn) { text-decoration: none; }
+.bar .btn { height: 46px; padding: 0 22px; }
+
+/* portada */
+.hero { padding-top: 92px; min-height: 100svh; display: grid; grid-template-rows: auto 1fr; }
+.hero__top { display: grid; grid-template-columns: 8fr 4fr; gap: 32px; align-items: end; padding: clamp(28px, 4vh, 56px) var(--m) clamp(28px, 4vh, 48px); }
+.hero h1 { font-size: clamp(3.6rem, 0.6rem + 8.6vw, 12rem); line-height: .88; }
+.hero h1 .ln { display: block; overflow: hidden; padding-top: .1em; margin-top: -.08em; white-space: nowrap; }
+.hero h1 .ln:last-child { font-style: italic; color: var(--wine); }
+.hero__aside { display: grid; gap: 18px; padding-bottom: 8px; }
+.hero__aside p { font-size: clamp(1.0625rem, 1rem + .3vw, 1.25rem); line-height: 1.45; max-width: 34ch; }
+.hero__facts { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero__facts span { background: var(--sand); border-radius: 999px; padding: 7px 14px; font-size: var(--s-small); font-weight: 500; }
+.doors { display: flex; gap: 10px; padding: 0 10px 10px; min-height: 56svh; }
+.door { position: relative; flex: 1; overflow: hidden; border-radius: 6px; color: var(--cream); text-decoration: none; transition: flex-grow 900ms var(--ease-out); isolation: isolate; }
+.door img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1600ms var(--ease-out); z-index: -2; }
+.door::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(20,10,8,.78), rgba(20,10,8,.05) 60%); }
+.door--hotel::after { background: linear-gradient(to top, rgba(10,30,38,.8), rgba(10,30,38,.05) 60%); }
+.door__txt { position: absolute; left: clamp(20px, 3vw, 44px); right: clamp(20px, 3vw, 44px); bottom: clamp(20px, 3vw, 40px); display: flex; justify-content: space-between; align-items: end; gap: 20px; }
+.door__txt b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(2.6rem, 1.2rem + 4vw, 6rem); line-height: .9; letter-spacing: -0.025em; }
+.door__txt small { display: block; margin-top: 10px; font-size: 1rem; color: var(--on-dark-soft); max-width: 34ch; }
+.door__arrow { flex: none; width: 64px; height: 64px; border-radius: 50%; background: var(--cream); color: var(--ink); display: grid; place-items: center; transition: transform 500ms var(--ease-out), background-color 300ms; }
+.door__arrow svg { width: 24px; height: 24px; }
+@media (hover: hover) and (pointer: fine) {
+  .doors:hover .door { flex-grow: .75; }
+  .doors .door:hover { flex-grow: 1.5; }
+  .door:hover img { transform: scale(1.06); }
+  .door:hover .door__arrow { transform: rotate(-45deg); background: var(--gold); }
+}
+
+/* banda */
+.ticker { background: var(--ink); color: var(--cream); overflow: hidden; padding-block: clamp(16px, 2vw, 28px); }
+.ticker__row { display: flex; width: max-content; font-family: var(--serif); font-size: clamp(2.2rem, 1rem + 4.4vw, 5.6rem); line-height: 1.05; white-space: nowrap; will-change: transform; }
+.ticker__row span { padding-right: .5em; }
+.ticker__row span::after { content: "\2726"; font-size: .38em; vertical-align: .55em; margin-left: .5em; color: var(--gold); }
+.ticker__row span:nth-child(even) { font-style: italic; color: var(--gold); }
+.ticker--wine { background: var(--wine); }
+.ticker--wine .ticker__row span:nth-child(even) { color: var(--sand); }
+
+/* comunes de sección */
+.sec-head { display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: end; margin-bottom: clamp(56px, 7vw, 112px); }
+.sec-head h2 { font-size: var(--s-head); }
+.sec-head h2 em { font-style: italic; }
+.sec-head p { max-width: 42ch; font-size: 1.125rem; }
+.dark-wine { background: var(--wine); color: var(--on-dark); }
+.dark-lake { background: var(--lake); color: var(--on-dark); }
+.dark-ink { background: var(--ink); color: var(--on-dark); }
+.dark-wine .sec-head p, .dark-lake .sec-head p { color: var(--on-dark-soft); }
+
+/* ---------- RESTAURANTE ---------- */
+.rest { padding-block: var(--gap) 0; }
+.offer { list-style: none; margin: 0; padding: 0; position: relative; }
+.offer li { position: relative; display: grid; grid-template-columns: 5fr 5fr 2fr; gap: 32px; align-items: center; padding: clamp(26px, 3vw, 40px) 0; border-top: 1px solid rgba(244,238,228,.22); cursor: default; }
+.offer li:last-child { border-bottom: 1px solid rgba(244,238,228,.22); }
+.offer h3 { font-size: clamp(2.2rem, 1.2rem + 3vw, 4.6rem); transition: transform 600ms var(--ease-out), color 300ms; }
+.offer p { color: var(--on-dark-soft); max-width: 40ch; }
+.offer .when { justify-self: end; font-weight: 700; font-size: var(--s-small); color: var(--gold); text-align: right; }
+.offer__pic { display: none; }
+.peek { position: fixed; left: 0; top: 0; width: 340px; aspect-ratio: 4/3; border-radius: 6px; overflow: hidden; pointer-events: none; z-index: 40; opacity: 0; transform: translate(-50%, -50%) scale(.8); transition: opacity 300ms ease, transform 500ms var(--ease-out); }
+.peek.on { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.peek img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 300ms; }
+.peek img.on { opacity: 1; }
+@media (hover: hover) and (pointer: fine) { .offer li:hover h3 { transform: translateX(20px); color: var(--gold); } }
+
+/* galería horizontal fijada */
+.hgal { position: relative; height: 320svh; margin-top: var(--gap); }
+.hgal__sticky { position: sticky; top: 0; height: 100svh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
+.hgal__title { padding-inline: var(--m); display: flex; justify-content: space-between; align-items: end; gap: 24px; }
+.hgal__title h3 { font-size: clamp(2.4rem, 1.2rem + 3.6vw, 5.2rem); }
+.hgal__title p { color: var(--on-dark-soft); max-width: 34ch; }
+.hgal__track { display: flex; gap: clamp(14px, 1.6vw, 24px); padding-inline: var(--m); will-change: transform; }
+.hgal__track figure { margin: 0; flex: none; width: clamp(300px, 34vw, 560px); }
+.hgal__track figure:nth-child(3n+2) { width: clamp(260px, 26vw, 420px); }
+.hgal__track .ph { aspect-ratio: 4/3; overflow: hidden; border-radius: 6px; }
+.hgal__track figure:nth-child(3n+2) .ph { aspect-ratio: 3/4; }
+.hgal__track img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.12); }
+.hgal__track figcaption { margin-top: 12px; font-weight: 500; color: var(--on-dark-soft); }
+.hgal__bar { margin: 0 var(--m); height: 3px; background: rgba(244,238,228,.18); border-radius: 3px; overflow: hidden; }
+.hgal__bar i { display: block; height: 100%; background: var(--gold); transform-origin: left; transform: scaleX(0); }
+
+.book { padding-block: var(--gap); display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: center; }
+.book h3 { font-size: clamp(2.6rem, 1.2rem + 4.4vw, 6.4rem); }
+.book p { margin-top: 20px; color: var(--on-dark-soft); max-width: 44ch; }
+.book__btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
+
+/* ---------- HOTEL ---------- */
+.hotel { padding-block: var(--gap); }
+.hotel .sec-head h2 em { color: var(--lake); }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: clamp(64px, 8vw, 128px); }
+.stat b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 1.4rem + 4.4vw, 6.4rem); line-height: 1; color: var(--lake); letter-spacing: -0.03em; }
+.stat span { display: block; margin-top: 8px; font-weight: 500; }
+.rooms { display: grid; grid-template-columns: 6fr 6fr; gap: clamp(32px, 5vw, 96px); }
+.stage { position: sticky; top: 110px; height: min(72svh, 680px); overflow: hidden; border-radius: 6px; background: var(--sand); }
+.stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.stage__name { position: absolute; left: 20px; bottom: 16px; z-index: 3; color: var(--cream); font-family: var(--serif); font-size: 1.5rem; }
+.stage::after { content: ""; position: absolute; inset: auto 0 0 0; height: 30%; background: linear-gradient(transparent, rgba(0,0,0,.45)); z-index: 2; pointer-events: none; }
+.rlist { list-style: none; margin: 0; padding: 0; }
+.room { min-height: 62svh; display: flex; flex-direction: column; justify-content: center; padding-block: 40px; opacity: .5; transition: opacity 500ms ease; }
+.room.is-active { opacity: 1; }
+.room h3 { font-size: clamp(2.6rem, 1.4rem + 3.6vw, 5.6rem); }
+.room p { margin-top: 18px; max-width: 42ch; font-size: 1.125rem; color: var(--ink-soft); }
+.room ul { margin: 22px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.room li { background: var(--sand); border-radius: 999px; padding: 8px 14px; font-size: var(--s-small); font-weight: 500; }
+.room__pic { display: none; }
+
+.services { margin-top: var(--gap); display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 5vw, 96px); align-items: start; }
+.services h3 { font-size: clamp(2.4rem, 1.2rem + 3.4vw, 5rem); }
+.services > div > p { margin-top: 20px; max-width: 40ch; color: var(--ink-soft); }
+.svc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+.svc li { padding: 18px 0; border-top: 1px solid rgba(28,21,18,.14); display: grid; gap: 4px; }
+.svc b { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; letter-spacing: -0.01em; }
+.svc span { color: var(--ink-soft); font-size: var(--s-small); }
+
+.hpics { margin-top: var(--gap); display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(12px, 1.6vw, 24px); align-items: end; }
+.hpics figure { margin: 0; overflow: hidden; border-radius: 6px; }
+.hpics img { width: 100%; height: 100%; object-fit: cover; transition: transform 1200ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .hpics figure:hover img { transform: scale(1.07); } }
+.hp1 { grid-column: 1 / span 5; aspect-ratio: 4/5; }
+.hp2 { grid-column: 6 / span 4; aspect-ratio: 1; }
+.hp3 { grid-column: 10 / span 3; aspect-ratio: 3/4; }
+.hp4 { grid-column: 3 / span 4; aspect-ratio: 4/3; margin-top: 24px !important; }
+.hp5 { grid-column: 7 / span 6; aspect-ratio: 16/9; }
+
+.hbook { margin-top: var(--gap); background: var(--lake); color: var(--on-dark); border-radius: 6px; padding: clamp(36px, 5vw, 80px); display: grid; grid-template-columns: 7fr 5fr; gap: 40px; align-items: center; overflow: hidden; position: relative; }
+.hbook h3 { font-size: clamp(2.6rem, 1.2rem + 4vw, 6rem); }
+.hbook p { margin-top: 18px; color: var(--on-dark-soft); max-width: 44ch; }
+.hbook__btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
+
+/* ---------- ENTORNO ---------- */
+.env { padding-block: var(--gap); overflow: hidden; }
+.env__grid { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(24px, 4vw, 72px); align-items: start; }
+.env__big { overflow: hidden; border-radius: 6px; aspect-ratio: 4/3; }
+.env__big img { width: 100%; height: 115%; object-fit: cover; }
+.env__side { display: grid; gap: 28px; }
+.env__side p { color: var(--on-dark-soft); font-size: 1.125rem; }
+.env__side .lead { color: var(--on-dark); font-family: var(--serif); font-size: var(--s-lead); line-height: 1.2; letter-spacing: -0.01em; }
+.env__pics { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.env__pics figure { margin: 0; }
+.env__pics .ph { overflow: hidden; border-radius: 6px; aspect-ratio: 4/5; }
+.env__pics img { width: 100%; height: 100%; object-fit: cover; }
+.env__pics figcaption { margin-top: 10px; font-size: var(--s-small); color: var(--on-dark-soft); }
+
+/* ---------- CONTACTO ---------- */
+.contact { padding-block: var(--gap); }
+.contact__grid { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(32px, 4vw, 72px); }
+.map { position: relative; min-height: 600px; border-radius: 6px; overflow: hidden; background: #2a201c; }
+.map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.cside { display: grid; gap: 36px; align-content: start; }
+.cside h3 { font-size: 2rem; margin-bottom: 12px; }
+.cside address { font-style: normal; font-size: 1.25rem; line-height: 1.45; }
+.phone { font-family: var(--serif); font-size: clamp(2.4rem, 1.4rem + 2.6vw, 4rem); line-height: 1; text-decoration: none; letter-spacing: -0.02em; display: inline-block; }
+.cbtns { display: flex; flex-wrap: wrap; gap: 12px; }
+.social { display: flex; flex-wrap: wrap; gap: 10px; }
+.social a { display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 20px 0 16px; border-radius: 999px; background: #2a201c; text-decoration: none; font-weight: 700; transition: background-color 220ms, transform 400ms var(--ease-out); }
+.social a svg { width: 22px; height: 22px; }
+@media (hover: hover) and (pointer: fine) { .social a:hover { background: var(--wine); } }
+.contact__fachada { border-radius: 6px; overflow: hidden; aspect-ratio: 16/9; }
+.contact__fachada img { width: 100%; height: 100%; object-fit: cover; }
+
+/* pie */
+.foot { padding-block: clamp(72px, 9vw, 140px) 32px; overflow: hidden; }
+.foot__mark { font-family: var(--serif); line-height: .82; font-size: clamp(5rem, 1rem + 21vw, 24rem); letter-spacing: -0.04em; white-space: nowrap; }
+.foot__mark span { display: inline-block; }
+.foot__mark span:nth-child(2) { font-style: italic; color: var(--wine); }
+.foot__row { margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.foot__row h3 { font-size: 1.375rem; margin-bottom: 10px; }
+.foot__row ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.foot__row a { text-decoration: none; }
+.credits { margin-top: 48px; font-size: .875rem; color: var(--ink-soft); max-width: 110ch; }
+.foot__end { margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: .875rem; color: var(--ink-soft); }
+
+/* ---------- movimiento ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .js .rise { opacity: 0; transform: translateY(34px); transition: opacity 900ms var(--ease-out), transform 1000ms var(--ease-out); transition-delay: calc(var(--i, 0) * 80ms); }
+  .js .rise.in { opacity: 1; transform: none; }
+  .js .hero h1 .ch { display: inline-block; transform: translateY(110%) rotate(6deg); transform-origin: left bottom; transition: transform 1100ms var(--ease-out); transition-delay: calc(var(--c) * 32ms); }
+  .js .hero.in h1 .ch { transform: none; }
+  .js .door { clip-path: inset(100% 0 0 0 round 6px); transition: clip-path 1300ms var(--ease-io), flex-grow 900ms var(--ease-out); }
+  .js .door--hotel { transition-delay: 140ms, 0ms; }
+  .js .hero.in .door { clip-path: inset(0 0 0 0 round 6px); }
+  .js .door img { transform: scale(1.18); }
+  .js .hero.in .door img { transform: scale(1); }
+  .js .split .wd { display: inline-block; overflow: hidden; vertical-align: top; padding-top: .14em; margin-top: -.14em; }
+  .js .split .wd > span { display: inline-block; transform: translateY(105%); transition: transform 1000ms var(--ease-out); transition-delay: calc(var(--w) * 70ms); }
+  .js .split.in .wd > span { transform: none; }
+  .js .reveal > img { clip-path: inset(0 0 100% 0); transition: clip-path 1300ms var(--ease-io), transform 1200ms var(--ease-out); }
+  .js .reveal.in > img { clip-path: inset(0 0 0 0); }
+  .js .stage img { clip-path: inset(0 0 0 100%); transition: clip-path 900ms var(--ease-io); }
+  .js .stage img.on { clip-path: inset(0); z-index: 1; }
+  .js .stage img.was { clip-path: inset(0); z-index: 0; }
+  .js .foot__mark span { transform: translateY(45%); opacity: 0; transition: transform 1200ms var(--ease-out), opacity 900ms ease; }
+  .js .foot__mark span:nth-child(2) { transition-delay: 120ms; }
+  .js .foot__mark.in span { transform: none; opacity: 1; }
+  .tilt { transition: transform 600ms var(--ease-out); will-change: transform; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hgal { height: auto; }
+  .hgal__sticky { position: static; height: auto; padding-block: 40px; }
+  .hgal__track { overflow-x: auto; scroll-snap-type: x mandatory; }
+  .hgal__track figure { scroll-snap-align: start; }
+  .hgal__bar { display: none; }
+  .js .stage img:not(.on) { opacity: 0; }
+}
+
+/* ---------- tablet ---------- */
+@media (max-width: 1080px) {
+  .bar nav a.hide { display: none; }
+  .hero__top { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- teléfono ---------- */
+@media (max-width: 760px) {
+  .brand b { font-size: 1.5rem; }
+  .bar .btn { height: 42px; padding: 0 18px; }
+  .hero { padding-top: 76px; }
+  .hero h1 { font-size: 14.5vw; }
+  .doors { flex-direction: column; min-height: 0; }
+  .door { min-height: 46svh; }
+  .door__arrow { width: 52px; height: 52px; }
+  .sec-head, .book, .services, .env__grid, .contact__grid, .hbook, .rooms { grid-template-columns: 1fr; gap: 24px; }
+  .offer li { grid-template-columns: 1fr; gap: 10px; }
+  .offer .when { justify-self: start; text-align: left; }
+  .offer__pic { display: block; aspect-ratio: 16/10; border-radius: 6px; overflow: hidden; margin-bottom: 8px; }
+  .offer__pic img { width: 100%; height: 100%; object-fit: cover; }
+  .peek { display: none; }
+  .hgal { height: auto; }
+  .hgal__sticky { position: static; height: auto; padding-block: 24px 40px; }
+  .hgal__title { flex-direction: column; align-items: start; }
+  .hgal__track { overflow-x: auto; scroll-snap-type: x mandatory; transform: none !important; scrollbar-width: none; }
+  .hgal__track figure, .hgal__track figure:nth-child(3n+2) { width: 78vw; scroll-snap-align: center; }
+  .hgal__track figure:nth-child(3n+2) .ph { aspect-ratio: 4/3; }
+  .hgal__bar { display: none; }
+  .book__btns, .hbook__btns { justify-content: flex-start; }
+  .stage { display: none; }
+  .room { min-height: 0; opacity: 1; padding-block: 0 64px; }
+  .room__pic { display: block; aspect-ratio: 4/3; border-radius: 6px; overflow: hidden; margin-bottom: 22px; }
+  .room__pic img { width: 100%; height: 100%; object-fit: cover; }
+  .svc { grid-template-columns: 1fr; }
+  .hpics { grid-template-columns: 1fr 1fr; }
+  .hpics figure { grid-column: auto !important; aspect-ratio: 1 !important; margin-top: 0 !important; }
+  .hpics .hp5 { grid-column: 1 / -1 !important; aspect-ratio: 16/10 !important; }
+  .map { min-height: 400px; }
+  .foot__row { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="bar" id="bar">
+  <a class="brand" href="#inicio" aria-label="La Barca, inicio"><b>La Barca</b><span>Hotel · Restaurante</span></a>
+  <nav aria-label="Principal">
+    <a class="link hide" href="#restaurante">Restaurante</a>
+    <a class="link hide" href="#hotel">Hotel</a>
+    <a class="link hide" href="#entorno">Entorno</a>
+    <a class="link hide" href="#contacto">Contacto</a>
+    <a class="btn" href="tel:+34722856875">Llamar</a>
+  </nav>
+</header>
+
+<main>
+  <!-- PORTADA -->
+  <section class="hero" id="inicio" aria-labelledby="t-hero">
+    <div class="hero__top">
+      <h1 id="t-hero"><span class="ln"><span>Hotel Restaurante</span></span><span class="ln"><span>La Barca</span></span></h1>
+      <div class="hero__aside">
+        <p class="rise" style="--i:3">Hotel de tres estrellas y restaurante en Pedro Muñoz, a un paseo de la laguna. Para comer bien, dormir tranquilo y descubrir La Mancha.</p>
+        <div class="hero__facts rise" style="--i:4"><span>★★★ Hotel</span><span>16 habitaciones</span><span>Parking gratis</span><span>Admite mascotas</span></div>
+      </div>
+    </div>
+    <div class="doors">
+      <a class="door door--rest" href="#restaurante">
+        <img src="img/comedor.jpg" alt="Comedor del restaurante La Barca con mesas vestidas y ventanales en arco" width="1800" height="1201">
+        <span class="door__txt"><span><b>Restaurante</b><small>Desayunos, menú del día, comidas y cenas. Bar, cafetería y terraza.</small></span><span class="door__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a>
+      <a class="door door--hotel" href="#hotel">
+        <img src="img/hab-doble.jpg" alt="Habitación doble del hotel con colcha granate y cabecero de madera" width="1800" height="1345">
+        <span class="door__txt"><span><b>Hotel</b><small>Habitaciones con aire acondicionado, Wi-Fi y baño privado. Algunas con hidromasaje o balcón.</small></span><span class="door__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker__row" data-dir="-1">
+    <span>Menú del día</span><span>Comidas y cenas</span><span>Desayunos</span><span>Terraza</span><span>16 habitaciones</span><span>Junto a la laguna</span>
+  </div></div>
+
+  <!-- ===================== RESTAURANTE ===================== -->
+  <section class="rest dark-wine" id="restaurante" aria-labelledby="t-rest">
+    <div class="w">
+      <div class="sec-head">
+        <h2 id="t-rest" class="split">El restaurante</h2>
+        <p class="rise" style="--i:1">Cocina de la tierra, raciones generosas y vino de la zona. Comedor amplio para comer a gusto, barra para el café y el aperitivo, y terraza bajo el toldo cuando acompaña el tiempo.</p>
+      </div>
+      <ul class="offer" id="offer">
+        <li class="rise" data-img="0">
+          <div class="offer__pic"><img src="img/cafeteria.jpg" alt="" loading="lazy"></div>
+          <h3>Desayunos</h3><p>Desayuno típico de la zona para empezar el día, en la cafetería o antes de salir de ruta.</p><span class="when">Cada mañana</span>
+        </li>
+        <li class="rise" data-img="1">
+          <div class="offer__pic"><img src="img/mesa.jpg" alt="" loading="lazy"></div>
+          <h3>Menú del día</h3><p>Cocina casera con primero, segundo y postre, a buen precio y sin quedarse con hambre.</p><span class="when">Al mediodía</span>
+        </li>
+        <li class="rise" data-img="2">
+          <div class="offer__pic"><img src="img/comedor-2.jpg" alt="" loading="lazy"></div>
+          <h3>Comidas y cenas</h3><p>Comedor interior para familias, grupos y viajeros. Pregunta por los platos de la casa.</p><span class="when">Mediodía y noche</span>
+        </li>
+        <li class="rise" data-img="3">
+          <div class="offer__pic"><img src="img/bar.jpg" alt="" loading="lazy"></div>
+          <h3>Bar y cafetería</h3><p>La barra de piedra de La Barca, para el café, la caña y el vino tempranillo de la tierra.</p><span class="when">Todo el día</span>
+        </li>
+        <li class="rise" data-img="4">
+          <div class="offer__pic"><img src="img/terraza.jpg" alt="" loading="lazy"></div>
+          <h3>Terraza</h3><p>Terraza cubierta con toldo a pie de avenida, para comer, tomar algo o alargar la sobremesa.</p><span class="when">Con buen tiempo</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="hgal" id="hgal">
+      <div class="hgal__sticky">
+        <div class="hgal__title">
+          <h3 class="split">Nuestros espacios</h3>
+          <p>Comedores, barra, cafetería y terraza: así es La Barca por dentro.</p>
+        </div>
+        <div class="hgal__track" id="htrack">
+          <figure><div class="ph"><img src="img/comedor.jpg" alt="Comedor principal con ventanales en arco" loading="lazy"></div><figcaption>Comedor principal</figcaption></figure>
+          <figure><div class="ph"><img src="img/mesa.jpg" alt="Mesa preparada con mantel blanco y copas" loading="lazy"></div><figcaption>Mesa lista</figcaption></figure>
+          <figure><div class="ph"><img src="img/bar.jpg" alt="Barra de piedra con el rótulo La Barca" loading="lazy"></div><figcaption>La barra</figcaption></figure>
+          <figure><div class="ph"><img src="img/comedor-3.jpg" alt="Comedor con suelo ajedrezado y mesas" loading="lazy"></div><figcaption>Comedor de suelo ajedrezado</figcaption></figure>
+          <figure><div class="ph"><img src="img/cafeteria.jpg" alt="Cafetería con mesas de madera" loading="lazy"></div><figcaption>Cafetería</figcaption></figure>
+          <figure><div class="ph"><img src="img/terraza-2.jpg" alt="Terraza con toldo granate y sillas blancas" loading="lazy"></div><figcaption>Terraza</figcaption></figure>
+          <figure><div class="ph"><img src="img/comedor-2.jpg" alt="Comedor con paredes granate y mesas vestidas" loading="lazy"></div><figcaption>Comedor granate</figcaption></figure>
+          <figure><div class="ph"><img src="img/terraza-3.jpg" alt="Mesas blancas de la terraza" loading="lazy"></div><figcaption>Rincón de la terraza</figcaption></figure>
+          <figure><div class="ph"><img src="img/bar-2.jpg" alt="Barra con cafetera y vitrina" loading="lazy"></div><figcaption>Barra y cafetería</figcaption></figure>
+        </div>
+        <div class="hgal__bar"><i id="hbar"></i></div>
+      </div>
+    </div>
+
+    <div class="w book">
+      <div>
+        <h3 class="split">Reserva tu mesa</h3>
+        <p class="rise">Llámanos para reservar o para preguntar el menú de hoy. Grupos y celebraciones, consúltanos.</p>
+      </div>
+      <div class="book__btns rise" style="--i:1">
+        <a class="btn btn--cream" href="tel:+34722856875">Llamar · 722 85 68 75</a>
+        <a class="btn btn--line" href="https://wa.me/34722856875?text=Hola%2C%20quer%C3%ADa%20reservar%20mesa%20en%20La%20Barca" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker ticker--wine" aria-hidden="true"><div class="ticker__row" data-dir="1">
+    <span>Wi-Fi gratis</span><span>Aire acondicionado</span><span>Parking gratuito</span><span>Hidromasaje</span><span>Balcones</span><span>Mascotas bienvenidas</span>
+  </div></div>
+
+  <!-- ===================== HOTEL ===================== -->
+  <section class="hotel" id="hotel" aria-labelledby="t-hotel">
+    <div class="w">
+      <div class="sec-head">
+        <h2 id="t-hotel" class="split">El hotel</h2>
+        <p class="rise" style="--i:1">Un hotel de tres estrellas con dieciséis habitaciones cómodas y cuidadas, en plena avenida de la Constitución. Aparcas en la puerta, cenas abajo y descansas arriba.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat rise"><b data-count="3">3</b><span>estrellas</span></div>
+        <div class="stat rise" style="--i:1"><b data-count="16">16</b><span>habitaciones</span></div>
+        <div class="stat rise" style="--i:2"><b>0 €</b><span>parking y Wi-Fi</span></div>
+        <div class="stat rise" style="--i:3"><b data-count="5">5</b><span>tipos de habitación</span></div>
+      </div>
+
+      <div class="rooms">
+        <div class="stage" id="stage" aria-hidden="true">
+          <img class="on" src="img/hab-doble.jpg" alt="">
+          <img src="img/hab-twin.jpg" alt="">
+          <img src="img/hab-triple.jpg" alt="">
+          <img src="img/jacuzzi.jpg" alt="">
+          <img src="img/hab-balcon.jpg" alt="">
+          <span class="stage__name" id="stageName">Habitación doble</span>
+        </div>
+        <ol class="rlist">
+          <li class="room is-active" data-i="0" data-name="Habitación doble">
+            <div class="room__pic"><img src="img/hab-doble.jpg" alt="Habitación doble con colcha granate" loading="lazy"></div>
+            <h3>Doble</h3>
+            <p>Cama de matrimonio, cabecero de madera y colores cálidos. Para parejas o para descansar a lo grande.</p>
+            <ul><li>Cama de matrimonio</li><li>Baño privado</li><li>Aire acondicionado</li><li>Wi-Fi</li></ul>
+          </li>
+          <li class="room" data-i="1" data-name="Dos camas">
+            <div class="room__pic"><img src="img/hab-twin.jpg" alt="Habitación con dos camas individuales" loading="lazy"></div>
+            <h3>Dos camas</h3>
+            <p>Dos camas individuales, mesa y sillas. Perfecta para amigos, compañeros de trabajo o viajes en ruta.</p>
+            <ul><li>2 camas individuales</li><li>Mesa de trabajo</li><li>Calefacción</li><li>TV</li></ul>
+          </li>
+          <li class="room" data-i="2" data-name="Triple">
+            <div class="room__pic"><img src="img/hab-triple.jpg" alt="Habitación triple con tres camas" loading="lazy"></div>
+            <h3>Triple</h3>
+            <p>Espacio para tres, ideal para familias con niños. Todos juntos y con su propio baño.</p>
+            <ul><li>3 camas</li><li>Apta para familias</li><li>Baño privado</li><li>Secador</li></ul>
+          </li>
+          <li class="room" data-i="3" data-name="Con hidromasaje">
+            <div class="room__pic"><img src="img/jacuzzi.jpg" alt="Bañera de hidromasaje redonda" loading="lazy"></div>
+            <h3>Con hidromasaje</h3>
+            <p>Habitaciones con bañera de hidromasaje para un plus de descanso después del viaje.</p>
+            <ul><li>Bañera de hidromasaje</li><li>Toallas y ropa de cama</li><li>Aire acondicionado</li></ul>
+          </li>
+          <li class="room" data-i="4" data-name="Con balcón">
+            <div class="room__pic"><img src="img/hab-balcon.jpg" alt="Habitación con puertas al balcón" loading="lazy"></div>
+            <h3>Con balcón</h3>
+            <p>Habitaciones con salida al balcón de balaustrada, con luz natural y vistas a la avenida.</p>
+            <ul><li>Balcón privado</li><li>Luz natural</li><li>Wi-Fi</li></ul>
+          </li>
+        </ol>
+      </div>
+
+      <div class="services">
+        <div>
+          <h3 class="split">Todo para tu estancia</h3>
+          <p class="rise">Servicios pensados para que solo tengas que preocuparte de descansar. Si viajas con tu perro, también es bienvenido.</p>
+        </div>
+        <ul class="svc">
+          <li class="rise"><b>Wi-Fi gratis</b><span>En habitaciones y zonas comunes</span></li>
+          <li class="rise" style="--i:1"><b>Parking gratuito</b><span>Aparca junto al hotel</span></li>
+          <li class="rise"><b>Aire acondicionado</b><span>Y calefacción en invierno</span></li>
+          <li class="rise" style="--i:1"><b>Baño privado</b><span>Con secador, toallas y ducha o bañera</span></li>
+          <li class="rise"><b>Restaurante y bar</b><span>Desayuno típico de la zona, comidas y cenas</span></li>
+          <li class="rise" style="--i:1"><b>Terraza-solárium</b><span>Y bar lounge para relajarte</span></li>
+          <li class="rise"><b>Admite mascotas</b><span>Con suplemento, consúltanos</span></li>
+          <li class="rise" style="--i:1"><b>Consigna de equipaje</b><span>Guarda tus maletas a la llegada o salida</span></li>
+        </ul>
+      </div>
+
+      <div class="hpics">
+        <figure class="hp1 rise reveal"><img src="img/hab-roja.jpg" alt="Habitación doble con toallas sobre la cama" loading="lazy"></figure>
+        <figure class="hp2 rise reveal" style="--i:1"><img src="img/salon.jpg" alt="Salón con sofá de piel" loading="lazy"></figure>
+        <figure class="hp3 rise reveal" style="--i:2"><img src="img/bano.jpg" alt="Baño con lavabo y mueble negro" loading="lazy"></figure>
+        <figure class="hp4 rise reveal"><img src="img/balcon.jpg" alt="Balcón con balaustrada y sillas" loading="lazy"></figure>
+        <figure class="hp5 rise reveal" style="--i:1"><img src="img/entrada.jpg" alt="Entrada del hotel con porche y columnas" loading="lazy"></figure>
+      </div>
+
+      <div class="hbook rise">
+        <div>
+          <h3>Reserva tu habitación</h3>
+          <p>Llámanos o escríbenos por WhatsApp y te confirmamos disponibilidad y precio para tus fechas.</p>
+        </div>
+        <div class="hbook__btns">
+          <a class="btn btn--cream" href="tel:+34722856875">Llamar · 722 85 68 75</a>
+          <a class="btn btn--line" href="https://wa.me/34722856875?text=Hola%2C%20quer%C3%ADa%20consultar%20disponibilidad%20en%20el%20Hotel%20La%20Barca" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ENTORNO ===================== -->
+  <section class="env dark-lake" id="entorno" aria-labelledby="t-env">
+    <div class="w">
+      <div class="sec-head">
+        <h2 id="t-env" class="split">Junto a la laguna</h2>
+        <p class="rise" style="--i:1">Pedro Muñoz es tierra de lagunas, vino y harina. Desde el hotel se llega a pie a la Laguna del Pueblo y al Centro de Interpretación de los Humedales.</p>
+      </div>
+      <div class="env__grid">
+        <figure class="env__big rise" style="margin:0"><img src="img/laguna.jpg" alt="Laguna del Pueblo de Pedro Muñoz con flamencos y carrizo" loading="lazy" data-par="0.08"></figure>
+        <div class="env__side">
+          <p class="lead rise">Flamencos, aves migratorias y atardeceres sobre el agua, a pocos minutos de tu habitación.</p>
+          <p class="rise">Descubre la iglesia de San Pedro Apóstol, las ermitas, las casas señoriales y las antiguas bodegas y harineras del pueblo. Y si quieres más Mancha, los molinos y los pueblos del Quijote están a un paso en coche.</p>
+          <div class="env__pics">
+            <figure class="rise"><div class="ph"><img src="img/laguna-2.jpg" alt="Laguna con aves al fondo y carrizo en primer plano" loading="lazy"></div><figcaption>Laguna del Pueblo</figcaption></figure>
+            <figure class="rise" style="--i:1"><div class="ph"><img src="img/iglesia.jpg" alt="Iglesia de San Pedro Apóstol de Pedro Muñoz" loading="lazy"></div><figcaption>San Pedro Apóstol</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section class="contact dark-ink" id="contacto" aria-labelledby="t-contact">
+    <div class="w">
+      <div class="sec-head">
+        <h2 id="t-contact" class="split">Cómo llegar</h2>
+        <p class="rise" style="--i:1">En la avenida de la Constitución, la entrada principal de Pedro Muñoz, junto al Parque Gloria y a dos pasos de la laguna.</p>
+      </div>
+      <div class="contact__grid">
+        <div class="map rise">
+          <iframe title="Mapa del Hotel Restaurante La Barca en Pedro Muñoz" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Hotel%20Restaurante%20La%20Barca%2C%20Av.%20de%20la%20Constituci%C3%B3n%2034%2C%2013620%20Pedro%20Mu%C3%B1oz&z=16&output=embed"></iframe>
+        </div>
+        <div class="cside">
+          <div class="rise">
+            <h3>Teléfono</h3>
+            <a class="phone" href="tel:+34722856875">722 85 68 75</a>
+          </div>
+          <div class="rise" style="--i:1">
+            <h3>Dirección</h3>
+            <address>Av. de la Constitución, 34<br>13620 Pedro Muñoz, Ciudad Real</address>
+          </div>
+          <div class="cbtns rise" style="--i:2">
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Restaurante%20La%20Barca%2C%20Pedro%20Mu%C3%B1oz" target="_blank" rel="noopener">Cómo llegar</a>
+            <a class="btn btn--lake" href="tel:+34722856875">Llamar ahora</a>
+          </div>
+          <div class="rise" style="--i:3">
+            <h3>Redes sociales</h3>
+            <div class="social">
+              <a href="https://wa.me/34722856875" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>WhatsApp</a>
+              <a href="https://www.google.com/maps/place/Hotel+Restaurante+La+Barca/@39.4068909,-2.9505723,17z" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Google Maps</a>
+              <a href="#" data-pendiente="facebook" aria-label="Facebook (enlace pendiente)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>Facebook</a>
+              <a href="#" data-pendiente="instagram" aria-label="Instagram (enlace pendiente)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</a>
+            </div>
+          </div>
+          <figure class="contact__fachada rise" style="margin:0"><img src="img/fachada.jpg" alt="Fachada del Hotel Restaurante La Barca en la avenida de la Constitución" loading="lazy"></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="w">
+    <div class="foot__mark" id="footMark" aria-hidden="true"><span>La</span> <span>Barca</span></div>
+    <div class="foot__row">
+      <div><h3>Restaurante</h3><ul><li><a class="link" href="#restaurante">Desayunos</a></li><li><a class="link" href="#restaurante">Menú del día</a></li><li><a class="link" href="#restaurante">Comidas y cenas</a></li><li><a class="link" href="#restaurante">Terraza</a></li></ul></div>
+      <div><h3>Hotel</h3><ul><li><a class="link" href="#hotel">Habitaciones</a></li><li><a class="link" href="#hotel">Servicios</a></li><li><a class="link" href="#entorno">Entorno</a></li></ul></div>
+      <div><h3>Contacto</h3><ul><li><a class="link" href="tel:+34722856875">722 85 68 75</a></li><li><a class="link" href="https://wa.me/34722856875" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
+      <div><h3>Dónde</h3><p>Av. de la Constitución, 34<br>13620 Pedro Muñoz, Ciudad Real</p></div>
+    </div>
+    <p class="credits">Fotos del entorno: <a href="https://commons.wikimedia.org/w/index.php?curid=57626977">“Laguna del Pueblo, Pedro Muñoz - 1”</a> y <a href="https://commons.wikimedia.org/w/index.php?curid=57627264">“- 2”</a> de Gato Preto, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>; <a href="https://commons.wikimedia.org/w/index.php?curid=4752667">“Parroquia de San Pedro Apóstol en Pedro Muñoz”</a> de Thor8, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>; vía Wikimedia Commons.</p>
+    <div class="foot__end"><span>© <span id="year">2026</span> Hotel Restaurante La Barca · Pedro Muñoz</span><span>Hotel ★★★</span></div>
+  </div>
+</footer>
+
+<div class="peek" id="peek" aria-hidden="true">
+  <img src="img/cafeteria.jpg" alt=""><img src="img/mesa.jpg" alt=""><img src="img/comedor-2.jpg" alt=""><img src="img/bar.jpg" alt=""><img src="img/terraza.jpg" alt="">
+</div>
+
+<script>
+(() => {
+  document.documentElement.classList.add('js');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // enlaces de redes pendientes: no navegan
+  $$('[data-pendiente]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+
+  // título de portada letra a letra
+  let c = 0;
+  $$('.hero h1 .ln > span').forEach(sp => {
+    const t = sp.textContent; sp.textContent = '';
+    [...t].forEach(ch => { const e = document.createElement('span'); e.className = 'ch'; e.style.setProperty('--c', c++); e.textContent = ch === ' ' ? ' ' : ch; sp.appendChild(e); });
+  });
+  // títulos palabra a palabra
+  $$('.split').forEach(h => {
+    const words = h.textContent.trim().split(/\s+/); h.textContent = '';
+    words.forEach((w, i) => { const o = document.createElement('span'); o.className = 'wd'; o.style.setProperty('--w', i); const n = document.createElement('span'); n.textContent = w; o.appendChild(n); h.appendChild(o); if (i < words.length - 1) h.append(' '); });
+  });
+
+  // bandas en movimiento
+  const rows = $$('.ticker__row').map(row => { row.innerHTML += row.innerHTML; return { row, x: 0, dir: +row.dataset.dir || -1 }; });
+  let vel = 0, prevY = scrollY;
+
+  // galería horizontal
+  const hgal = $('#hgal'), htrack = $('#htrack'), hbar = $('#hbar');
+  const mobile = () => innerWidth <= 760;
+  // parallax
+  const par = $$('[data-par]');
+  // cabecera y progreso
+  const bar = $('#bar'), prog = $('#progress');
+  let lastY = 0;
+
+  function frame() {
+    const y = scrollY;
+    vel = vel * 0.9 + Math.abs(y - prevY) * 0.1; prevY = y;
+    if (!reduce) {
+      rows.forEach(r => {
+        const half = r.row.scrollWidth / 2;
+        r.x += r.dir * (0.6 + Math.min(vel, 60) * 0.35);
+        if (r.x <= -half) r.x += half; if (r.x > 0) r.x -= half;
+        r.row.style.transform = `translate3d(${r.x}px,0,0) skewX(${-r.dir * Math.min(vel, 40) * 0.25}deg)`;
+      });
+      if (!mobile()) {
+        const g = hgal.getBoundingClientRect();
+        const total = hgal.offsetHeight - innerHeight;
+        const p = Math.min(1, Math.max(0, -g.top / total));
+        const dist = htrack.scrollWidth - innerWidth;
+        htrack.style.transform = `translate3d(${-p * dist}px,0,0)`;
+        hbar.style.transform = `scaleX(${p})`;
+        htrack.querySelectorAll('img').forEach((im, k) => { im.style.transform = `scale(1.12) translateX(${(p * 100 - k * 11) * -0.25}px)`; });
+      }
+      par.forEach(img => {
+        const b = img.parentElement.getBoundingClientRect();
+        if (b.bottom < 0 || b.top > innerHeight) return;
+        const q = (b.top + b.height / 2 - innerHeight / 2) / innerHeight;
+        img.style.transform = `translateY(${q * -100 * +img.dataset.par}%)`;
+      });
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  addEventListener('scroll', () => {
+    const y = scrollY;
+    bar.classList.toggle('is-hidden', y > 600 && y > lastY + 4);
+    if (y < lastY - 4) bar.classList.remove('is-hidden');
+    lastY = y;
+    prog.style.transform = `scaleX(${y / (document.documentElement.scrollHeight - innerHeight)})`;
+    // pie: el nombre se separa
+    const fm = $('#footMark');
+    if (!reduce && fm.classList.contains('in')) {
+      const r = fm.getBoundingClientRect(), k = Math.max(0, r.top / innerHeight);
+      fm.children[0].style.transform = `translateX(${-k * 30}%)`; fm.children[1].style.transform = `translateX(${k * 14}%)`;
+    }
+  }, { passive: true });
+
+  // restaurante: foto que sigue al cursor
+  const peek = $('#peek'), pimgs = [...peek.querySelectorAll('img')];
+  if (fine && !reduce) {
+    let px = 0, py = 0, tx = 0, ty = 0;
+    $$('#offer li').forEach(li => {
+      li.addEventListener('pointerenter', () => { peek.classList.add('on'); pimgs.forEach((im, k) => im.classList.toggle('on', k === +li.dataset.img)); });
+      li.addEventListener('pointerleave', () => peek.classList.remove('on'));
+    });
+    addEventListener('pointermove', e => { tx = e.clientX + 200; ty = e.clientY; }, { passive: true });
+    (function follow() { px += (tx - px) * 0.14; py += (ty - py) * 0.14; peek.style.left = px + 'px'; peek.style.top = py + 'px'; requestAnimationFrame(follow); })();
+  }
+
+  // hotel: el escenario cambia con la habitación activa
+  const stImgs = $$('#stage img'), stName = $('#stageName'), rooms = $$('.room');
+  let cur = 0, tmo;
+  const rio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const i = +e.target.dataset.i;
+    rooms.forEach(r => r.classList.toggle('is-active', r === e.target));
+    stName.textContent = e.target.dataset.name;
+    if (i === cur) return;
+    stImgs.forEach(im => { im.classList.toggle('was', im.classList.contains('on')); im.classList.remove('on'); });
+    stImgs[i].classList.add('on'); cur = i;
+    clearTimeout(tmo); tmo = setTimeout(() => stImgs.forEach(im => im.classList.remove('was')), 950);
+  }), { rootMargin: '-45% 0px -45% 0px' });
+  rooms.forEach(r => rio.observe(r));
+
+  if (fine && !reduce) {
+    // botones magnéticos
+    $$('.btn, .social a').forEach(b => {
+      b.addEventListener('pointermove', e => { const r = b.getBoundingClientRect(); b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.22}px, ${(e.clientY - r.top - r.height / 2) * 0.32}px)`; });
+      b.addEventListener('pointerleave', () => { b.style.transform = ''; });
+    });
+    // inclinación 3D
+    $$('.stage, .hpics figure, .env__big, .contact__fachada').forEach(el => {
+      el.classList.add('tilt');
+      el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; el.style.transform = `perspective(900px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`; });
+      el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+    });
+  }
+
+  // contadores
+  function count(el) {
+    const to = +el.dataset.count, t0 = performance.now();
+    (function f(t) { const k = Math.min(1, (t - t0) / 1300); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(f); })(t0);
+  }
+
+  // entradas
+  const hero = $('.hero');
+  requestAnimationFrame(() => requestAnimationFrame(() => { hero.classList.add('in'); hero.querySelectorAll('.rise').forEach(el => el.classList.add('in')); }));
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in'); io.unobserve(e.target);
+    if (!reduce) e.target.querySelectorAll('[data-count]').forEach(count);
+  }), { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+  $$('.rise, .split, #footMark').forEach(el => { if (!hero.contains(el)) io.observe(el); });
+})();
+</script>
+</body>
+</html>
