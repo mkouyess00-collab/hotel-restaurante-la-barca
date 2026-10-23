@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hotel Restaurante La Barca · Pedro Muñoz, junto a la laguna</title>
 <meta name="description" content="Hotel de tres estrellas y restaurante en Pedro Muñoz (Ciudad Real), a cinco minutos de la Laguna del Pueblo. Menú del día, comidas, cenas, terraza y dieciséis habitaciones con parking gratuito.">
-<meta name="theme-color" content="#0e3a3c">
+<meta name="theme-color" content="#15263d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
@@ -15,18 +15,18 @@
    Verde laguna profundo, rosa flamenco y arena. Serif editorial + Inter.
    =================================================================== */
 :root {
-  --lagoon: #0e3a3c;
-  --lagoon-2: #134a4c;
-  --lagoon-3: #1d5f61;
-  --deep: #0a2a2b;
+  --lagoon: #15263d;
+  --lagoon-2: #1c3150;
+  --lagoon-3: #284469;
+  --deep: #0e1a2b;
   --flamingo: #c2a56e;
   --flamingo-d: #ad8f57;
   --rose-ink: #7d6232;
   --sand: #f6efe8;
   --sand-2: #ece2d6;
-  --ink: #132322;
-  --soft: #4e5f5d;
-  --mist: #cfe0dc;
+  --ink: #141c27;
+  --soft: #4f5866;
+  --mist: #cdd5e0;
   --serif: "Instrument Serif", Georgia, serif;
   --sans: "Inter", system-ui, sans-serif;
   --goth: "UnifrakturMaguntia", serif;
@@ -61,13 +61,13 @@ button { font: inherit; }
   .btn:hover svg { transform: translateX(3px); }
   .btn--dark:hover { background: var(--lagoon-3); }
   .btn--ghost:hover { background: rgba(255,255,255,.1); }
-  .light .btn--ghost:hover { background: rgba(14,58,60,.06); }
+  .light .btn--ghost:hover { background: rgba(21,38,61,.06); }
 }
 
 /* ---------- cabecera ---------- */
 .bar { position: fixed; inset: 0 0 auto 0; z-index: 50; color: var(--sand); transition: background-color 400ms ease, padding 400ms var(--ease), box-shadow 400ms ease; padding-block: 22px; }
 .bar .w { display: flex; align-items: center; justify-content: space-between; gap: 20px; max-width: none; }
-.bar.solid { background: rgba(14,58,60,.92); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding-block: 12px; }
+.bar.solid { background: rgba(21,38,61,.93); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding-block: 12px; }
 .logo { display: flex; flex-direction: column; text-decoration: none; line-height: 1; }
 .logo b { font-family: var(--goth); font-weight: 400; font-size: 2rem; }
 .logo span { font-size: .72rem; letter-spacing: .02em; opacity: .75; margin-top: 4px; }
@@ -85,7 +85,7 @@ button { font: inherit; }
 .slides { position: absolute; inset: 0; }
 .slides img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.12); transition: opacity 1600ms ease, transform 9000ms linear; }
 .slides img.on { opacity: 1; transform: scale(1); }
-.hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(14,58,60,.96) 0%, rgba(14,58,60,.78) 34%, rgba(14,58,60,.15) 70%), linear-gradient(0deg, rgba(10,42,43,.7), transparent 40%); }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(21,38,61,.96) 0%, rgba(21,38,61,.78) 34%, rgba(21,38,61,.15) 70%), linear-gradient(0deg, rgba(14,26,43,.7), transparent 40%); }
 .hero__in { position: relative; z-index: 2; align-self: center; padding-top: 120px; }
 .hero h1 { font-size: clamp(3.4rem, 1.2rem + 7.4vw, 9.6rem); line-height: .92; max-width: 11ch; }
 .hero h1 .ln { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
@@ -122,7 +122,7 @@ button { font: inherit; }
 .doors { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-inline: 16px; }
 .door { position: relative; min-height: 78vh; border-radius: var(--r); overflow: hidden; color: var(--sand); text-decoration: none; display: flex; align-items: flex-end; isolation: isolate; }
 .door img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1400ms var(--ease); }
-.door::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(10,42,43,.85), rgba(10,42,43,0) 60%); }
+.door::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(14,26,43,.85), rgba(14,26,43,0) 60%); }
 .door__txt { padding: clamp(24px, 3vw, 48px); width: 100%; display: flex; justify-content: space-between; align-items: end; gap: 20px; }
 .door small { color: var(--flamingo); font-size: .95rem; font-weight: 500; }
 .door h3 { font-size: clamp(3rem, 1.5rem + 4vw, 6rem); line-height: .95; margin-top: 6px; }
@@ -219,7 +219,7 @@ button { font: inherit; }
 .grid img { width: 100%; height: auto; transition: transform 1000ms var(--ease); }
 .grid figcaption { position: absolute; left: 12px; bottom: 12px; background: rgba(246,239,232,.92); color: var(--lagoon); border-radius: 999px; padding: 6px 14px; font-size: .85rem; font-weight: 600; opacity: 0; transform: translateY(8px); transition: opacity 300ms, transform 400ms var(--ease); }
 @media (hover: hover) and (pointer: fine) { .grid figure:hover img { transform: scale(1.05); } .grid figure:hover figcaption { opacity: 1; transform: none; } }
-.lb { position: fixed; inset: 0; z-index: 80; background: rgba(10,42,43,.94); display: grid; place-items: center; padding: 40px var(--m); opacity: 0; pointer-events: none; transition: opacity 300ms ease; }
+.lb { position: fixed; inset: 0; z-index: 80; background: rgba(14,26,43,.95); display: grid; place-items: center; padding: 40px var(--m); opacity: 0; pointer-events: none; transition: opacity 300ms ease; }
 .lb.on { opacity: 1; pointer-events: auto; }
 .lb img { max-height: 82vh; max-width: 100%; border-radius: 12px; transform: scale(.94); transition: transform 400ms var(--ease); }
 .lb.on img { transform: none; }
@@ -231,7 +231,7 @@ button { font: inherit; }
 /* ---------- laguna ---------- */
 .lake { position: relative; min-height: 92vh; display: grid; align-items: end; color: var(--sand); overflow: hidden; }
 .lake img { position: absolute; inset: -10% 0; width: 100%; height: 120%; object-fit: cover; will-change: transform; }
-.lake::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgba(10,42,43,.9), rgba(10,42,43,.1) 65%); }
+.lake::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgba(14,26,43,.9), rgba(14,26,43,.1) 65%); }
 .lake .w { position: relative; z-index: 2; padding-bottom: clamp(48px, 7vw, 100px); display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: end; width: 100%; }
 .lake h2 { font-size: clamp(3.2rem, 1.4rem + 5.6vw, 7.4rem); line-height: .92; }
 .lake h2 em { color: var(--flamingo); }
