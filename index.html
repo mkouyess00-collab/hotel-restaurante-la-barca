@@ -165,7 +165,7 @@ p { margin: 0; }
 .book__btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
 
 /* ---------- HOTEL ---------- */
-.hotel { padding-block: var(--gap); }
+.hotel { padding-block: var(--gap) clamp(80px, 8vw, 120px); }
 .hotel .sec-head h2 em { color: var(--lake); }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: clamp(64px, 8vw, 128px); }
 .stat b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 1.4rem + 4.4vw, 6.4rem); line-height: 1; color: var(--lake); letter-spacing: -0.03em; }
@@ -178,31 +178,46 @@ p { margin: 0; }
 .rlist { list-style: none; margin: 0; padding: 0; }
 .room { min-height: 62svh; display: flex; flex-direction: column; justify-content: center; padding-block: 40px; opacity: .5; transition: opacity 500ms ease; }
 .room.is-active { opacity: 1; }
+.room:last-child { min-height: 48svh; padding-bottom: 0; }
 .room h3 { font-size: clamp(2.6rem, 1.4rem + 3.6vw, 5.6rem); }
 .room p { margin-top: 18px; max-width: 42ch; font-size: 1.125rem; color: var(--ink-soft); }
 .room ul { margin: 22px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
 .room li { background: var(--sand); border-radius: 999px; padding: 8px 14px; font-size: var(--s-small); font-weight: 500; }
 .room__pic { display: none; }
 
-.services { margin-top: var(--gap); display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 5vw, 96px); align-items: start; }
+.services { margin-top: clamp(48px, 5vw, 80px); display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 5vw, 96px); align-items: start; }
 .services h3 { font-size: clamp(2.4rem, 1.2rem + 3.4vw, 5rem); }
 .services > div > p { margin-top: 20px; max-width: 40ch; color: var(--ink-soft); }
+.services .svc { margin-top: 36px; }
+.slider { outline-offset: 6px; }
+.slider__win { overflow: hidden; border-radius: 6px; aspect-ratio: 4/3; background: var(--sand); touch-action: pan-y; cursor: grab; }
+.slider__win:active { cursor: grabbing; }
+.slider__track { display: flex; height: 100%; transition: transform 800ms var(--ease-out); will-change: transform; }
+.slider__track figure { margin: 0; flex: 0 0 100%; height: 100%; overflow: hidden; }
+.slider__track img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.08); transition: transform 1600ms var(--ease-out); user-select: none; -webkit-user-drag: none; }
+.slider__track figure.on img { transform: scale(1); }
+.slider__bar { margin-top: 14px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.slider__cap { font-family: var(--serif); font-size: 1.375rem; letter-spacing: -0.01em; }
+.slider__ctrl { display: flex; align-items: center; gap: 10px; }
+.slider__count { font-variant-numeric: tabular-nums; font-weight: 500; color: var(--ink-soft); margin-right: 6px; }
+.slider__ctrl button { width: 48px; height: 48px; border-radius: 50%; border: 0; background: var(--ink); color: var(--cream); display: grid; place-items: center; cursor: pointer; transition: background-color 200ms, transform 300ms var(--ease-out); }
+.slider__ctrl button svg { width: 20px; height: 20px; }
+.slider__ctrl button:active { transform: scale(.92); }
+@media (hover: hover) and (pointer: fine) { .slider__ctrl button:hover { background: var(--lake); } }
+.slider__dots { margin-top: 14px; display: flex; gap: 6px; }
+.slider__dots i { flex: 1; height: 3px; border-radius: 3px; background: rgba(28,21,18,.14); overflow: hidden; position: relative; }
+.slider__dots i::after { content: ""; position: absolute; inset: 0; background: var(--lake); transform: scaleX(0); transform-origin: left; }
+.slider__dots i.done::after { transform: scaleX(1); }
+.slider__dots i.now::after { animation: dot var(--dur, 5s) linear forwards; }
+.slider.paused .slider__dots i.now::after { animation-play-state: paused; }
+@keyframes dot { to { transform: scaleX(1); } }
 .svc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
 .svc li { padding: 18px 0; border-top: 1px solid rgba(28,21,18,.14); display: grid; gap: 4px; }
 .svc b { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; letter-spacing: -0.01em; }
 .svc span { color: var(--ink-soft); font-size: var(--s-small); }
 
-.hpics { margin-top: var(--gap); display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(12px, 1.6vw, 24px); align-items: end; }
-.hpics figure { margin: 0; overflow: hidden; border-radius: 6px; }
-.hpics img { width: 100%; height: 100%; object-fit: cover; transition: transform 1200ms var(--ease-out); }
-@media (hover: hover) and (pointer: fine) { .hpics figure:hover img { transform: scale(1.07); } }
-.hp1 { grid-column: 1 / span 5; aspect-ratio: 4/5; }
-.hp2 { grid-column: 6 / span 4; aspect-ratio: 1; }
-.hp3 { grid-column: 10 / span 3; aspect-ratio: 3/4; }
-.hp4 { grid-column: 3 / span 4; aspect-ratio: 4/3; margin-top: 24px !important; }
-.hp5 { grid-column: 7 / span 6; aspect-ratio: 16/9; }
 
-.hbook { margin-top: var(--gap); background: var(--lake); color: var(--on-dark); border-radius: 6px; padding: clamp(36px, 5vw, 80px); display: grid; grid-template-columns: 7fr 5fr; gap: 40px; align-items: center; overflow: hidden; position: relative; }
+.hbook { margin-top: clamp(64px, 7vw, 104px); background: var(--lake); color: var(--on-dark); border-radius: 6px; padding: clamp(36px, 5vw, 80px); display: grid; grid-template-columns: 7fr 5fr; gap: 40px; align-items: center; overflow: hidden; position: relative; }
 .hbook h3 { font-size: clamp(2.6rem, 1.2rem + 4vw, 6rem); }
 .hbook p { margin-top: 18px; color: var(--on-dark-soft); max-width: 44ch; }
 .hbook__btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
@@ -317,12 +332,10 @@ p { margin: 0; }
   .book__btns, .hbook__btns { justify-content: flex-start; }
   .stage { display: none; }
   .room { min-height: 0; opacity: 1; padding-block: 0 64px; }
+  .room:last-child { min-height: 0; padding-bottom: 8px; }
   .room__pic { display: block; aspect-ratio: 4/3; border-radius: 6px; overflow: hidden; margin-bottom: 22px; }
   .room__pic img { width: 100%; height: 100%; object-fit: cover; }
   .svc { grid-template-columns: 1fr; }
-  .hpics { grid-template-columns: 1fr 1fr; }
-  .hpics figure { grid-column: auto !important; aspect-ratio: 1 !important; margin-top: 0 !important; }
-  .hpics .hp5 { grid-column: 1 / -1 !important; aspect-ratio: 16/10 !important; }
   .map { min-height: 400px; }
   .foot__row { grid-template-columns: 1fr 1fr; }
 }
@@ -498,26 +511,40 @@ p { margin: 0; }
         <div>
           <h3 class="split">Todo para tu estancia</h3>
           <p class="rise">Servicios pensados para que solo tengas que preocuparte de descansar. Si viajas con tu perro, también es bienvenido.</p>
+          <ul class="svc">
+            <li class="rise"><b>Wi-Fi gratis</b><span>En habitaciones y zonas comunes</span></li>
+            <li class="rise" style="--i:1"><b>Parking gratuito</b><span>Aparca junto al hotel</span></li>
+            <li class="rise"><b>Aire acondicionado</b><span>Y calefacción en invierno</span></li>
+            <li class="rise" style="--i:1"><b>Baño privado</b><span>Con secador, toallas y ducha o bañera</span></li>
+            <li class="rise"><b>Restaurante y bar</b><span>Desayuno típico de la zona, comidas y cenas</span></li>
+            <li class="rise" style="--i:1"><b>Terraza-solárium</b><span>Y bar lounge para relajarte</span></li>
+            <li class="rise"><b>Admite mascotas</b><span>Con suplemento, consúltanos</span></li>
+            <li class="rise" style="--i:1"><b>Consigna de equipaje</b><span>Guarda tus maletas a la llegada o salida</span></li>
+          </ul>
         </div>
-        <ul class="svc">
-          <li class="rise"><b>Wi-Fi gratis</b><span>En habitaciones y zonas comunes</span></li>
-          <li class="rise" style="--i:1"><b>Parking gratuito</b><span>Aparca junto al hotel</span></li>
-          <li class="rise"><b>Aire acondicionado</b><span>Y calefacción en invierno</span></li>
-          <li class="rise" style="--i:1"><b>Baño privado</b><span>Con secador, toallas y ducha o bañera</span></li>
-          <li class="rise"><b>Restaurante y bar</b><span>Desayuno típico de la zona, comidas y cenas</span></li>
-          <li class="rise" style="--i:1"><b>Terraza-solárium</b><span>Y bar lounge para relajarte</span></li>
-          <li class="rise"><b>Admite mascotas</b><span>Con suplemento, consúltanos</span></li>
-          <li class="rise" style="--i:1"><b>Consigna de equipaje</b><span>Guarda tus maletas a la llegada o salida</span></li>
-        </ul>
+        <div class="slider rise" id="slider" role="region" aria-roledescription="carrusel" aria-label="Fotos del hotel" tabindex="0">
+            <div class="slider__win">
+              <div class="slider__track" id="strack">
+                <figure><img src="img/salon.jpg" alt="Salón con sofá de piel y mesa baja" loading="lazy"></figure>
+                <figure><img src="img/entrada.jpg" alt="Entrada del hotel con porche, columnas y terraza" loading="lazy"></figure>
+                <figure><img src="img/balcon.jpg" alt="Balcón con balaustrada y sillas" loading="lazy"></figure>
+                <figure><img src="img/bano.jpg" alt="Baño con lavabo sobre mueble negro" loading="lazy"></figure>
+                <figure><img src="img/escalera.jpg" alt="Escalera y pasillo de las habitaciones" loading="lazy"></figure>
+                <figure><img src="img/terraza-3.jpg" alt="Terraza con mesas y sillas blancas" loading="lazy"></figure>
+              </div>
+            </div>
+            <div class="slider__bar">
+              <p class="slider__cap" id="scap" aria-live="polite">Salón</p>
+              <div class="slider__ctrl">
+                <span class="slider__count" id="scount">1 / 6</span>
+                <button type="button" id="sprev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+                <button type="button" id="snext" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              </div>
+            </div>
+            <div class="slider__dots" id="sdots" aria-hidden="true"></div>
+          </div>
       </div>
 
-      <div class="hpics">
-        <figure class="hp1 rise reveal"><img src="img/hab-roja.jpg" alt="Habitación doble con toallas sobre la cama" loading="lazy"></figure>
-        <figure class="hp2 rise reveal" style="--i:1"><img src="img/salon.jpg" alt="Salón con sofá de piel" loading="lazy"></figure>
-        <figure class="hp3 rise reveal" style="--i:2"><img src="img/bano.jpg" alt="Baño con lavabo y mueble negro" loading="lazy"></figure>
-        <figure class="hp4 rise reveal"><img src="img/balcon.jpg" alt="Balcón con balaustrada y sillas" loading="lazy"></figure>
-        <figure class="hp5 rise reveal" style="--i:1"><img src="img/entrada.jpg" alt="Entrada del hotel con porche y columnas" loading="lazy"></figure>
-      </div>
 
       <div class="hbook rise">
         <div>
@@ -725,12 +752,52 @@ p { margin: 0; }
       b.addEventListener('pointerleave', () => { b.style.transform = ''; });
     });
     // inclinación 3D
-    $$('.stage, .hpics figure, .env__big, .contact__fachada').forEach(el => {
+    $$('.stage, .env__big, .contact__fachada').forEach(el => {
       el.classList.add('tilt');
       el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; el.style.transform = `perspective(900px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`; });
       el.addEventListener('pointerleave', () => { el.style.transform = ''; });
     });
   }
+
+  // carrusel de "Todo para tu estancia"
+  (() => {
+    const sl = $('#slider'), track = $('#strack'), figs = [...track.children];
+    const caps = ['Salón', 'Entrada y porche', 'Balcón', 'Baño', 'Zonas comunes', 'Terraza'];
+    const dots = $('#sdots'), n = figs.length, DUR = 5000;
+    figs.forEach(() => dots.appendChild(document.createElement('i')));
+    let i = 0, timer = null, visible = false, hover = false;
+    function go(k, user) {
+      i = (k + n) % n;
+      track.style.transform = `translateX(${-i * 100}%)`;
+      figs.forEach((f, j) => f.classList.toggle('on', j === i));
+      $('#scap').textContent = caps[i];
+      $('#scount').textContent = `${i + 1} / ${n}`;
+      [...dots.children].forEach((d, j) => { d.className = j < i ? 'done' : ''; });
+      const d = dots.children[i]; void d.offsetWidth; d.className = 'now';
+      d.style.setProperty('--dur', DUR + 'ms');
+      schedule();
+    }
+    function schedule() {
+      clearTimeout(timer);
+      if (reduce || !visible || hover) { sl.classList.add('paused'); return; }
+      sl.classList.remove('paused');
+      timer = setTimeout(() => go(i + 1), DUR);
+    }
+    $('#snext').addEventListener('click', () => go(i + 1, true));
+    $('#sprev').addEventListener('click', () => go(i - 1, true));
+    sl.addEventListener('keydown', e => { if (e.key === 'ArrowRight') go(i + 1, true); if (e.key === 'ArrowLeft') go(i - 1, true); });
+    sl.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { hover = true; schedule(); } });
+    sl.addEventListener('pointerleave', () => { hover = false; schedule(); });
+    // arrastrar o deslizar con el dedo
+    const win = sl.querySelector('.slider__win');
+    let x0 = null, dx = 0;
+    win.addEventListener('pointerdown', e => { x0 = e.clientX; dx = 0; track.style.transition = 'none'; win.setPointerCapture(e.pointerId); });
+    win.addEventListener('pointermove', e => { if (x0 === null) return; dx = e.clientX - x0; track.style.transform = `translateX(calc(${-i * 100}% + ${dx}px))`; });
+    const end = () => { if (x0 === null) return; track.style.transition = ''; const w = win.offsetWidth; x0 = null; if (Math.abs(dx) > w * 0.15) go(i + (dx < 0 ? 1 : -1), true); else go(i); };
+    win.addEventListener('pointerup', end); win.addEventListener('pointercancel', end);
+    new IntersectionObserver(es => { visible = es[0].isIntersecting; schedule(); }, { threshold: 0.4 }).observe(sl);
+    go(0);
+  })();
 
   // contadores
   function count(el) {
