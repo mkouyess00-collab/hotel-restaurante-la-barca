@@ -5,232 +5,248 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hotel Restaurante La Barca · Pedro Muñoz</title>
 <meta name="description" content="Hotel de tres estrellas y restaurante en Pedro Muñoz (Ciudad Real), junto a la laguna. Menú del día, comidas, cenas, terraza y dieciséis habitaciones con parking gratuito.">
-<meta name="theme-color" content="#111111">
+<meta name="theme-color" content="#0e0e0d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-/* ===== Identidad La Barca: el rótulo negro, los arcos del comedor, el suelo ajedrezado y el toldo granate ===== */
+/* =====================================================================
+   LA BARCA — una barca que cruza la noche del restaurante hasta el día del hotel.
+   Identidad: rótulo negro con letra gótica, ventanales en arco, suelo ajedrezado, toldo granate, la laguna.
+   ===================================================================== */
 :root {
-  --ink: #111110;          /* negro del rótulo */
-  --ink-2: #1c1b19;
-  --bone: #efe8da;         /* letras del rótulo */
-  --paper: #e5dcc9;
-  --stone: #b9a587;        /* barra de piedra */
-  --stone-d: #6f604c;
-  --oxblood: #7d1f24;      /* toldo de la terraza */
-  --oxblood-d: #5f171b;
-  --soft: #4a453d;
-  --on-ink-soft: #bfb6a5;
-
+  --ink: #0e0e0d; --ink-2: #191816; --bone: #efe8da; --paper: #e5dcc9;
+  --stone: #b9a587; --stone-d: #6f604c; --ox: #7d1f24; --ox-d: #5c161a; --soft: #4a453d; --mute: #bfb6a5;
   --goth: "UnifrakturMaguntia", "Old English Text MT", serif;
   --serif: "EB Garamond", Garamond, Georgia, serif;
-
   --m: clamp(16px, 4vw, 64px);
-  --gap: clamp(96px, 11vw, 168px);
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-io: cubic-bezier(0.77, 0, 0.175, 1);
   --arch: 999px 999px 0 0;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--bone); color: var(--ink); font-family: var(--serif); font-size: clamp(1.125rem, 1.05rem + .25vw, 1.3125rem); line-height: 1.5; -webkit-font-smoothing: antialiased; }
-img, iframe { display: block; max-width: 100%; }
+body { margin: 0; background: var(--ink); color: var(--bone); font-family: var(--serif); font-size: clamp(1.125rem, 1.05rem + .25vw, 1.3125rem); line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body.loading { overflow: hidden; }
+img, iframe, svg { display: block; max-width: 100%; }
 a { color: inherit; }
 p { margin: 0; }
 h1, h2, h3, h4 { margin: 0; font-weight: 400; }
-:focus-visible { outline: 2px solid var(--oxblood); outline-offset: 4px; }
-::selection { background: var(--oxblood); color: var(--bone); }
+:focus-visible { outline: 2px solid var(--ox); outline-offset: 4px; }
+::selection { background: var(--ox); color: var(--bone); }
 .w { padding-inline: var(--m); max-width: 1560px; margin-inline: auto; }
-.sc { font-variant-caps: all-small-caps; letter-spacing: .06em; font-weight: 500; }
+.sc { font-variant-caps: all-small-caps; letter-spacing: .08em; font-weight: 500; }
+.goth { font-family: var(--goth); font-weight: 400; line-height: .95; }
 
-/* botón: placa rectangular, como el rótulo */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: .6em; min-height: 56px; padding: 0 28px; border: 0; background: var(--ink); color: var(--bone); font: 500 1.125rem/1 var(--serif); font-variant-caps: all-small-caps; letter-spacing: .08em; text-decoration: none; cursor: pointer; transition: transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease; }
+/* grano de papel antiguo */
+body::after { content: ""; position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: .045; will-change: transform;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+/* botones */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .6em; min-height: 56px; padding: 0 28px; border: 0; background: var(--bone); color: var(--ink); font: 500 1.15rem/1 var(--serif); font-variant-caps: all-small-caps; letter-spacing: .1em; text-decoration: none; cursor: pointer; transition: transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease; }
 .btn:active { transform: scale(.97); }
-.btn--ox { background: var(--oxblood); }
-.btn--bone { background: var(--bone); color: var(--ink); }
+.btn--ox { background: var(--ox); color: var(--bone); }
+.btn--ink { background: var(--ink); color: var(--bone); }
 .btn--line { background: transparent; color: inherit; box-shadow: inset 0 0 0 1.5px currentColor; }
 @media (hover: hover) and (pointer: fine) {
-  .btn:hover { background: var(--oxblood); color: var(--bone); }
-  .btn--ox:hover { background: var(--oxblood-d); }
-  .btn--bone:hover { background: var(--paper); color: var(--ink); }
+  .btn:hover { background: var(--ox); color: var(--bone); }
+  .btn--ox:hover { background: var(--ox-d); }
   .btn--line:hover { background: var(--bone); color: var(--ink); box-shadow: none; }
+  .day .btn--line:hover { background: var(--ink); color: var(--bone); }
 }
-.ul { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; text-decoration-color: transparent; transition: text-decoration-color 200ms ease; }
-@media (hover: hover) and (pointer: fine) { .ul:hover { text-decoration-color: currentColor; } }
 
-/* motivo: suelo ajedrezado del comedor */
-.checks { height: 28px; background-color: var(--bone); background-image: repeating-conic-gradient(var(--ink) 0 25%, var(--bone) 0 50%); background-size: 28px 28px; }
-.checks--move { animation: checks 18s linear infinite; }
-@keyframes checks { to { background-position: 56px 0; } }
-
-/* adorno */
-.orn { display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--stone-d); }
-.orn::before, .orn::after { content: ""; width: 56px; height: 1px; background: currentColor; }
-.on-ink .orn { color: var(--stone); }
+/* ---------- pantalla de carga: el rótulo se enciende y la barca cruza ---------- */
+.loader { position: fixed; inset: 0; z-index: 100; background: var(--ink); display: grid; place-items: center; transition: clip-path 1000ms var(--ease-io); clip-path: inset(0 0 0 0); }
+.loader.done { clip-path: inset(0 0 100% 0); }
+.loader__in { text-align: center; width: min(560px, 80vw); }
+.loader b { display: block; font-family: var(--goth); font-weight: 400; font-size: clamp(4rem, 2rem + 8vw, 8rem); line-height: 1; color: var(--bone); animation: neon 1.6s steps(1) both; }
+@keyframes neon { 0% { opacity: 0 } 10% { opacity: 1 } 14% { opacity: .2 } 20% { opacity: 1 } 26% { opacity: .35 } 30%, 100% { opacity: 1; text-shadow: 0 0 24px rgba(239,232,218,.35) } }
+.loader__sea { position: relative; margin-top: 26px; height: 34px; }
+.loader__sea svg.wave { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 14px; color: var(--stone-d); }
+.loader__boat { position: absolute; bottom: 6px; left: 0; width: 44px; color: var(--bone); animation: sail 1.7s var(--ease-io) forwards; }
+@keyframes sail { from { transform: translateX(0) } to { transform: translateX(calc(min(560px, 80vw) - 44px)) } }
 
 /* ---------- cabecera ---------- */
-.bar { position: fixed; inset: 0 0 auto 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 12px var(--m); background: var(--ink); color: var(--bone); transition: transform 300ms var(--ease-out); }
+.bar { position: fixed; inset: 0 0 auto 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 14px var(--m); color: var(--bone); transition: transform 350ms var(--ease-out), background-color 300ms ease, color 300ms ease; }
+.bar.solid { background: var(--ink); }
+.bar.is-day { background: var(--bone); color: var(--ink); }
 .bar.is-hidden { transform: translateY(-100%); }
 .brand { font-family: var(--goth); font-size: 1.9rem; line-height: 1; text-decoration: none; }
-.brand small { font-size: .62em; color: var(--on-ink-soft); margin-right: .25em; }
+.brand small { font-size: .6em; opacity: .7; margin-right: .2em; }
 .bar nav { display: flex; align-items: center; gap: clamp(14px, 2.4vw, 36px); }
-.bar nav a:not(.btn) { text-decoration: none; font-size: 1.125rem; font-variant-caps: all-small-caps; letter-spacing: .08em; }
-.bar .btn { min-height: 44px; padding: 0 20px; background: var(--bone); color: var(--ink); }
-@media (hover: hover) and (pointer: fine) { .bar .btn:hover { background: var(--oxblood); color: var(--bone); } }
+.bar nav a:not(.btn) { text-decoration: none; font-size: 1.15rem; font-variant-caps: all-small-caps; letter-spacing: .1em; }
+.bar .btn { min-height: 44px; padding: 0 20px; }
+.bar.is-day .btn { background: var(--ink); color: var(--bone); }
 
-/* ---------- portada: el rótulo ---------- */
-.hero { background: var(--ink); color: var(--bone); padding: 120px var(--m) 0; text-align: center; overflow: hidden; }
-.hero__pre { color: var(--on-ink-soft); font-size: clamp(1.1rem, 1rem + .6vw, 1.6rem); }
-.hero h1 { margin-top: 10px; font-family: var(--goth); line-height: .9; }
-.hero h1 .l1 { display: block; font-size: clamp(2.6rem, 1rem + 5vw, 6.4rem); }
-.hero h1 .l2 { display: block; font-size: clamp(5.2rem, 1rem + 15vw, 17rem); margin-top: .02em; }
-.hero__tag { margin-top: 22px; font-style: italic; font-size: clamp(1.25rem, 1.1rem + .7vw, 1.9rem); color: var(--bone); }
-.hero__stars { margin-top: 18px; letter-spacing: .5em; color: var(--stone); font-size: 1.1rem; }
-.arches { margin: clamp(40px, 6vw, 80px) auto 0; max-width: 1320px; display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: clamp(10px, 1.6vw, 24px); align-items: end; }
-.arch { position: relative; overflow: hidden; border-radius: var(--arch); text-decoration: none; color: var(--bone); display: block; isolation: isolate; }
-.arch img { width: 100%; height: 100%; object-fit: cover; transition: transform 1200ms var(--ease-out); }
-.arch::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,9,.72), transparent 45%); z-index: 1; }
-.arch span { position: absolute; left: 0; right: 0; bottom: clamp(16px, 2.4vw, 32px); z-index: 2; text-align: center; }
-.arch b { display: block; font-family: var(--goth); font-weight: 400; font-size: clamp(2rem, 1rem + 2.8vw, 4.2rem); line-height: 1; }
-.arch i { display: block; margin-top: 6px; font-size: 1rem; font-style: normal; font-variant-caps: all-small-caps; letter-spacing: .1em; color: var(--on-ink-soft); }
-.arches .arch:nth-child(1), .arches .arch:nth-child(3) { aspect-ratio: 3/4; }
-.arches .arch:nth-child(2) { aspect-ratio: 4/5.2; }
-@media (hover: hover) and (pointer: fine) { a.arch:hover img { transform: scale(1.05); } }
+/* ---------- la travesía: progreso de lectura con la barca ---------- */
+.voyage { position: fixed; left: 0; right: 0; bottom: 10px; height: 26px; z-index: 55; pointer-events: none; mix-blend-mode: difference; color: #fff; }
+.voyage svg.wave { position: absolute; left: 0; bottom: 0; width: 100%; height: 10px; opacity: .55; }
+.voyage__boat { position: absolute; left: 12px; bottom: 5px; width: 34px; will-change: transform; }
+.voyage__boat svg { animation: bob 2.6s ease-in-out infinite; transform-origin: 50% 80%; }
+@keyframes bob { 0%, 100% { transform: rotate(-4deg) translateY(0) } 50% { transform: rotate(4deg) translateY(-2px) } }
 
-/* ---------- placa colgante (encabezado de apartado) ---------- */
-.sign-wrap { display: flex; justify-content: center; }
-.sign { position: relative; display: inline-block; background: var(--ink); color: var(--bone); padding: 18px clamp(28px, 4vw, 56px) 22px; transform-origin: 50% -40px; box-shadow: inset 0 0 0 4px var(--ink), inset 0 0 0 5.5px var(--bone); }
-.sign::before, .sign::after { content: ""; position: absolute; top: -40px; width: 2px; height: 40px; background: var(--stone-d); }
+/* ---------- cursor ---------- */
+.cur { position: fixed; left: 0; top: 0; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: #fff; mix-blend-mode: difference; pointer-events: none; z-index: 95; transition: width 300ms var(--ease-out), height 300ms var(--ease-out), margin 300ms var(--ease-out); display: none; }
+.cur.big { width: 70px; height: 70px; margin: -35px 0 0 -35px; }
+@media (hover: hover) and (pointer: fine) { .cur { display: block; } }
+
+/* ---------- PORTADA: el ventanal en arco se abre ---------- */
+.hero { position: relative; height: 260vh; background: var(--ink); }
+.hero__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; will-change: clip-path, transform; }
+.hero__shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,7,.82), rgba(8,8,7,.15) 55%, rgba(8,8,7,.35)); opacity: 0; pointer-events: none; }
+.hero__title { position: absolute; left: 0; right: 0; top: clamp(90px, 13vh, 140px); text-align: center; z-index: 3; will-change: transform, opacity; }
+.hero__title .pre { color: var(--mute); font-style: italic; font-size: clamp(1.1rem, 1rem + .5vw, 1.5rem); }
+.hero__title h1 { font-family: var(--goth); line-height: .88; margin-top: 6px; }
+.hero__title h1 .l1 { display: block; font-size: clamp(2.2rem, 1rem + 3.6vw, 5rem); }
+.hero__title h1 .l2 { display: block; font-size: clamp(4.6rem, 1rem + 11vw, 13rem); }
+.hero__hint { position: absolute; left: 0; right: 0; bottom: 34px; text-align: center; z-index: 3; color: var(--mute); }
+.hero__hint i { display: block; margin: 8px auto 0; width: 1px; height: 36px; background: currentColor; transform-origin: top; animation: hint 1.8s var(--ease-io) infinite; }
+@keyframes hint { 0% { transform: scaleY(0) } 50% { transform: scaleY(1); transform-origin: top } 51% { transform-origin: bottom } 100% { transform: scaleY(0); transform-origin: bottom } }
+.hero__end { position: absolute; left: 0; right: 0; bottom: clamp(48px, 10vh, 110px); z-index: 4; text-align: center; padding-inline: var(--m); opacity: 0; transform: translateY(30px); pointer-events: none; }
+.hero__end.on { pointer-events: auto; }
+.hero__end h2 { font-family: var(--goth); font-size: clamp(3rem, 1.2rem + 6vw, 7.6rem); line-height: 1; }
+.hero__end p { margin: 14px auto 0; max-width: 36ch; font-size: clamp(1.2rem, 1.05rem + .6vw, 1.7rem); font-style: italic; }
+.hero__end .btns { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+/* ---------- bandas en movimiento ---------- */
+.band { overflow: hidden; background: var(--ox); color: var(--bone); padding-block: clamp(10px, 1.4vw, 18px); position: relative; z-index: 2; }
+.band__row { display: flex; width: max-content; animation: marquee 32s linear infinite; }
+.band__row span { font-family: var(--goth); font-size: clamp(2.4rem, 1rem + 4vw, 5.4rem); line-height: 1.1; padding-right: .6em; white-space: nowrap; }
+.band__row span::after { content: "\2726"; font-family: var(--serif); font-size: .35em; vertical-align: .6em; margin-left: .6em; color: var(--stone); }
+.band--rev .band__row { animation-direction: reverse; }
+.band--stone { background: transparent; color: var(--stone-d); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.checks { height: 26px; background-color: var(--bone); background-image: repeating-conic-gradient(var(--ink) 0 25%, var(--bone) 0 50%); background-size: 26px 26px; animation: checks 16s linear infinite; position: relative; z-index: 2; }
+@keyframes checks { to { background-position: 52px 0; } }
+
+/* ---------- placas colgantes ---------- */
+.sign-wrap { display: flex; justify-content: center; padding-top: 44px; }
+.sign { position: relative; display: inline-block; padding: 16px clamp(26px, 4vw, 56px) 20px; transform-origin: 50% -44px; background: var(--bone); color: var(--ink); box-shadow: inset 0 0 0 4px var(--bone), inset 0 0 0 5.5px var(--ink); }
+.sign::before, .sign::after { content: ""; position: absolute; top: -44px; width: 2px; height: 44px; background: var(--stone); }
 .sign::before { left: 18%; } .sign::after { right: 18%; }
 .sign h2 { font-family: var(--goth); font-size: clamp(3rem, 1.4rem + 6vw, 7.6rem); line-height: 1; }
-.on-ink .sign { background: var(--bone); color: var(--ink); box-shadow: inset 0 0 0 4px var(--bone), inset 0 0 0 5.5px var(--ink); }
-.on-ink .sign::before, .on-ink .sign::after { background: var(--stone); }
-.lead { text-align: center; max-width: 34ch; margin: clamp(28px, 4vw, 44px) auto 0; font-size: clamp(1.4rem, 1.15rem + 1vw, 2.15rem); line-height: 1.25; }
-.lead + .orn { margin-top: 26px; }
-.on-ink { background: var(--ink); color: var(--bone); }
+.day .sign { background: var(--ink); color: var(--bone); box-shadow: inset 0 0 0 4px var(--ink), inset 0 0 0 5.5px var(--bone); }
+.day .sign::before, .day .sign::after { background: var(--stone-d); }
+.lead { text-align: center; max-width: 32ch; margin: clamp(26px, 3.6vw, 40px) auto 0; font-size: clamp(1.45rem, 1.15rem + 1.1vw, 2.3rem); line-height: 1.22; }
 
-/* ---------- RESTAURANTE ---------- */
-.rest { padding: calc(var(--gap) + 40px) 0 var(--gap); }
-.carta { margin-top: clamp(56px, 7vw, 104px); display: grid; grid-template-columns: 6fr 5fr; gap: clamp(32px, 6vw, 110px); align-items: start; }
-.menu-list { list-style: none; margin: 0; padding: 0; }
-.menu-list li { padding: clamp(18px, 2vw, 26px) 0; cursor: pointer; }
-.menu-list li + li { border-top: 1px dotted rgba(239,232,218,.28); }
-.menu-list .row { display: flex; align-items: baseline; gap: 14px; }
-.menu-list h3 { font-size: clamp(1.9rem, 1.3rem + 1.8vw, 3.1rem); line-height: 1.05; transition: color 200ms ease; }
-.menu-list .row::after { content: ""; flex: 1; border-bottom: 2px dotted rgba(239,232,218,.35); transform: translateY(-6px); order: 1; }
-.menu-list .when { order: 2; white-space: nowrap; color: var(--stone); }
-.menu-list p { margin-top: 6px; color: var(--on-ink-soft); max-width: 46ch; }
-.menu-list li.on h3 { color: #fff; }
-.menu-list li:not(.on) h3 { color: var(--on-ink-soft); }
-@media (hover: hover) and (pointer: fine) { .menu-list li:hover h3 { color: #fff; } }
-.window { position: sticky; top: 110px; aspect-ratio: 4/5; overflow: hidden; border-radius: var(--arch); background: var(--ink-2); }
-.window img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.04); filter: blur(6px); transition: opacity 500ms var(--ease-out), transform 900ms var(--ease-out), filter 500ms var(--ease-out); }
-.window img.on { opacity: 1; transform: none; filter: none; }
-.window figcaption { position: absolute; left: 0; right: 0; bottom: 18px; text-align: center; z-index: 2; color: var(--bone); font-style: italic; font-size: 1.15rem; }
-.window::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,9,.6), transparent 35%); z-index: 1; pointer-events: none; }
-.menu-pic { display: none; }
+/* ---------- RESTAURANTE: noche, recorrido horizontal ---------- */
+.rest-intro { padding: clamp(80px, 10vw, 140px) 0 clamp(40px, 5vw, 70px); text-align: center; }
+.hs { position: relative; }
+.hs__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: flex; align-items: center; }
+.hs__track { display: flex; gap: 0; height: 100%; will-change: transform; }
+.panel { flex: 0 0 auto; width: min(92vw, 1320px); height: 100%; display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 4vw, 72px); align-items: center; padding: 90px clamp(24px, 4vw, 64px) 60px; }
+.panel:first-child { padding-left: var(--m); }
+.panel__txt .when { color: var(--stone); font-style: italic; font-size: 1.35rem; }
+.panel__txt h3 { font-family: var(--goth); font-size: clamp(3.4rem, 1rem + 7.4vw, 9.6rem); line-height: .92; margin-top: 8px; }
+.panel__txt p { margin-top: 22px; max-width: 34ch; color: var(--mute); font-size: clamp(1.15rem, 1.05rem + .4vw, 1.45rem); }
+.panel__pic { height: min(74vh, 720px); overflow: hidden; border-radius: var(--arch); position: relative; }
+.panel__pic img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.15); will-change: transform; }
+.hs__count { position: absolute; right: var(--m); bottom: 36px; font-family: var(--goth); font-size: 2rem; color: var(--stone); z-index: 3; }
 
-.salones { margin-top: var(--gap); }
-.salones__head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; }
-.salones__head h3 { font-family: var(--goth); font-size: clamp(2.4rem, 1.4rem + 3vw, 4.6rem); line-height: 1; }
-.salones__head p { color: var(--on-ink-soft); max-width: 36ch; }
+.salones { padding: clamp(80px, 9vw, 130px) 0 0; }
+.salones__head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 26px; }
+.salones__head h3 { font-family: var(--goth); font-size: clamp(2.6rem, 1.4rem + 3.4vw, 5rem); line-height: 1; }
+.salones__head p { color: var(--mute); max-width: 36ch; margin-top: 8px; }
 .nav2 { display: flex; gap: 10px; }
-.nav2 button { width: 52px; height: 52px; border: 1.5px solid var(--bone); background: transparent; color: var(--bone); display: grid; place-items: center; cursor: pointer; transition: transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease; }
+.nav2 button { width: 54px; height: 54px; border: 1.5px solid currentColor; background: transparent; color: var(--bone); display: grid; place-items: center; cursor: pointer; transition: transform 160ms var(--ease-out), background-color 200ms, color 200ms; }
 .nav2 button:active { transform: scale(.95); }
-.nav2 button svg { width: 20px; height: 20px; }
+.nav2 svg { width: 20px; height: 20px; }
 @media (hover: hover) and (pointer: fine) { .nav2 button:hover { background: var(--bone); color: var(--ink); } }
 .rail { display: flex; gap: clamp(12px, 1.4vw, 20px); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-inline: var(--m); scroll-padding-inline: var(--m); cursor: grab; }
 .rail::-webkit-scrollbar { display: none; }
 .rail.drag { cursor: grabbing; scroll-snap-type: none; }
-.rail figure { margin: 0; flex: 0 0 clamp(260px, 26vw, 400px); scroll-snap-align: start; }
+.rail figure { margin: 0; flex: 0 0 clamp(250px, 24vw, 380px); scroll-snap-align: start; }
 .rail .ph { aspect-ratio: 3/4; overflow: hidden; border-radius: var(--arch); }
-.rail img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; user-select: none; }
-.rail figcaption { margin-top: 12px; text-align: center; font-style: italic; color: var(--on-ink-soft); }
+.rail img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; user-select: none; transition: transform 900ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .rail figure:hover img { transform: scale(1.06); } }
+.rail figcaption { margin-top: 12px; text-align: center; font-style: italic; color: var(--mute); }
 
-.reserve { margin: var(--gap) auto 0; max-width: 980px; text-align: center; padding: clamp(36px, 5vw, 64px) clamp(20px, 4vw, 56px); box-shadow: inset 0 0 0 1px var(--stone), inset 0 0 0 7px var(--ink), inset 0 0 0 8px var(--stone); }
+.reserve { margin: clamp(80px, 9vw, 130px) auto 0; max-width: 980px; text-align: center; padding: clamp(36px, 5vw, 64px) clamp(20px, 4vw, 56px); box-shadow: inset 0 0 0 1px var(--stone), inset 0 0 0 7px var(--ink), inset 0 0 0 8px var(--stone); }
 .reserve h3 { font-family: var(--goth); font-size: clamp(2.6rem, 1.4rem + 3.6vw, 5rem); line-height: 1; }
-.reserve p { margin: 16px auto 0; max-width: 42ch; color: var(--on-ink-soft); }
-.reserve .tel { display: inline-block; margin-top: 22px; font-size: clamp(2.2rem, 1.4rem + 2.4vw, 3.6rem); line-height: 1; text-decoration: none; letter-spacing: .02em; }
-.reserve .btns { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.reserve p { margin: 14px auto 0; max-width: 42ch; color: var(--mute); }
+.reserve .tel { display: inline-block; margin-top: 18px; font-size: clamp(2.4rem, 1.4rem + 2.6vw, 3.8rem); line-height: 1; text-decoration: none; }
+.reserve .btns { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.rest-end { padding-bottom: clamp(90px, 10vw, 140px); }
 
-/* ---------- HOTEL ---------- */
-.hotel { padding: calc(var(--gap) + 40px) 0 var(--gap); }
-.facts { margin: clamp(48px, 6vw, 88px) auto 0; max-width: 1100px; display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
+/* ---------- AMANECER: de la noche al día ---------- */
+.dawn { position: relative; height: 210vh; background: var(--ink); }
+.dawn__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.dawn__sun { position: absolute; inset: 0; background: var(--bone); color: var(--ink); clip-path: circle(0px at 50% 108%); will-change: clip-path; display: grid; place-items: center; text-align: center; padding: 0 var(--m); }
+.dawn__sky { position: absolute; left: 0; right: 0; top: 18vh; text-align: center; color: var(--mute); font-style: italic; font-size: 1.3rem; }
+.dawn__sky span { font-family: var(--goth); font-size: clamp(2.6rem, 1.2rem + 5vw, 6.4rem); color: var(--bone); display: block; line-height: 1; }
+.dawn__in { opacity: 0; transform: translateY(30px); }
+.dawn__in .stars { margin-top: 16px; letter-spacing: .5em; color: var(--ox); }
+
+/* ---------- HOTEL: día ---------- */
+.day { background: var(--bone); color: var(--ink); }
+.hotel { padding-bottom: clamp(90px, 10vw, 140px); }
+.facts { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; padding-top: 10px; }
 .facts div { padding: 8px 12px; }
-.facts div + div { border-left: 1px solid rgba(17,17,16,.18); }
+.facts div + div { border-left: 1px solid rgba(14,14,13,.18); }
 .facts b { display: block; font-family: var(--goth); font-weight: 400; font-size: clamp(3rem, 2rem + 3vw, 5.4rem); line-height: 1; }
 .facts span { display: block; margin-top: 6px; color: var(--soft); }
 
-.ledger { margin-top: clamp(64px, 8vw, 120px); display: grid; grid-template-columns: 6fr 5fr; gap: clamp(32px, 5vw, 96px); align-items: start; }
-.ledger h3 { font-family: var(--goth); font-size: clamp(2.4rem, 1.4rem + 3vw, 4.6rem); line-height: 1; }
-.ledger > div > p { margin-top: 10px; color: var(--soft); max-width: 44ch; }
-.book { margin-top: 28px; width: 100%; border-collapse: collapse; }
-.book th { text-align: left; font-weight: 500; font-variant-caps: all-small-caps; letter-spacing: .08em; color: var(--stone-d); padding: 0 0 10px; border-bottom: 2px solid var(--ink); }
-.book td { padding: 0; border-bottom: 1px solid rgba(17,17,16,.16); }
-.book button { all: unset; box-sizing: border-box; width: 100%; display: grid; grid-template-columns: 1.3fr 1fr 1.6fr; gap: 16px; align-items: baseline; padding: 18px 12px 18px 0; cursor: pointer; transition: padding-left 300ms var(--ease-out), background-color 200ms ease; }
-.book button b { font-family: var(--serif); font-weight: 500; font-size: clamp(1.4rem, 1.2rem + .7vw, 1.85rem); line-height: 1.1; }
-.book button span { color: var(--soft); }
-.book button[aria-pressed="true"] { padding-left: 16px; background: var(--paper); }
-.book button[aria-pressed="true"] b { color: var(--oxblood); }
-.book button:focus-visible { outline: 2px solid var(--oxblood); outline-offset: -2px; }
-@media (hover: hover) and (pointer: fine) { .book button:hover { padding-left: 16px; } }
-.room-view { position: sticky; top: 110px; }
-.room-view .frame { position: relative; aspect-ratio: 4/5; overflow: hidden; border-radius: var(--arch); background: var(--paper); }
-.room-view img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.04); filter: blur(6px); transition: opacity 450ms var(--ease-out), transform 900ms var(--ease-out), filter 450ms var(--ease-out); }
-.room-view img.on { opacity: 1; transform: none; filter: none; }
-.room-view .cap { margin-top: 16px; text-align: center; }
-.room-view .cap b { display: block; font-family: var(--goth); font-weight: 400; font-size: 2.2rem; line-height: 1; }
-.room-view .cap p { margin-top: 8px; color: var(--soft); }
-.room-view .chips { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
-.room-view .chips span { font-size: 1rem; padding: 4px 12px; box-shadow: inset 0 0 0 1px var(--stone-d); font-variant-caps: all-small-caps; letter-spacing: .06em; }
+.cards-head { margin-top: clamp(80px, 9vw, 130px); text-align: center; }
+.cards-head h3 { font-family: var(--goth); font-size: clamp(2.8rem, 1.4rem + 4vw, 5.6rem); line-height: 1; }
+.cards-head p { margin-top: 10px; color: var(--soft); }
+.cards { margin-top: clamp(36px, 4vw, 56px); display: grid; gap: 30px; }
+.card { position: sticky; top: calc(92px + var(--k) * 16px); min-height: min(76vh, 700px); background: var(--paper); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 64px); align-items: center; padding: clamp(22px, 3vw, 44px); box-shadow: inset 0 0 0 1px var(--stone-d), inset 0 0 0 8px var(--paper), inset 0 0 0 9px var(--stone-d); transform-origin: 50% 0; will-change: transform; }
+.card:nth-child(even) { background: #ebe3d3; }
+.card__pic { height: min(64vh, 600px); overflow: hidden; border-radius: var(--arch); }
+.card__pic img { width: 100%; height: 100%; object-fit: cover; }
+.card__txt .sc { color: var(--ox); font-size: 1.2rem; }
+.card__txt h4 { font-family: var(--goth); font-size: clamp(3rem, 1.4rem + 4.4vw, 6.4rem); line-height: .95; margin-top: 6px; }
+.card__txt p { margin-top: 16px; max-width: 36ch; color: var(--soft); font-size: clamp(1.15rem, 1.05rem + .35vw, 1.4rem); }
+.card__txt ul { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.card__txt li { padding: 5px 14px; box-shadow: inset 0 0 0 1px var(--stone-d); font-variant-caps: all-small-caps; letter-spacing: .08em; font-size: 1.05rem; }
 
-.stay { margin-top: var(--gap); display: grid; grid-template-columns: 5fr 6fr; gap: clamp(32px, 5vw, 96px); align-items: center; }
-.stay h3 { font-family: var(--goth); font-size: clamp(2.4rem, 1.4rem + 3vw, 4.6rem); line-height: 1; }
-.svc { margin: 24px 0 0; padding: 0; list-style: none; columns: 2; column-gap: 32px; }
-.svc li { break-inside: avoid; padding: 10px 0 10px 26px; position: relative; }
-.svc li::before { content: "\2726"; position: absolute; left: 0; top: 13px; font-size: .8rem; color: var(--oxblood); }
+.stay { margin-top: clamp(90px, 10vw, 140px); display: grid; grid-template-columns: 5fr 6fr; gap: clamp(32px, 5vw, 96px); align-items: center; }
+.stay h3 { font-family: var(--goth); font-size: clamp(2.6rem, 1.4rem + 3.4vw, 5rem); line-height: 1; }
+.svc { margin: 22px 0 0; padding: 0; list-style: none; columns: 2; column-gap: 32px; }
+.svc li { break-inside: avoid; padding: 9px 0 9px 26px; position: relative; }
+.svc li::before { content: "\2726"; position: absolute; left: 0; top: 12px; font-size: .8rem; color: var(--ox); }
 .svc b { font-weight: 500; display: block; }
 .svc span { color: var(--soft); font-size: 1rem; }
-.slider__win { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--paper); touch-action: pan-y; cursor: grab; box-shadow: 0 0 0 1px var(--stone), 0 0 0 8px var(--bone), 0 0 0 9px var(--stone); margin: 9px; }
+.slider__win { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--paper); touch-action: pan-y; cursor: grab; box-shadow: 0 0 0 1px var(--stone-d), 0 0 0 8px var(--bone), 0 0 0 9px var(--stone-d); margin: 9px; }
 .slider__track { display: flex; height: 100%; transition: transform 700ms var(--ease-out); }
 .slider__track figure { margin: 0; flex: 0 0 100%; height: 100%; }
 .slider__track img { width: 100%; height: 100%; object-fit: cover; user-select: none; -webkit-user-drag: none; }
-.slider__bar { margin-top: 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.slider__bar { margin-top: 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 .slider__cap { font-style: italic; font-size: 1.3rem; }
 .slider__ctrl { display: flex; align-items: center; gap: 10px; }
-.slider__count { font-variant-numeric: tabular-nums oldstyle-nums; color: var(--soft); margin-right: 6px; }
+.slider__count { color: var(--soft); margin-right: 6px; font-variant-numeric: tabular-nums; }
 .slider__ctrl button { width: 48px; height: 48px; border: 1.5px solid var(--ink); background: transparent; color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: transform 160ms var(--ease-out), background-color 200ms, color 200ms; }
 .slider__ctrl button:active { transform: scale(.95); }
-.slider__ctrl button svg { width: 20px; height: 20px; }
+.slider__ctrl svg { width: 20px; height: 20px; }
 @media (hover: hover) and (pointer: fine) { .slider__ctrl button:hover { background: var(--ink); color: var(--bone); } }
-
-.hotel .reserve { box-shadow: inset 0 0 0 1px var(--stone-d), inset 0 0 0 7px var(--bone), inset 0 0 0 8px var(--stone-d); }
-.hotel .reserve p { color: var(--soft); }
+.day .reserve { box-shadow: inset 0 0 0 1px var(--stone-d), inset 0 0 0 7px var(--bone), inset 0 0 0 8px var(--stone-d); }
+.day .reserve p { color: var(--soft); }
 
 /* ---------- LAGUNA ---------- */
-.lake { padding: calc(var(--gap) + 40px) 0 var(--gap); background: var(--paper); }
-.lake__grid { margin-top: clamp(56px, 7vw, 100px); display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: clamp(14px, 2vw, 28px); align-items: end; }
+.lake { background: var(--paper); color: var(--ink); padding: clamp(40px, 5vw, 70px) 0 clamp(90px, 10vw, 140px); overflow: hidden; }
+.lake .band--stone { margin-bottom: clamp(10px, 2vw, 30px); }
+.lake__grid { margin-top: clamp(50px, 6vw, 90px); display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: clamp(14px, 2vw, 28px); align-items: end; }
 .lake__grid figure { margin: 0; }
 .lake__grid .ph { overflow: hidden; border-radius: var(--arch); }
-.lake__grid .ph img { width: 100%; height: 100%; object-fit: cover; }
+.lake__grid .ph img { width: 100%; height: 115%; object-fit: cover; will-change: transform; }
 .lake__grid figure:nth-child(1) .ph, .lake__grid figure:nth-child(3) .ph { aspect-ratio: 3/4; }
 .lake__grid figure:nth-child(2) .ph { aspect-ratio: 4/5; }
 .lake__grid figcaption { margin-top: 12px; text-align: center; font-style: italic; color: var(--soft); }
-.lake__text { margin: clamp(40px, 5vw, 64px) auto 0; max-width: 60ch; text-align: center; color: var(--soft); }
+.lake__text { margin: clamp(36px, 4vw, 56px) auto 0; max-width: 60ch; text-align: center; color: var(--soft); }
 
 /* ---------- CONTACTO ---------- */
-.contact { padding: calc(var(--gap) + 40px) 0 var(--gap); }
-.contact__grid { margin-top: clamp(56px, 7vw, 100px); display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 4vw, 72px); align-items: start; }
+.contact { padding-bottom: clamp(90px, 10vw, 140px); }
+.contact__grid { margin-top: clamp(50px, 6vw, 90px); display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 4vw, 72px); align-items: start; }
 .map { position: relative; min-height: 560px; overflow: hidden; background: var(--ink-2); box-shadow: 0 0 0 1px var(--stone), 0 0 0 8px var(--ink), 0 0 0 9px var(--stone); margin: 9px; }
-.map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(.35) contrast(1.05); }
-.cside { display: grid; gap: 32px; }
-.cside h3 { font-variant-caps: all-small-caps; letter-spacing: .1em; color: var(--stone); font-size: 1.2rem; margin-bottom: 6px; }
-.cside .tel { font-size: clamp(2.6rem, 1.6rem + 2.6vw, 4.2rem); line-height: 1; text-decoration: none; }
+.map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(.4) contrast(1.05); }
+.cside { display: grid; gap: 30px; }
+.cside h3 { font-variant-caps: all-small-caps; letter-spacing: .12em; color: var(--stone); font-size: 1.2rem; margin-bottom: 6px; }
+.cside .tel { font-family: var(--goth); font-size: clamp(3rem, 1.8rem + 3vw, 5rem); line-height: 1; text-decoration: none; }
 .cside address { font-style: normal; font-size: 1.35rem; line-height: 1.4; }
 .cside .btns { display: flex; flex-wrap: wrap; gap: 12px; }
 .social { display: flex; flex-wrap: wrap; gap: 10px; }
-.social a { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 20px 0 16px; text-decoration: none; box-shadow: inset 0 0 0 1.5px var(--bone); font-variant-caps: all-small-caps; letter-spacing: .08em; font-size: 1.15rem; transition: background-color 200ms ease, color 200ms ease, transform 160ms var(--ease-out); }
+.social a { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 20px 0 16px; text-decoration: none; box-shadow: inset 0 0 0 1.5px var(--bone); font-variant-caps: all-small-caps; letter-spacing: .1em; font-size: 1.15rem; transition: background-color 200ms, color 200ms, transform 160ms var(--ease-out); }
 .social a[hidden] { display: none; }
 .social a:active { transform: scale(.97); }
 .social svg { width: 22px; height: 22px; }
@@ -239,69 +255,66 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 .fachada img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------- pie: el rótulo del tejado ---------- */
-.foot { background: var(--bone); padding: clamp(64px, 8vw, 120px) 0 28px; }
+.foot { background: var(--bone); color: var(--ink); padding: clamp(60px, 8vw, 110px) 0 60px; }
 .roof { background: var(--ink); color: var(--bone); padding: clamp(16px, 2vw, 28px) clamp(16px, 3vw, 40px); display: flex; justify-content: space-between; align-items: baseline; gap: 2vw; font-family: var(--goth); line-height: 1; transform-origin: center bottom; }
 .roof span { font-size: clamp(1.6rem, .6rem + 3.4vw, 4.8rem); white-space: nowrap; }
 .roof span.big { font-size: clamp(2.4rem, 1rem + 6vw, 8.6rem); }
-.foot__row { margin-top: 48px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-.foot__row h4 { font-variant-caps: all-small-caps; letter-spacing: .1em; color: var(--stone-d); margin-bottom: 8px; font-size: 1.1rem; }
+.foot__row { margin-top: 44px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.foot__row h4 { font-variant-caps: all-small-caps; letter-spacing: .12em; color: var(--stone-d); margin-bottom: 8px; font-size: 1.1rem; }
 .foot__row ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
 .foot__row a { text-decoration: none; }
-.credits { margin-top: 44px; font-size: .95rem; color: var(--soft); max-width: 110ch; }
-.foot__end { margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: .95rem; color: var(--soft); }
+.credits { margin-top: 40px; font-size: .95rem; color: var(--soft); max-width: 110ch; }
+.foot__end { margin-top: 18px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: .95rem; color: var(--soft); }
 
-/* ---------- movimiento ---------- */
+/* ---------- entradas ---------- */
 @media (prefers-reduced-motion: no-preference) {
-  .js .rise { opacity: 0; transform: translateY(24px); transition: opacity 700ms var(--ease-out), transform 800ms var(--ease-out); transition-delay: calc(var(--i, 0) * 60ms); }
+  .js .rise { opacity: 0; transform: translateY(26px); transition: opacity 700ms var(--ease-out), transform 800ms var(--ease-out); transition-delay: calc(var(--i, 0) * 70ms); }
   .js .rise.in { opacity: 1; transform: none; }
-  .js .hero h1 .ch { display: inline-block; opacity: 0; transform: translateY(18px); filter: blur(8px); transition: opacity 700ms var(--ease-out), transform 900ms var(--ease-out), filter 700ms var(--ease-out); transition-delay: calc(240ms + var(--c) * 45ms); }
-  .js .hero.in h1 .ch { opacity: 1; transform: none; filter: none; }
-  .js .arch, .js .reveal { clip-path: inset(100% 0 0 0); transition: clip-path 1100ms var(--ease-io); transition-delay: calc(var(--i, 0) * 110ms); }
-  .js .arch.in, .js .reveal.in { clip-path: inset(0 0 0 0); }
-  .js .arch img, .js .reveal img { transform: scale(1.15); transition: transform 1600ms var(--ease-out); transition-delay: calc(var(--i, 0) * 110ms); }
-  .js .arch.in img, .js .reveal.in img { transform: scale(1); }
-  .js .sign { opacity: 0; transform: translateY(-40px) rotate(-4deg); transition: opacity 600ms var(--ease-out), transform 1200ms cubic-bezier(.34, 1.56, .64, 1); }
+  .js .sign { opacity: 0; transform: translateY(-50px) rotate(-6deg); transition: opacity 600ms var(--ease-out), transform 1300ms cubic-bezier(.34, 1.56, .64, 1); }
   .js .sign.in { opacity: 1; transform: none; }
-  .js .book tr { opacity: 0; transform: translateX(-12px); transition: opacity 500ms var(--ease-out), transform 600ms var(--ease-out); transition-delay: calc(var(--i, 0) * 60ms); }
-  .js .book.in tr { opacity: 1; transform: none; }
+  .js .hero__title .ch { display: inline-block; opacity: 0; transform: translateY(20px); filter: blur(8px); transition: opacity 700ms var(--ease-out), transform 900ms var(--ease-out), filter 700ms var(--ease-out); transition-delay: calc(var(--c) * 42ms); }
+  .js.ready .hero__title .ch { opacity: 1; transform: none; filter: none; }
+  .js .reveal { clip-path: inset(100% 0 0 0); transition: clip-path 1100ms var(--ease-io); transition-delay: calc(var(--i, 0) * 110ms); }
+  .js .reveal.in { clip-path: inset(0 0 0 0); }
   .js .roof { transform: scaleY(.2); opacity: 0; transition: transform 900ms var(--ease-out), opacity 500ms ease; }
   .js .roof.in { transform: none; opacity: 1; }
 }
-@media (prefers-reduced-motion: reduce) { .checks--move { animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .loader { display: none; }
+  .band__row, .checks, .voyage__boat svg, .hero__hint i { animation: none; }
+  .hero { height: auto; } .hero__stage { position: relative; }
+  .hero__shade { opacity: 1; } .hero__end { opacity: 1; transform: none; pointer-events: auto; } .hero__title, .hero__hint { display: none; }
+  .hs__stage { position: relative; height: auto; } .hs__track { flex-direction: column; height: auto; } .panel { width: 100%; height: auto; }
+  .dawn { height: auto; } .dawn__stage { position: relative; height: auto; } .dawn__sun { position: relative; clip-path: none; padding-block: 90px; } .dawn__in { opacity: 1; transform: none; } .dawn__sky { display: none; }
+  .card { position: relative; top: 0; }
+}
 
 /* ---------- tablet ---------- */
 @media (max-width: 1080px) {
   .bar nav a.hide { display: none; }
-  .carta, .ledger, .stay, .contact__grid { grid-template-columns: 1fr; }
-  .window, .room-view { position: relative; top: 0; max-width: 560px; margin-inline: auto; width: 100%; }
+  .stay, .contact__grid { grid-template-columns: 1fr; }
 }
-
 /* ---------- teléfono ---------- */
 @media (max-width: 760px) {
   .brand { font-size: 1.6rem; }
   .bar .btn { min-height: 40px; padding: 0 16px; }
-  .hero { padding-top: 100px; }
-  .hero h1 .l2 { font-size: 21vw; white-space: nowrap; }
-  .arches .arch:nth-child(1) i, .arches .arch:nth-child(3) i { display: none; }
-  .arches { grid-template-columns: 1fr 1fr; }
-  .arches .arch:nth-child(2) { grid-column: 1 / -1; grid-row: 1; aspect-ratio: 4/4.4; }
-  .arches .arch:nth-child(1), .arches .arch:nth-child(3) { aspect-ratio: 3/4.2; }
-  .arch b { font-size: 2.1rem; }
-  .window { display: none; }
-  .menu-list li { cursor: default; }
-  .menu-list li:not(.on) h3 { color: var(--bone); }
-  .menu-pic { display: block; margin-bottom: 14px; aspect-ratio: 16/10; overflow: hidden; }
-  .menu-pic img { width: 100%; height: 100%; object-fit: cover; }
-  .menu-list .row { flex-wrap: wrap; }
-  .menu-list .row::after { display: none; }
-  .menu-list .when { order: 0; width: 100%; }
+  .hero__title h1 .l2 { font-size: 21vw; white-space: nowrap; }
+  .hero__end .btns .btn { flex: 1 1 140px; }
+  .hs { height: auto !important; }
+  .hs__stage { position: relative; height: auto; display: block; }
+  .hs__track { flex-direction: column; height: auto; transform: none !important; }
+  .panel { width: 100%; height: auto; grid-template-columns: 1fr; padding: 40px var(--m); gap: 18px; }
+  .panel__pic { height: 62vh; order: -1; }
+  .panel__txt h3 { font-size: 15vw; }
+  .hs__count { display: none; }
   .salones__head { flex-direction: column; align-items: start; }
   .nav2 { display: none; }
   .rail figure { flex-basis: 74vw; }
-  .facts { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+  .facts { grid-template-columns: 1fr 1fr; row-gap: 26px; }
   .facts div:nth-child(3) { border-left: 0; }
-  .book button { grid-template-columns: 1fr; gap: 2px; }
-  .book th:nth-child(n+2) { display: none; }
+  .card { grid-template-columns: 1fr; min-height: 0; top: calc(76px + var(--k) * 10px); gap: 16px; }
+  .card__pic { height: 42vh; }
+  .card__txt h4 { font-size: 13vw; }
   .svc { columns: 1; }
   .lake__grid { grid-template-columns: 1fr 1fr; }
   .lake__grid figure:nth-child(2) { grid-column: 1 / -1; grid-row: 1; }
@@ -309,117 +322,131 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   .roof { flex-wrap: wrap; justify-content: center; }
   .roof span.end { display: none; }
   .foot__row { grid-template-columns: 1fr 1fr; }
+  .voyage { bottom: 6px; }
 }
 </style>
 </head>
-<body>
+<body class="loading">
+
+<!-- iconos reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="boat" viewBox="0 0 64 34"><path d="M31 2v20M31 3l15 17H31z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M31 6 20 20h11z" fill="currentColor" opacity=".55"/><path d="M4 23h56l-7 9H11z" fill="currentColor"/></symbol>
+  <symbol id="wave" viewBox="0 0 120 10" preserveAspectRatio="none"><path d="M0 5 Q15 0 30 5 T60 5 T90 5 T120 5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+</svg>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__in">
+    <b>La Barca</b>
+    <div class="loader__sea">
+      <svg class="wave" viewBox="0 0 600 14" preserveAspectRatio="none"><path d="M0 7 Q25 0 50 7 T100 7 T150 7 T200 7 T250 7 T300 7 T350 7 T400 7 T450 7 T500 7 T550 7 T600 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      <svg class="loader__boat" viewBox="0 0 64 34"><use href="#boat"/></svg>
+    </div>
+  </div>
+</div>
+
+<div class="cur" id="cur" aria-hidden="true"></div>
+
+<div class="voyage" aria-hidden="true">
+  <svg class="wave" viewBox="0 0 1200 10" preserveAspectRatio="none"><path d="M0 5 Q15 0 30 5 T60 5 T90 5 T120 5 T150 5 T180 5 T210 5 T240 5 T270 5 T300 5 T330 5 T360 5 T390 5 T420 5 T450 5 T480 5 T510 5 T540 5 T570 5 T600 5 T630 5 T660 5 T690 5 T720 5 T750 5 T780 5 T810 5 T840 5 T870 5 T900 5 T930 5 T960 5 T990 5 T1020 5 T1050 5 T1080 5 T1110 5 T1140 5 T1170 5 T1200 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+  <div class="voyage__boat" id="vboat"><svg viewBox="0 0 64 34"><use href="#boat"/></svg></div>
+</div>
 
 <header class="bar" id="bar">
   <a class="brand" href="#inicio" aria-label="Hotel Restaurante La Barca, inicio"><small>Hotel</small>La Barca</a>
   <nav aria-label="Principal">
-    <a class="ul hide" href="#restaurante">Restaurante</a>
-    <a class="ul hide" href="#hotel">Hotel</a>
-    <a class="ul hide" href="#laguna">La laguna</a>
-    <a class="ul hide" href="#contacto">Contacto</a>
+    <a class="hide" href="#restaurante">Restaurante</a>
+    <a class="hide" href="#hotel">Hotel</a>
+    <a class="hide" href="#laguna">La laguna</a>
+    <a class="hide" href="#contacto">Contacto</a>
     <a class="btn" href="tel:+34722856875">Llamar</a>
   </nav>
 </header>
 
 <main>
-  <!-- PORTADA: el rótulo -->
+  <!-- ===== PORTADA: el ventanal en arco del comedor se abre ===== -->
   <section class="hero" id="inicio" aria-labelledby="t-hero">
-    <p class="hero__pre sc rise">Pedro Muñoz · La Mancha</p>
-    <h1 id="t-hero"><span class="l1">Hotel Restaurante</span><span class="l2">La Barca</span></h1>
-    <p class="hero__tag rise" style="--i:4">Buena mesa y buen descanso, a un paseo de la laguna.</p>
-    <p class="hero__stars rise" aria-label="Hotel de tres estrellas" style="--i:5">★ ★ ★</p>
-    <div class="arches">
-      <a class="arch" href="#restaurante" style="--i:1"><img src="img/comedor.jpg" alt="Comedor del restaurante con ventanales en arco" width="1800" height="1201"><span><b>Restaurante</b><i>Menú del día · comidas · cenas</i></span></a>
-      <a class="arch" href="#hotel" style="--i:2"><img src="img/hab-doble.jpg" alt="Habitación doble con colcha granate" width="1800" height="1345"><span><b>Hotel</b><i>Dieciséis habitaciones · parking gratis</i></span></a>
-      <a class="arch" href="#laguna" style="--i:3"><img src="img/laguna.jpg" alt="Laguna del Pueblo con flamencos" width="1800" height="1200"><span><b>La laguna</b><i>A unos pasos del hotel</i></span></a>
+    <div class="hero__stage" id="heroStage">
+      <img class="hero__img" id="heroImg" src="img/comedor.jpg" alt="Comedor del restaurante La Barca con ventanales en arco" width="1800" height="1201">
+      <div class="hero__shade" id="heroShade"></div>
+      <div class="hero__title" id="heroTitle">
+        <p class="pre">Hotel de tres estrellas en Pedro Muñoz, La Mancha</p>
+        <h1 id="t-hero"><span class="l1">Hotel Restaurante</span><span class="l2">La Barca</span></h1>
+      </div>
+      <p class="hero__hint" id="heroHint">Baja para entrar<i></i></p>
+      <div class="hero__end" id="heroEnd">
+        <h2>Pase y siéntese</h2>
+        <p>Buena mesa y buen descanso, a un paseo de la laguna.</p>
+        <div class="btns"><a class="btn" href="#restaurante">El restaurante</a><a class="btn btn--line" href="#hotel">El hotel</a></div>
+      </div>
     </div>
   </section>
-  <div class="checks checks--move" aria-hidden="true"></div>
 
-  <!-- ===================== RESTAURANTE ===================== -->
-  <section class="rest on-ink" id="restaurante" aria-labelledby="t-rest">
-    <div class="w">
+  <div class="band" aria-hidden="true"><div class="band__row">
+    <span>Menú del día</span><span>Comidas y cenas</span><span>Desayunos</span><span>Terraza</span><span>Bar y cafetería</span>
+    <span>Menú del día</span><span>Comidas y cenas</span><span>Desayunos</span><span>Terraza</span><span>Bar y cafetería</span>
+  </div></div>
+
+  <!-- ===== RESTAURANTE: la noche ===== -->
+  <section id="restaurante" aria-labelledby="t-rest">
+    <div class="w rest-intro">
       <div class="sign-wrap"><div class="sign" data-swing><h2 id="t-rest">Restaurante</h2></div></div>
-      <p class="lead rise">Cocina de la tierra, raciones generosas y vino de la zona, en el comedor, la cafetería o bajo el toldo de la terraza.</p>
-      <p class="orn sc rise">desde el desayuno hasta la cena</p>
+      <p class="lead rise">Cocina de la tierra, raciones generosas y vino de la zona, del primer café a la última copa.</p>
+    </div>
 
-      <div class="carta">
-        <ul class="menu-list" id="menuList">
-          <li class="rise on" data-k="0">
-            <div class="menu-pic"><img src="img/cafeteria.jpg" alt="" loading="lazy"></div>
-            <div class="row"><h3>Desayunos</h3><span class="when sc">cada mañana</span></div>
-            <p>Desayuno típico de la zona, en la cafetería o antes de salir de ruta.</p>
-          </li>
-          <li class="rise" data-k="1">
-            <div class="menu-pic"><img src="img/mesa.jpg" alt="" loading="lazy"></div>
-            <div class="row"><h3>Menú del día</h3><span class="when sc">al mediodía</span></div>
-            <p>Cocina casera con primero, segundo y postre, a buen precio y sin quedarse con hambre.</p>
-          </li>
-          <li class="rise" data-k="2">
-            <div class="menu-pic"><img src="img/comedor-2.jpg" alt="" loading="lazy"></div>
-            <div class="row"><h3>Comidas y cenas</h3><span class="when sc">mediodía y noche</span></div>
-            <p>Comedor interior para familias, grupos y viajeros. Pregunte por los platos de la casa.</p>
-          </li>
-          <li class="rise" data-k="3">
-            <div class="menu-pic"><img src="img/bar.jpg" alt="" loading="lazy"></div>
-            <div class="row"><h3>Bar y cafetería</h3><span class="when sc">todo el día</span></div>
-            <p>La barra de piedra de La Barca, para el café, la caña y el tempranillo de la tierra.</p>
-          </li>
-          <li class="rise" data-k="4">
-            <div class="menu-pic"><img src="img/terraza.jpg" alt="" loading="lazy"></div>
-            <div class="row"><h3>Terraza</h3><span class="when sc">con buen tiempo</span></div>
-            <p>Terraza cubierta con toldo, para comer, tomar algo o alargar la sobremesa.</p>
-          </li>
-        </ul>
-        <figure class="window rise" style="margin:0" id="menuWin">
-          <img class="on" src="img/cafeteria.jpg" alt="Cafetería del restaurante" loading="lazy">
-          <img src="img/mesa.jpg" alt="Mesa preparada con mantel blanco" loading="lazy">
-          <img src="img/comedor-2.jpg" alt="Comedor con paredes granate" loading="lazy">
-          <img src="img/bar.jpg" alt="Barra de piedra con el rótulo La Barca" loading="lazy">
-          <img src="img/terraza.jpg" alt="Terraza con toldo granate" loading="lazy">
-          <figcaption id="menuCap">La cafetería</figcaption>
-        </figure>
+    <div class="hs" id="hs">
+      <div class="hs__stage">
+        <div class="hs__track" id="hsTrack">
+          <article class="panel"><div class="panel__txt"><p class="when">Cada mañana</p><h3>Desayunos</h3><p>Desayuno típico de la zona en la cafetería, para empezar el día o antes de salir de ruta.</p></div><div class="panel__pic"><img src="img/cafeteria.jpg" alt="Cafetería del restaurante"></div></article>
+          <article class="panel"><div class="panel__txt"><p class="when">Al mediodía</p><h3>Menú del día</h3><p>Cocina casera con primero, segundo y postre, a buen precio y sin quedarse con hambre.</p></div><div class="panel__pic"><img src="img/mesa.jpg" alt="Mesa vestida con mantel blanco y copas"></div></article>
+          <article class="panel"><div class="panel__txt"><p class="when">Mediodía y noche</p><h3>Comidas y cenas</h3><p>Comedor interior para familias, grupos y viajeros. Pregunte por los platos de la casa.</p></div><div class="panel__pic"><img src="img/comedor-2.jpg" alt="Comedor con paredes granate y mesas vestidas"></div></article>
+          <article class="panel"><div class="panel__txt"><p class="when">Todo el día</p><h3>La barra</h3><p>La barra de piedra de La Barca, para el café, la caña y el tempranillo joven de la tierra.</p></div><div class="panel__pic"><img src="img/bar.jpg" alt="Barra de piedra con el rótulo La Barca"></div></article>
+          <article class="panel"><div class="panel__txt"><p class="when">Con buen tiempo</p><h3>La terraza</h3><p>Bajo el toldo granate, para comer, tomar algo o alargar la sobremesa.</p></div><div class="panel__pic"><img src="img/terraza.jpg" alt="Terraza con toldo granate y sillas blancas"></div></article>
+        </div>
+        <div class="hs__count" id="hsCount" aria-hidden="true">i / v</div>
       </div>
     </div>
 
     <div class="salones">
       <div class="w salones__head">
-        <div><h3 class="rise">Nuestros salones</h3><p class="rise" style="--i:1">Arrastre o use las flechas para recorrer el comedor, la barra y la terraza.</p></div>
+        <div><h3 class="rise">Los salones</h3><p class="rise" style="--i:1">Arrastre las fotos o use las flechas.</p></div>
         <div class="nav2"><button type="button" id="railPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" id="railNext" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
       </div>
       <div class="rail" id="rail">
-        <figure class="rise"><div class="ph"><img src="img/comedor.jpg" alt="Comedor principal con ventanales en arco" loading="lazy"></div><figcaption>Comedor principal</figcaption></figure>
-        <figure class="rise" style="--i:1"><div class="ph"><img src="img/bar.jpg" alt="Barra de piedra" loading="lazy"></div><figcaption>La barra</figcaption></figure>
-        <figure class="rise" style="--i:2"><div class="ph"><img src="img/comedor-3.jpg" alt="Comedor de suelo ajedrezado" loading="lazy"></div><figcaption>Comedor ajedrezado</figcaption></figure>
-        <figure class="rise" style="--i:3"><div class="ph"><img src="img/terraza-2.jpg" alt="Terraza con toldo granate" loading="lazy"></div><figcaption>La terraza</figcaption></figure>
-        <figure><div class="ph"><img src="img/mesa.jpg" alt="Mesa vestida con copas" loading="lazy"></div><figcaption>Mesa lista</figcaption></figure>
-        <figure><div class="ph"><img src="img/bar-2.jpg" alt="Barra con cafetera" loading="lazy"></div><figcaption>Cafetería</figcaption></figure>
+        <figure><div class="ph"><img src="img/comedor.jpg" alt="Comedor principal con ventanales en arco" loading="lazy"></div><figcaption>Comedor principal</figcaption></figure>
+        <figure><div class="ph"><img src="img/comedor-3.jpg" alt="Comedor de suelo ajedrezado" loading="lazy"></div><figcaption>Comedor ajedrezado</figcaption></figure>
+        <figure><div class="ph"><img src="img/terraza-2.jpg" alt="Terraza con toldo granate" loading="lazy"></div><figcaption>La terraza</figcaption></figure>
+        <figure><div class="ph"><img src="img/bar-2.jpg" alt="Barra con cafetera y vitrina" loading="lazy"></div><figcaption>La cafetería</figcaption></figure>
         <figure><div class="ph"><img src="img/terraza-3.jpg" alt="Mesas blancas en la terraza" loading="lazy"></div><figcaption>Rincón de la terraza</figcaption></figure>
+        <figure><div class="ph"><img src="img/entrada.jpg" alt="Entrada con porche y columnas" loading="lazy"></div><figcaption>La entrada</figcaption></figure>
       </div>
     </div>
 
-    <div class="w">
+    <div class="w rest-end">
       <div class="reserve rise">
         <h3>Reserve su mesa</h3>
         <p>Llámenos para reservar o para preguntar el menú de hoy. Grupos y celebraciones, consúltenos.</p>
         <a class="tel" href="tel:+34722856875">722 85 68 75</a>
-        <div class="btns"><a class="btn btn--bone" href="tel:+34722856875">Llamar</a><a class="btn btn--line" href="https://wa.me/34722856875?text=Hola%2C%20quer%C3%ADa%20reservar%20mesa%20en%20La%20Barca" target="_blank" rel="noopener">WhatsApp</a></div>
+        <div class="btns"><a class="btn" href="tel:+34722856875">Llamar</a><a class="btn btn--line" href="https://wa.me/34722856875?text=Hola%2C%20quer%C3%ADa%20reservar%20mesa%20en%20La%20Barca" target="_blank" rel="noopener">WhatsApp</a></div>
       </div>
     </div>
   </section>
-  <div class="checks" aria-hidden="true"></div>
 
-  <!-- ===================== HOTEL ===================== -->
-  <section class="hotel" id="hotel" aria-labelledby="t-hotel">
+  <!-- ===== AMANECER: de la noche del restaurante al día del hotel ===== -->
+  <section class="dawn" id="hotel" aria-labelledby="t-hotel">
+    <div class="dawn__stage">
+      <p class="dawn__sky" id="dawnSky">Después de la cena<span>se hace de día</span></p>
+      <div class="dawn__sun day" id="dawnSun">
+        <div class="dawn__in" id="dawnIn">
+          <div class="sign-wrap"><div class="sign" data-swing><h2 id="t-hotel">Hotel</h2></div></div>
+          <p class="lead">Dieciséis habitaciones en la avenida de la Constitución: aparque en la puerta, cene abajo y descanse arriba.</p>
+          <p class="stars">★ ★ ★</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="day hotel" aria-label="Habitaciones y servicios del hotel">
     <div class="w">
-      <div class="sign-wrap"><div class="sign" data-swing><h2 id="t-hotel">Hotel</h2></div></div>
-      <p class="lead rise">Tres estrellas y dieciséis habitaciones en la avenida de la Constitución: aparque en la puerta, cene abajo y descanse arriba.</p>
-      <p class="orn sc rise">★ ★ ★</p>
-
       <div class="facts">
         <div class="rise"><b data-count="16">16</b><span>habitaciones</span></div>
         <div class="rise" style="--i:1"><b data-count="5">5</b><span>tipos de habitación</span></div>
@@ -427,31 +454,13 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
         <div class="rise" style="--i:3"><b>P</b><span>parking gratuito</span></div>
       </div>
 
-      <div class="ledger">
-        <div>
-          <h3 class="rise">Las habitaciones</h3>
-          <p class="rise" style="--i:1">Elija una habitación del libro y véala al lado.</p>
-          <table class="book" id="book">
-            <thead><tr><th>Habitación</th><th>Camas</th><th>Destaca por</th></tr></thead>
-            <tbody>
-              <tr style="--i:0"><td><button type="button" aria-pressed="true" data-k="0"><b>Doble</b><span>Matrimonio</span><span>Colores cálidos y cabecero de madera</span></button></td></tr>
-              <tr style="--i:1"><td><button type="button" aria-pressed="false" data-k="1"><b>Dos camas</b><span>2 individuales</span><span>Mesa de trabajo, ideal en ruta</span></button></td></tr>
-              <tr style="--i:2"><td><button type="button" aria-pressed="false" data-k="2"><b>Triple</b><span>3 camas</span><span>Para familias con niños</span></button></td></tr>
-              <tr style="--i:3"><td><button type="button" aria-pressed="false" data-k="3"><b>Hidromasaje</b><span>Doble</span><span>Bañera de hidromasaje</span></button></td></tr>
-              <tr style="--i:4"><td><button type="button" aria-pressed="false" data-k="4"><b>Con balcón</b><span>Doble</span><span>Salida a balcón de balaustrada</span></button></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="room-view rise">
-          <div class="frame" id="roomFrame">
-            <img class="on" src="img/hab-doble.jpg" alt="Habitación doble" loading="lazy">
-            <img src="img/hab-twin.jpg" alt="Habitación con dos camas" loading="lazy">
-            <img src="img/hab-triple.jpg" alt="Habitación triple" loading="lazy">
-            <img src="img/jacuzzi.jpg" alt="Bañera de hidromasaje" loading="lazy">
-            <img src="img/hab-balcon.jpg" alt="Habitación con puertas al balcón" loading="lazy">
-          </div>
-          <div class="cap" aria-live="polite"><b id="roomName">Doble</b><p id="roomText">Cama de matrimonio, cabecero de madera y colores cálidos.</p><div class="chips" id="roomChips"></div></div>
-        </div>
+      <div class="cards-head"><h3 class="rise">Las habitaciones</h3><p class="rise" style="--i:1">Baje y vaya abriendo puertas.</p></div>
+      <div class="cards" id="cards">
+        <article class="card" style="--k:0"><div class="card__pic"><img src="img/hab-doble.jpg" alt="Habitación doble con colcha granate"></div><div class="card__txt"><p class="sc">Para dos</p><h4>Doble</h4><p>Cama de matrimonio, cabecero de madera y colores cálidos para descansar a gusto.</p><ul><li>Matrimonio</li><li>Baño privado</li><li>Aire acondicionado</li><li>Wi-Fi</li></ul></div></article>
+        <article class="card" style="--k:1"><div class="card__pic"><img src="img/hab-twin.jpg" alt="Habitación con dos camas"></div><div class="card__txt"><p class="sc">Para amigos o trabajo</p><h4>Dos camas</h4><p>Dos camas individuales y mesa, perfecta para compañeros de viaje o de ruta.</p><ul><li>2 individuales</li><li>Mesa</li><li>Calefacción</li><li>TV</li></ul></div></article>
+        <article class="card" style="--k:2"><div class="card__pic"><img src="img/hab-triple.jpg" alt="Habitación triple"></div><div class="card__txt"><p class="sc">Para familias</p><h4>Triple</h4><p>Espacio para tres, todos juntos y con su propio baño.</p><ul><li>3 camas</li><li>Familias</li><li>Baño privado</li><li>Secador</li></ul></div></article>
+        <article class="card" style="--k:3"><div class="card__pic"><img src="img/jacuzzi.jpg" alt="Bañera de hidromasaje"></div><div class="card__txt"><p class="sc">Un capricho</p><h4>Hidromasaje</h4><p>Habitación con bañera de hidromasaje para un descanso extra después del viaje.</p><ul><li>Hidromasaje</li><li>Toallas</li><li>Aire acondicionado</li></ul></div></article>
+        <article class="card" style="--k:4"><div class="card__pic"><img src="img/hab-balcon.jpg" alt="Habitación con puertas al balcón"></div><div class="card__txt"><p class="sc">Con luz natural</p><h4>Con balcón</h4><p>Salida al balcón de balaustrada, con vistas a la avenida.</p><ul><li>Balcón</li><li>Luz natural</li><li>Wi-Fi</li></ul></div></article>
       </div>
 
       <div class="stay">
@@ -471,17 +480,15 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
         <div class="slider rise" id="slider" role="region" aria-roledescription="carrusel" aria-label="Fotos del hotel" tabindex="0">
           <div class="slider__win"><div class="slider__track" id="strack">
             <figure><img src="img/salon.jpg" alt="Salón con sofá de piel" loading="lazy"></figure>
-            <figure><img src="img/entrada.jpg" alt="Entrada con porche y columnas" loading="lazy"></figure>
             <figure><img src="img/balcon.jpg" alt="Balcón con balaustrada" loading="lazy"></figure>
             <figure><img src="img/bano.jpg" alt="Baño con lavabo" loading="lazy"></figure>
             <figure><img src="img/escalera.jpg" alt="Escalera de las habitaciones" loading="lazy"></figure>
+            <figure><img src="img/hab-roja.jpg" alt="Habitación con toallas sobre la cama" loading="lazy"></figure>
           </div></div>
-          <div class="slider__bar">
-            <p class="slider__cap" id="scap" aria-live="polite">El salón</p>
+          <div class="slider__bar"><p class="slider__cap" id="scap" aria-live="polite">El salón</p>
             <div class="slider__ctrl"><span class="slider__count" id="scount">1 / 5</span>
               <button type="button" id="sprev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
-              <button type="button" id="snext" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
-          </div>
+              <button type="button" id="snext" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
         </div>
       </div>
 
@@ -489,27 +496,32 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
         <h3>Reserve su habitación</h3>
         <p>Llámenos o escríbanos por WhatsApp y le confirmamos disponibilidad y precio para sus fechas.</p>
         <a class="tel" href="tel:+34722856875">722 85 68 75</a>
-        <div class="btns"><a class="btn" href="tel:+34722856875">Llamar</a><a class="btn btn--line" href="https://wa.me/34722856875?text=Hola%2C%20quer%C3%ADa%20consultar%20disponibilidad%20en%20el%20Hotel%20La%20Barca" target="_blank" rel="noopener">WhatsApp</a></div>
+        <div class="btns"><a class="btn btn--ink" href="tel:+34722856875">Llamar</a><a class="btn btn--line" href="https://wa.me/34722856875?text=Hola%2C%20quer%C3%ADa%20consultar%20disponibilidad%20en%20el%20Hotel%20La%20Barca" target="_blank" rel="noopener">WhatsApp</a></div>
       </div>
     </div>
   </section>
+  <div class="checks" aria-hidden="true"></div>
 
-  <!-- ===================== LAGUNA ===================== -->
-  <section class="lake" id="laguna" aria-labelledby="t-lake">
+  <!-- ===== LA LAGUNA ===== -->
+  <section class="lake day" id="laguna" aria-labelledby="t-lake">
+    <div class="band band--stone" aria-hidden="true"><div class="band__row">
+      <span>Laguna del Pueblo</span><span>Flamencos</span><span>Aves de paso</span><span>Atardeceres</span>
+      <span>Laguna del Pueblo</span><span>Flamencos</span><span>Aves de paso</span><span>Atardeceres</span>
+    </div></div>
     <div class="w">
       <div class="sign-wrap"><div class="sign" data-swing><h2 id="t-lake">La laguna</h2></div></div>
-      <p class="lead rise">Flamencos y aves de paso sobre el agua, a pocos minutos de su habitación.</p>
+      <p class="lead rise">Donde la barca tiene su nombre: flamencos y aves de paso sobre el agua, a pocos minutos de su habitación.</p>
       <div class="lake__grid">
-        <figure><div class="ph reveal" style="--i:0"><img src="img/laguna-2.jpg" alt="Laguna con aves al fondo y carrizo" loading="lazy"></div><figcaption>Laguna del Pueblo</figcaption></figure>
-        <figure><div class="ph reveal" style="--i:1"><img src="img/laguna.jpg" alt="Laguna del Pueblo con flamencos" loading="lazy"></div><figcaption>Flamencos en la laguna</figcaption></figure>
-        <figure><div class="ph reveal" style="--i:2"><img src="img/iglesia.jpg" alt="Iglesia de San Pedro Apóstol" loading="lazy"></div><figcaption>San Pedro Apóstol</figcaption></figure>
+        <figure><div class="ph reveal" style="--i:0"><img src="img/laguna-2.jpg" alt="Laguna con aves al fondo y carrizo" loading="lazy" data-par=".08"></div><figcaption>Laguna del Pueblo</figcaption></figure>
+        <figure><div class="ph reveal" style="--i:1"><img src="img/laguna.jpg" alt="Laguna del Pueblo con flamencos" loading="lazy" data-par=".12"></div><figcaption>Flamencos en la laguna</figcaption></figure>
+        <figure><div class="ph reveal" style="--i:2"><img src="img/iglesia.jpg" alt="Iglesia de San Pedro Apóstol" loading="lazy" data-par=".08"></div><figcaption>San Pedro Apóstol</figcaption></figure>
       </div>
       <p class="lake__text rise">Pedro Muñoz es tierra de lagunas, vino y harina. Desde el hotel se llega a pie a la Laguna del Pueblo y al Centro de Interpretación de los Humedales. Y si quiere más Mancha, los molinos y los pueblos del Quijote quedan a un paso en coche.</p>
     </div>
   </section>
 
-  <!-- ===================== CONTACTO ===================== -->
-  <section class="contact on-ink" id="contacto" aria-labelledby="t-contact">
+  <!-- ===== CONTACTO ===== -->
+  <section class="contact" id="contacto" aria-labelledby="t-contact">
     <div class="w">
       <div class="sign-wrap"><div class="sign" data-swing><h2 id="t-contact">Cómo llegar</h2></div></div>
       <p class="lead rise">En la avenida de la Constitución, a la entrada de Pedro Muñoz, junto al Parque Gloria.</p>
@@ -518,7 +530,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
         <div class="cside">
           <div class="rise"><h3>Teléfono</h3><a class="tel" href="tel:+34722856875">722 85 68 75</a></div>
           <div class="rise" style="--i:1"><h3>Dirección</h3><address>Av. de la Constitución, 34<br>13620 Pedro Muñoz, Ciudad Real</address></div>
-          <div class="btns rise" style="--i:2"><a class="btn btn--bone" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Restaurante%20La%20Barca%2C%20Pedro%20Mu%C3%B1oz" target="_blank" rel="noopener">Cómo llegar</a><a class="btn btn--ox" href="tel:+34722856875">Llamar ahora</a></div>
+          <div class="btns rise" style="--i:2"><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Restaurante%20La%20Barca%2C%20Pedro%20Mu%C3%B1oz" target="_blank" rel="noopener">Cómo llegar</a><a class="btn btn--ox" href="tel:+34722856875">Llamar ahora</a></div>
           <div class="rise" style="--i:3"><h3>Síganos</h3>
             <div class="social">
               <a href="https://wa.me/34722856875" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>WhatsApp</a>
@@ -527,21 +539,20 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
               <a href="#" hidden data-red="instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</a>
             </div>
           </div>
-          <figure class="fachada reveal" style="margin:0"><img src="img/fachada.jpg" alt="Fachada del Hotel Restaurante La Barca con su rótulo" loading="lazy"></figure>
+          <figure class="fachada" style="margin:0"><img src="img/fachada.jpg" alt="Fachada del Hotel Restaurante La Barca con su rótulo" loading="lazy"></figure>
         </div>
       </div>
     </div>
   </section>
-  <div class="checks checks--move" aria-hidden="true"></div>
 </main>
 
 <footer class="foot">
   <div class="w">
     <div class="roof" id="roof" aria-hidden="true"><span>Hotel</span><span class="big">Restaurante La Barca</span><span class="end">Hotel</span></div>
     <div class="foot__row">
-      <div><h4>Restaurante</h4><ul><li><a class="ul" href="#restaurante">Desayunos</a></li><li><a class="ul" href="#restaurante">Menú del día</a></li><li><a class="ul" href="#restaurante">Comidas y cenas</a></li><li><a class="ul" href="#restaurante">Terraza</a></li></ul></div>
-      <div><h4>Hotel</h4><ul><li><a class="ul" href="#hotel">Habitaciones</a></li><li><a class="ul" href="#hotel">Servicios</a></li><li><a class="ul" href="#laguna">La laguna</a></li></ul></div>
-      <div><h4>Contacto</h4><ul><li><a class="ul" href="tel:+34722856875">722 85 68 75</a></li><li><a class="ul" href="https://wa.me/34722856875" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
+      <div><h4>Restaurante</h4><ul><li><a href="#restaurante">Desayunos</a></li><li><a href="#restaurante">Menú del día</a></li><li><a href="#restaurante">Comidas y cenas</a></li><li><a href="#restaurante">Terraza</a></li></ul></div>
+      <div><h4>Hotel</h4><ul><li><a href="#hotel">Habitaciones</a></li><li><a href="#hotel">Servicios</a></li><li><a href="#laguna">La laguna</a></li></ul></div>
+      <div><h4>Contacto</h4><ul><li><a href="tel:+34722856875">722 85 68 75</a></li><li><a href="https://wa.me/34722856875" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
       <div><h4>Dónde</h4><p>Av. de la Constitución, 34<br>13620 Pedro Muñoz, Ciudad Real</p></div>
     </div>
     <p class="credits">Fotos del entorno: <a href="https://commons.wikimedia.org/w/index.php?curid=57626977">“Laguna del Pueblo, Pedro Muñoz - 1”</a> y <a href="https://commons.wikimedia.org/w/index.php?curid=57627264">“- 2”</a> de Gato Preto, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>; <a href="https://commons.wikimedia.org/w/index.php?curid=4752667">“Parroquia de San Pedro Apóstol en Pedro Muñoz”</a> de Thor8, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>; vía Wikimedia Commons.</p>
@@ -551,51 +562,134 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 
 <script>
 (() => {
-  document.documentElement.classList.add('js');
+  const root = document.documentElement; root.classList.add('js');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const eio = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const mobile = () => innerWidth <= 760;
   $('#year').textContent = new Date().getFullYear();
 
-  // el rótulo se "pinta" letra a letra
+  // título de portada letra a letra
   let c = 0;
-  $$('.hero h1 > span').forEach(sp => {
-    const t = sp.textContent; sp.textContent = '';
-    [...t].forEach(ch => { if (ch === ' ') { sp.append(' '); return; } const e = document.createElement('span'); e.className = 'ch'; e.style.setProperty('--c', c++); e.textContent = ch; sp.appendChild(e); });
-  });
+  $$('.hero__title h1 > span').forEach(sp => { const t = sp.textContent; sp.textContent = ''; [...t].forEach(ch => { if (ch === ' ') { sp.append(' '); return; } const e = document.createElement('span'); e.className = 'ch'; e.style.setProperty('--c', c++); e.textContent = ch; sp.appendChild(e); }); });
 
-  // cabecera que se esconde al bajar
-  const bar = $('#bar'); let lastY = 0;
-  addEventListener('scroll', () => { const y = scrollY; bar.classList.toggle('is-hidden', y > 500 && y > lastY + 4); if (y < lastY - 4) bar.classList.remove('is-hidden'); lastY = y; }, { passive: true });
-
-  // placas colgantes: se balancean con la velocidad del scroll (muelle amortiguado)
-  const signs = $$('[data-swing]').map(el => ({ el, a: 0, v: 0, ready: false }));
-  let prevY = scrollY;
-  function swing() {
-    const y = scrollY, kick = (y - prevY) * 0.06; prevY = y;
-    signs.forEach(s => {
-      if (!s.ready) return;
-      s.v += (-s.a * 0.06) - s.v * 0.12 + kick * 0.5;
-      s.a = Math.max(-7, Math.min(7, s.a + s.v));
-      s.el.style.transform = `rotate(${s.a.toFixed(2)}deg)`;
-    });
-    requestAnimationFrame(swing);
+  // pantalla de carga
+  const loader = $('#loader');
+  let intro = reduce ? 1 : 0, introStart = 0;
+  function start() {
+    document.body.classList.remove('loading');
+    loader.classList.add('done');
+    root.classList.add('ready');
+    introStart = performance.now();
+    setTimeout(() => loader.remove(), 1100);
   }
-  if (!reduce) requestAnimationFrame(swing);
+  if (reduce) { loader.remove(); document.body.classList.remove('loading'); root.classList.add('ready'); }
+  else { const go = () => setTimeout(start, 1750); if (document.readyState === 'complete') go(); else addEventListener('load', go); setTimeout(() => { if (document.body.classList.contains('loading')) start(); }, 4500); }
 
-  // restaurante: la ventana en arco muestra lo que se señala
-  const items = $$('#menuList li'), wimgs = $$('#menuWin img'), wcap = $('#menuCap');
-  const caps = ['La cafetería', 'Mesa lista para el menú', 'El comedor', 'La barra de piedra', 'La terraza'];
-  function showMenu(k) { items.forEach((li, j) => li.classList.toggle('on', j === k)); wimgs.forEach((im, j) => im.classList.toggle('on', j === k)); wcap.textContent = caps[k]; }
-  items.forEach(li => { li.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') showMenu(+li.dataset.k); }); li.addEventListener('click', () => showMenu(+li.dataset.k)); });
-  if (fine) {
-    const mio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) showMenu(+e.target.dataset.k); }), { rootMargin: '-48% 0px -48% 0px' });
-    items.forEach(li => mio.observe(li));
+  // elementos de las escenas
+  const heroStage = $('#heroStage'), hero = $('.hero'), heroImg = $('#heroImg'), heroTitle = $('#heroTitle'), heroEnd = $('#heroEnd'), heroShade = $('#heroShade'), heroHint = $('#heroHint');
+  const hs = $('#hs'), hsTrack = $('#hsTrack'), hsCount = $('#hsCount'), panels = $$('.panel'), panelImgs = $$('.panel__pic img');
+  const dawn = $('#hotel'), dawnSun = $('#dawnSun'), dawnIn = $('#dawnIn'), dawnSky = $('#dawnSky');
+  const cards = $$('.card'), par = $$('[data-par]');
+  const bar = $('#bar'), vboat = $('#vboat');
+  const roman = ['i', 'ii', 'iii', 'iv', 'v'];
+  const days = $$('.day');
+
+  function sizeHS() {
+    if (mobile() || reduce) { hs.style.height = ''; return; }
+    hs.style.height = (hsTrack.scrollWidth - innerWidth + innerHeight) + 'px';
+  }
+  addEventListener('resize', sizeHS); addEventListener('load', sizeHS); sizeHS();
+
+  let lastY = scrollY;
+  function frame(now) {
+    const W = innerWidth, H = innerHeight, y = scrollY;
+
+    // cabecera: sólida fuera de la portada, clara en el "día", se esconde al bajar
+    const heroEndY = hero.offsetTop + hero.offsetHeight - H;
+    bar.classList.toggle('solid', y > heroEndY - 10);
+    const dayZone = days.some(el => { const r = el.getBoundingClientRect(); return r.top < 60 && r.bottom > 60; });
+    bar.classList.toggle('is-day', dayZone);
+    if (y > H && y > lastY + 4) bar.classList.add('is-hidden'); else if (y < lastY - 4 || y < H) bar.classList.remove('is-hidden');
+    lastY = y;
+
+    // la barca de la travesía (progreso de lectura)
+    const prog = clamp(y / (document.documentElement.scrollHeight - H));
+    vboat.style.transform = `translateX(${prog * (W - 58)}px)`;
+
+    if (!reduce) {
+      // PORTADA: intro (el arco crece desde una línea) + scroll (el arco se abre hasta llenar la pantalla)
+      if (introStart) intro = clamp((now - introStart) / 1300);
+      const ip = eio(intro);
+      const p = clamp(-hero.getBoundingClientRect().top / (hero.offsetHeight - H));
+      const e = eio(clamp(p / .78));
+      const aw = mobile() ? W * .62 : Math.min(W * .3, 460), ah = H * (mobile() ? .44 : .5);
+      const top0 = H - ah - H * .05;
+      const left = (W - aw) / 2 * (1 - e), bottom = H * .05 * (1 - e);
+      const topBase = top0 * (1 - e);
+      const top = H - (H - topBase) * ip; // durante la intro sube desde abajo
+      const r = (aw / 2) * (1 - e);
+      heroImg.style.clipPath = `inset(${top}px ${left}px ${bottom}px ${left}px round ${r}px ${r}px 0 0)`;
+      heroImg.style.transform = `scale(${1.25 - .25 * e})`;
+      heroTitle.style.transform = `translateY(${-e * H * .25}px)`;
+      heroTitle.style.opacity = 1 - clamp(p / .45);
+      heroHint.style.opacity = (1 - clamp(p / .15)) * ip;
+      heroShade.style.opacity = clamp((p - .55) / .3);
+      const k = clamp((p - .7) / .22);
+      heroEnd.style.opacity = k; heroEnd.style.transform = `translateY(${(1 - k) * 30}px)`;
+      heroEnd.classList.toggle('on', k > .5);
+
+      // RESTAURANTE: recorrido horizontal
+      if (!mobile()) {
+        const q = clamp(-hs.getBoundingClientRect().top / (hs.offsetHeight - H));
+        const dist = hsTrack.scrollWidth - W;
+        hsTrack.style.transform = `translate3d(${-q * dist}px,0,0)`;
+        panelImgs.forEach((im, i) => { const pr = panels[i].getBoundingClientRect(); const d = (pr.left + pr.width / 2 - W / 2) / W; im.style.transform = `scale(1.15) translateX(${d * -8}%)`; });
+        hsCount.textContent = `${roman[Math.min(4, Math.round(q * 4))]} / v`;
+      }
+
+      // AMANECER: el día sale por el horizonte
+      const dp = clamp(-dawn.getBoundingClientRect().top / (dawn.offsetHeight - H));
+      const R = Math.hypot(W / 2, H * 1.08) * 1.05;
+      dawnSun.style.clipPath = `circle(${eio(clamp(dp / .7)) * R}px at 50% 108%)`;
+      const di = clamp((dp - .55) / .3);
+      dawnIn.style.opacity = di; dawnIn.style.transform = `translateY(${(1 - di) * 30}px)`;
+      dawnSky.style.opacity = 1 - clamp(dp / .45);
+      dawnSky.style.transform = `translateY(${-dp * 60}px)`;
+
+      // HABITACIONES: las tarjetas se apilan
+      if (!mobile()) cards.forEach((cd, i) => {
+        const next = cards[i + 1]; if (!next) { cd.style.transform = ''; return; }
+        const nt = next.getBoundingClientRect().top, ct = cd.getBoundingClientRect().top;
+        const q = clamp((H - nt) / (H - ct));
+        cd.style.transform = `scale(${1 - q * .06})`;
+        cd.style.filter = `brightness(${1 - q * .12})`;
+      });
+
+      // parallax suave en la laguna
+      par.forEach(im => { const b = im.parentElement.getBoundingClientRect(); if (b.bottom < 0 || b.top > H) return; const t = (b.top + b.height / 2 - H / 2) / H; im.style.transform = `translateY(${t * -100 * +im.dataset.par}%)`; });
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  // placas colgantes con muelle
+  const signs = $$('[data-swing]').map(el => ({ el, a: 0, v: 0, ready: false }));
+  let pY = scrollY;
+  (function swing() { const y = scrollY, kick = (y - pY) * .06; pY = y; signs.forEach(s => { if (!s.ready) return; s.v += -s.a * .06 - s.v * .12 + kick * .5; s.a = clamp(s.a + s.v, -7, 7); s.el.style.transform = `rotate(${s.a.toFixed(2)}deg)`; }); if (!reduce) requestAnimationFrame(swing); })();
+
+  // cursor (sólo ratón)
+  if (fine && !reduce) {
+    const cur = $('#cur'); let x = -100, y = -100, tx = -100, ty = -100;
+    addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+    document.addEventListener('pointerover', e => { cur.classList.toggle('big', !!e.target.closest('a, button, .rail figure, .panel__pic, .card__pic, .slider__win')); });
+    (function f() { x += (tx - x) * .2; y += (ty - y) * .2; cur.style.transform = `translate(${x}px, ${y}px)`; requestAnimationFrame(f); })();
   }
 
   // salones: carril que se arrastra
-  const rail = $('#rail');
-  const step = () => rail.querySelector('figure').offsetWidth + 20;
+  const rail = $('#rail'); const step = () => rail.querySelector('figure').offsetWidth + 20;
   $('#railNext').addEventListener('click', () => rail.scrollBy({ left: step(), behavior: reduce ? 'auto' : 'smooth' }));
   $('#railPrev').addEventListener('click', () => rail.scrollBy({ left: -step(), behavior: reduce ? 'auto' : 'smooth' }));
   if (fine) {
@@ -606,30 +700,12 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
     rail.addEventListener('pointerup', up); rail.addEventListener('pointercancel', up);
   }
 
-  // hotel: el libro de habitaciones
-  const rooms = [
-    { n: 'Doble', t: 'Cama de matrimonio, cabecero de madera y colores cálidos.', c: ['Matrimonio', 'Baño privado', 'Aire acondicionado', 'Wi-Fi'] },
-    { n: 'Dos camas', t: 'Dos camas individuales y mesa de trabajo, perfecta para amigos o viajes de trabajo.', c: ['2 individuales', 'Mesa', 'Calefacción', 'TV'] },
-    { n: 'Triple', t: 'Espacio para tres, ideal para familias: todos juntos y con su propio baño.', c: ['3 camas', 'Familias', 'Baño privado', 'Secador'] },
-    { n: 'Hidromasaje', t: 'Habitación con bañera de hidromasaje para un descanso extra después del viaje.', c: ['Hidromasaje', 'Toallas', 'Aire acondicionado'] },
-    { n: 'Con balcón', t: 'Salida al balcón de balaustrada, con luz natural y vistas a la avenida.', c: ['Balcón', 'Luz natural', 'Wi-Fi'] }
-  ];
-  const rb = $$('#book button'), rimgs = $$('#roomFrame img');
-  function showRoom(k) {
-    rb.forEach((b, j) => b.setAttribute('aria-pressed', j === k));
-    rimgs.forEach((im, j) => im.classList.toggle('on', j === k));
-    $('#roomName').textContent = rooms[k].n; $('#roomText').textContent = rooms[k].t;
-    const ch = $('#roomChips'); ch.innerHTML = ''; rooms[k].c.forEach(x => { const s = document.createElement('span'); s.textContent = x; ch.appendChild(s); });
-  }
-  rb.forEach(b => b.addEventListener('click', () => showRoom(+b.dataset.k)));
-  showRoom(0);
-
-  // carrusel "Todo para su estancia"
+  // carrusel del hotel
   (() => {
     const sl = $('#slider'), track = $('#strack'), n = track.children.length, DUR = 5000;
-    const caps2 = ['El salón', 'La entrada y el porche', 'El balcón', 'El baño', 'La escalera'];
+    const caps = ['El salón', 'El balcón', 'El baño', 'La escalera', 'Habitación lista'];
     let i = 0, tm, vis = false, hov = false;
-    function go(k) { i = (k + n) % n; track.style.transform = `translateX(${-i * 100}%)`; $('#scap').textContent = caps2[i]; $('#scount').textContent = `${i + 1} / ${n}`; plan(); }
+    function go(k) { i = (k + n) % n; track.style.transform = `translateX(${-i * 100}%)`; $('#scap').textContent = caps[i]; $('#scount').textContent = `${i + 1} / ${n}`; plan(); }
     function plan() { clearTimeout(tm); if (!reduce && vis && !hov) tm = setTimeout(() => go(i + 1), DUR); }
     $('#snext').addEventListener('click', () => go(i + 1)); $('#sprev').addEventListener('click', () => go(i - 1));
     sl.addEventListener('keydown', e => { if (e.key === 'ArrowRight') go(i + 1); if (e.key === 'ArrowLeft') go(i - 1); });
@@ -644,22 +720,17 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
     go(0);
   })();
 
-  // contadores
-  function count(el) { const to = +el.dataset.count, t0 = performance.now(); (function f(t) { const k = Math.min(1, (t - t0) / 1100); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(f); })(t0); }
-
-  // entradas
-  const hero = $('.hero');
-  requestAnimationFrame(() => requestAnimationFrame(() => { hero.classList.add('in'); hero.querySelectorAll('.rise, .arch').forEach(el => el.classList.add('in')); }));
+  // contadores y entradas
+  function count(el) { const to = +el.dataset.count, t0 = performance.now(); (function f(t) { const k = clamp((t - t0) / 1100); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(f); })(t0); }
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
     const el = e.target; el.classList.add('in'); io.unobserve(el);
     el.querySelectorAll(':scope > .reveal').forEach(r => r.classList.add('in'));
     if (!reduce) el.querySelectorAll('[data-count]').forEach(count);
     const s = signs.find(x => x.el === el);
-    if (s) setTimeout(() => { el.style.transition = 'opacity 600ms'; s.ready = true; }, 1250);
+    if (s) setTimeout(() => { el.style.transition = 'opacity 600ms'; s.ready = true; }, 1350);
   }), { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-  $$('.rise, .sign, .book, #roof').forEach(el => { if (!hero.contains(el)) io.observe(el); });
-  // el recorte oculta el elemento, así que se observa su contenedor
+  $$('.rise, .sign, #roof').forEach(el => io.observe(el));
   $$('.reveal').forEach(r => io.observe(r.parentElement));
 })();
 </script>
