@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#f4eee4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=UnifrakturMaguntia&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --cream: #f4eee4;
@@ -27,6 +27,7 @@
 
   --serif: "Fraunces", Georgia, serif;
   --sans: "Manrope", system-ui, sans-serif;
+  --gothic: "UnifrakturMaguntia", "Old English Text MT", serif;
 
   --s-small: 0.9375rem;
   --s-body: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
@@ -73,9 +74,10 @@ p { margin: 0; }
 /* cabecera */
 .bar { position: fixed; inset: 0 0 auto 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px var(--m); background: var(--cream); transition: transform 400ms var(--ease-out), padding 300ms ease; }
 .bar.is-hidden { transform: translateY(-100%); }
-.brand { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
-.brand b { font-family: var(--serif); font-weight: 600; font-size: 1.75rem; letter-spacing: -0.02em; }
-.brand span { font-size: .8125rem; font-weight: 500; margin-top: 4px; color: var(--ink-soft); }
+.brand { text-decoration: none; display: inline-flex; align-items: baseline; gap: .4em; line-height: 1; background: var(--ink); color: var(--cream); padding: 9px 16px 7px; border-radius: 3px; font-family: var(--gothic); transition: transform 400ms var(--ease-out); }
+.brand b { font-weight: 400; font-size: 1.85rem; }
+.brand span { font-size: 1.15rem; color: var(--on-dark-soft); }
+@media (hover: hover) and (pointer: fine) { .brand:hover { transform: rotate(-1.5deg); } }
 .bar nav { display: flex; align-items: center; gap: clamp(14px, 2.2vw, 34px); font-weight: 500; }
 .bar nav a:not(.btn) { text-decoration: none; }
 .bar .btn { height: 46px; padding: 0 22px; }
@@ -83,9 +85,9 @@ p { margin: 0; }
 /* portada */
 .hero { padding-top: 92px; min-height: 100svh; display: grid; grid-template-rows: auto 1fr; }
 .hero__top { display: grid; grid-template-columns: 8fr 4fr; gap: 32px; align-items: end; padding: clamp(28px, 4vh, 56px) var(--m) clamp(28px, 4vh, 48px); }
-.hero h1 { font-size: clamp(3.6rem, 0.6rem + 8.6vw, 12rem); line-height: .88; }
+.hero h1 { font-family: var(--gothic); font-weight: 400; letter-spacing: 0; font-size: clamp(3.4rem, 0.4rem + 8vw, 11.2rem); line-height: .98; }
 .hero h1 .ln { display: block; overflow: hidden; padding-top: .1em; margin-top: -.08em; white-space: nowrap; }
-.hero h1 .ln:last-child { font-style: italic; color: var(--wine); }
+.hero h1 .ln:last-child { color: var(--wine); }
 .hero__aside { display: grid; gap: 18px; padding-bottom: 8px; }
 .hero__aside p { font-size: clamp(1.0625rem, 1rem + .3vw, 1.25rem); line-height: 1.45; max-width: 34ch; }
 .hero__facts { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -96,7 +98,7 @@ p { margin: 0; }
 .door::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(20,10,8,.78), rgba(20,10,8,.05) 60%); }
 .door--hotel::after { background: linear-gradient(to top, rgba(10,30,38,.8), rgba(10,30,38,.05) 60%); }
 .door__txt { position: absolute; left: clamp(20px, 3vw, 44px); right: clamp(20px, 3vw, 44px); bottom: clamp(20px, 3vw, 40px); display: flex; justify-content: space-between; align-items: end; gap: 20px; }
-.door__txt b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(2.6rem, 1.2rem + 4vw, 6rem); line-height: .9; letter-spacing: -0.025em; }
+.door__txt b { display: block; font-family: var(--gothic); font-weight: 400; font-size: clamp(2.8rem, 1.3rem + 4.2vw, 6.4rem); line-height: 1; }
 .door__txt small { display: block; margin-top: 10px; font-size: 1rem; color: var(--on-dark-soft); max-width: 34ch; }
 .door__arrow { flex: none; width: 64px; height: 64px; border-radius: 50%; background: var(--cream); color: var(--ink); display: grid; place-items: center; transition: transform 500ms var(--ease-out), background-color 300ms; }
 .door__arrow svg { width: 24px; height: 24px; }
@@ -238,9 +240,9 @@ p { margin: 0; }
 
 /* pie */
 .foot { padding-block: clamp(72px, 9vw, 140px) 32px; overflow: hidden; }
-.foot__mark { font-family: var(--serif); line-height: .82; font-size: clamp(5rem, 1rem + 21vw, 24rem); letter-spacing: -0.04em; white-space: nowrap; }
+.foot__mark { font-family: var(--gothic); line-height: .9; font-size: clamp(5rem, 1rem + 20vw, 23rem); white-space: nowrap; }
 .foot__mark span { display: inline-block; }
-.foot__mark span:nth-child(2) { font-style: italic; color: var(--wine); }
+.foot__mark span:nth-child(2) { color: var(--wine); }
 .foot__row { margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
 .foot__row h3 { font-size: 1.375rem; margin-bottom: 10px; }
 .foot__row ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
@@ -290,10 +292,12 @@ p { margin: 0; }
 
 /* ---------- teléfono ---------- */
 @media (max-width: 760px) {
-  .brand b { font-size: 1.5rem; }
+  .brand b { font-size: 1.55rem; }
+  .brand span { font-size: 1rem; }
   .bar .btn { height: 42px; padding: 0 18px; }
   .hero { padding-top: 76px; }
-  .hero h1 { font-size: 14.5vw; }
+  .hero h1 { font-size: 15vw; line-height: 1.02; }
+  .hero h1 .ln { white-space: normal; }
   .doors { flex-direction: column; min-height: 0; }
   .door { min-height: 46svh; }
   .door__arrow { width: 52px; height: 52px; }
@@ -328,7 +332,7 @@ p { margin: 0; }
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="bar" id="bar">
-  <a class="brand" href="#inicio" aria-label="La Barca, inicio"><b>La Barca</b><span>Hotel · Restaurante</span></a>
+  <a class="brand" href="#inicio" aria-label="Hotel Restaurante La Barca, inicio"><span>Hotel</span><b>La Barca</b></a>
   <nav aria-label="Principal">
     <a class="link hide" href="#restaurante">Restaurante</a>
     <a class="link hide" href="#hotel">Hotel</a>
@@ -622,7 +626,7 @@ p { margin: 0; }
   let c = 0;
   $$('.hero h1 .ln > span').forEach(sp => {
     const t = sp.textContent; sp.textContent = '';
-    [...t].forEach(ch => { const e = document.createElement('span'); e.className = 'ch'; e.style.setProperty('--c', c++); e.textContent = ch === ' ' ? ' ' : ch; sp.appendChild(e); });
+    [...t].forEach(ch => { if (ch === ' ') { sp.append(' '); c++; return; } const e = document.createElement('span'); e.className = 'ch'; e.style.setProperty('--c', c++); e.textContent = ch; sp.appendChild(e); });
   });
   // títulos palabra a palabra
   $$('.split').forEach(h => {
