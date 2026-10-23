@@ -3,543 +3,544 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hotel Restaurante La Barca · Pedro Muñoz</title>
-<meta name="description" content="Hotel de tres estrellas y restaurante en Pedro Muñoz (Ciudad Real), junto a la laguna. Menú del día, comidas, cenas, terraza y dieciséis habitaciones con parking gratuito.">
-<meta name="theme-color" content="#0e0e0d">
+<title>Hotel Restaurante La Barca · Pedro Muñoz, junto a la laguna</title>
+<meta name="description" content="Hotel de tres estrellas y restaurante en Pedro Muñoz (Ciudad Real), a cinco minutos de la Laguna del Pueblo. Menú del día, comidas, cenas, terraza y dieciséis habitaciones con parking gratuito.">
+<meta name="theme-color" content="#0e3a3c">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 <style>
-/* =====================================================================
-   LA BARCA — una barca que cruza la noche del restaurante hasta el día del hotel.
-   Identidad: rótulo negro con letra gótica, ventanales en arco, suelo ajedrezado, toldo granate, la laguna.
-   ===================================================================== */
+/* ===================================================================
+   LA BARCA · Laguna al atardecer
+   Verde laguna profundo, rosa flamenco y arena. Serif editorial + Inter.
+   =================================================================== */
 :root {
-  --ink: #0e0e0d; --ink-2: #191816; --bone: #efe8da; --paper: #e5dcc9;
-  --stone: #b9a587; --stone-d: #6f604c; --ox: #7d1f24; --ox-d: #5c161a; --soft: #4a453d; --mute: #bfb6a5;
-  --goth: "UnifrakturMaguntia", "Old English Text MT", serif;
-  --serif: "EB Garamond", Garamond, Georgia, serif;
-  --m: clamp(16px, 4vw, 64px);
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --lagoon: #0e3a3c;
+  --lagoon-2: #134a4c;
+  --lagoon-3: #1d5f61;
+  --deep: #0a2a2b;
+  --flamingo: #f4a6b8;
+  --flamingo-d: #e88aa0;
+  --rose-ink: #a83c5c;
+  --sand: #f6efe8;
+  --sand-2: #ece2d6;
+  --ink: #132322;
+  --soft: #4e5f5d;
+  --mist: #cfe0dc;
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: "Inter", system-ui, sans-serif;
+  --goth: "UnifrakturMaguntia", serif;
+  --m: clamp(18px, 4.4vw, 72px);
+  --gap: clamp(96px, 10vw, 150px);
+  --r: 22px;
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-io: cubic-bezier(0.77, 0, 0.175, 1);
-  --arch: 999px 999px 0 0;
 }
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--ink); color: var(--bone); font-family: var(--serif); font-size: clamp(1.125rem, 1.05rem + .25vw, 1.3125rem); line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-body.loading { overflow: hidden; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--sand); color: var(--ink); font-family: var(--sans); font-size: clamp(1rem, .96rem + .2vw, 1.0625rem); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img, iframe, svg { display: block; max-width: 100%; }
 a { color: inherit; }
 p { margin: 0; }
-h1, h2, h3, h4 { margin: 0; font-weight: 400; }
-:focus-visible { outline: 2px solid var(--ox); outline-offset: 4px; }
-::selection { background: var(--ox); color: var(--bone); }
-.w { padding-inline: var(--m); max-width: 1560px; margin-inline: auto; }
-.sc { font-variant-caps: all-small-caps; letter-spacing: .08em; font-weight: 500; }
-.goth { font-family: var(--goth); font-weight: 400; line-height: .95; }
-
-/* grano de papel antiguo */
-body::after { content: ""; position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: .045; will-change: transform;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+h1, h2, h3, h4 { margin: 0; font-weight: 400; font-family: var(--serif); letter-spacing: -.01em; }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--flamingo-d); outline-offset: 3px; }
+::selection { background: var(--flamingo); color: var(--lagoon); }
+.w { padding-inline: var(--m); max-width: 1440px; margin-inline: auto; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* botones */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: .6em; min-height: 56px; padding: 0 28px; border: 0; background: var(--bone); color: var(--ink); font: 500 1.15rem/1 var(--serif); font-variant-caps: all-small-caps; letter-spacing: .1em; text-decoration: none; cursor: pointer; transition: transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px; border: 0; background: var(--flamingo); color: var(--lagoon); font-weight: 600; font-size: 1rem; text-decoration: none; cursor: pointer; transition: transform 160ms var(--ease), background-color 220ms ease, color 220ms ease, box-shadow 220ms ease; }
 .btn:active { transform: scale(.97); }
-.btn--ox { background: var(--ox); color: var(--bone); }
-.btn--ink { background: var(--ink); color: var(--bone); }
-.btn--line { background: transparent; color: inherit; box-shadow: inset 0 0 0 1.5px currentColor; }
+.btn svg { width: 18px; height: 18px; transition: transform 300ms var(--ease); }
+.btn--dark { background: var(--lagoon); color: var(--sand); }
+.btn--ghost { background: transparent; color: inherit; box-shadow: inset 0 0 0 1px currentColor; }
 @media (hover: hover) and (pointer: fine) {
-  .btn:hover { background: var(--ox); color: var(--bone); }
-  .btn--ox:hover { background: var(--ox-d); }
-  .btn--line:hover { background: var(--bone); color: var(--ink); box-shadow: none; }
-  .day .btn--line:hover { background: var(--ink); color: var(--bone); }
+  .btn:hover { background: var(--flamingo-d); }
+  .btn:hover svg { transform: translateX(3px); }
+  .btn--dark:hover { background: var(--lagoon-3); }
+  .btn--ghost:hover { background: rgba(255,255,255,.1); }
+  .light .btn--ghost:hover { background: rgba(14,58,60,.06); }
 }
-
-/* ---------- pantalla de carga: el rótulo se enciende y la barca cruza ---------- */
-.loader { position: fixed; inset: 0; z-index: 100; background: var(--ink); display: grid; place-items: center; transition: clip-path 1000ms var(--ease-io); clip-path: inset(0 0 0 0); }
-.loader.done { clip-path: inset(0 0 100% 0); }
-.loader__in { text-align: center; width: min(560px, 80vw); }
-.loader b { display: block; font-family: var(--goth); font-weight: 400; font-size: clamp(4rem, 2rem + 8vw, 8rem); line-height: 1; color: var(--bone); animation: neon 1.6s steps(1) both; }
-@keyframes neon { 0% { opacity: 0 } 10% { opacity: 1 } 14% { opacity: .2 } 20% { opacity: 1 } 26% { opacity: .35 } 30%, 100% { opacity: 1; text-shadow: 0 0 24px rgba(239,232,218,.35) } }
-.loader__sea { position: relative; margin-top: 26px; height: 34px; }
-.loader__sea svg.wave { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 14px; color: var(--stone-d); }
-.loader__boat { position: absolute; bottom: 6px; left: 0; width: 44px; color: var(--bone); animation: sail 1.7s var(--ease-io) forwards; }
-@keyframes sail { from { transform: translateX(0) } to { transform: translateX(calc(min(560px, 80vw) - 44px)) } }
 
 /* ---------- cabecera ---------- */
-.bar { position: fixed; inset: 0 0 auto 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 14px var(--m); color: var(--bone); transition: transform 350ms var(--ease-out), background-color 300ms ease, color 300ms ease; }
-.bar.solid { background: var(--ink); }
-.bar.is-day { background: var(--bone); color: var(--ink); }
-.bar.is-hidden { transform: translateY(-100%); }
-.brand { font-family: var(--goth); font-size: 1.9rem; line-height: 1; text-decoration: none; }
-.brand small { font-size: .6em; opacity: .7; margin-right: .2em; }
-.bar nav { display: flex; align-items: center; gap: clamp(14px, 2.4vw, 36px); }
-.bar nav a:not(.btn) { text-decoration: none; font-size: 1.15rem; font-variant-caps: all-small-caps; letter-spacing: .1em; }
+.bar { position: fixed; inset: 0 0 auto 0; z-index: 50; color: var(--sand); transition: background-color 400ms ease, padding 400ms var(--ease), box-shadow 400ms ease; padding-block: 22px; }
+.bar .w { display: flex; align-items: center; justify-content: space-between; gap: 20px; max-width: none; }
+.bar.solid { background: rgba(14,58,60,.92); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding-block: 12px; }
+.logo { display: flex; flex-direction: column; text-decoration: none; line-height: 1; }
+.logo b { font-family: var(--goth); font-weight: 400; font-size: 2rem; }
+.logo span { font-size: .72rem; letter-spacing: .02em; opacity: .75; margin-top: 4px; }
+.nav { display: flex; align-items: center; gap: clamp(18px, 2.4vw, 36px); font-size: .95rem; }
+.nav a:not(.btn) { text-decoration: none; position: relative; padding-block: 6px; }
+.nav a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform 400ms var(--ease); }
+@media (hover: hover) and (pointer: fine) { .nav a:not(.btn):hover::after { transform: scaleX(1); transform-origin: left; } }
+.nav .tel { opacity: .85; }
 .bar .btn { min-height: 44px; padding: 0 20px; }
-.bar.is-day .btn { background: var(--ink); color: var(--bone); }
+.burger { display: none; width: 46px; height: 46px; border-radius: 50%; border: 0; background: rgba(255,255,255,.12); color: inherit; cursor: pointer; place-items: center; }
+.burger svg { width: 20px; height: 20px; }
 
-/* ---------- la travesía: progreso de lectura con la barca ---------- */
-.voyage { position: fixed; left: 0; right: 0; bottom: 10px; height: 26px; z-index: 55; pointer-events: none; mix-blend-mode: difference; color: #fff; }
-.voyage svg.wave { position: absolute; left: 0; bottom: 0; width: 100%; height: 10px; opacity: .55; }
-.voyage__boat { position: absolute; left: 12px; bottom: 5px; width: 34px; will-change: transform; }
-.voyage__boat svg { animation: bob 2.6s ease-in-out infinite; transform-origin: 50% 80%; }
-@keyframes bob { 0%, 100% { transform: rotate(-4deg) translateY(0) } 50% { transform: rotate(4deg) translateY(-2px) } }
+/* ---------- portada ---------- */
+.hero { position: relative; min-height: 100svh; display: grid; grid-template-rows: 1fr auto; color: var(--sand); background: var(--lagoon); overflow: hidden; }
+.slides { position: absolute; inset: 0; }
+.slides img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.12); transition: opacity 1600ms ease, transform 9000ms linear; }
+.slides img.on { opacity: 1; transform: scale(1); }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(14,58,60,.96) 0%, rgba(14,58,60,.78) 34%, rgba(14,58,60,.15) 70%), linear-gradient(0deg, rgba(10,42,43,.7), transparent 40%); }
+.hero__in { position: relative; z-index: 2; align-self: center; padding-top: 120px; }
+.hero h1 { font-size: clamp(3.4rem, 1.2rem + 7.4vw, 9.6rem); line-height: .92; max-width: 11ch; }
+.hero h1 .ln { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
+.hero h1 .ln > span { display: block; }
+.hero h1 em { color: var(--flamingo); }
+.hero__sub { margin-top: 28px; max-width: 46ch; color: var(--mist); font-size: clamp(1.05rem, 1rem + .3vw, 1.25rem); }
+.hero__dots { position: absolute; z-index: 2; right: var(--m); top: 50%; transform: translateY(-50%); display: grid; gap: 14px; }
+.hero__dots button { width: 10px; height: 10px; border-radius: 50%; border: 0; padding: 0; background: rgba(246,239,232,.35); cursor: pointer; transition: transform 300ms var(--ease), background-color 300ms; }
+.hero__dots button[aria-current="true"] { background: var(--flamingo); transform: scale(1.5); }
+.hero__cap { position: absolute; z-index: 2; right: var(--m); bottom: 150px; font-family: var(--serif); font-style: italic; font-size: 1.3rem; color: var(--sand); opacity: .85; }
+.badge { position: absolute; z-index: 3; right: calc(var(--m) + 40px); top: 22%; width: 150px; height: 150px; border-radius: 50%; background: var(--flamingo); color: var(--lagoon); display: grid; place-items: center; text-align: center; font-family: var(--serif); font-size: 1.45rem; line-height: 1.05; animation: spinslow 30s linear infinite; }
+.badge span { animation: spinslow 30s linear infinite reverse; display: block; }
+@keyframes spinslow { to { transform: rotate(360deg); } }
 
-/* ---------- cursor ---------- */
-.cur { position: fixed; left: 0; top: 0; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: #fff; mix-blend-mode: difference; pointer-events: none; z-index: 95; transition: width 300ms var(--ease-out), height 300ms var(--ease-out), margin 300ms var(--ease-out); display: none; }
-.cur.big { width: 70px; height: 70px; margin: -35px 0 0 -35px; }
-@media (hover: hover) and (pointer: fine) { .cur { display: block; } }
+/* reserva rápida */
+.quick { position: relative; z-index: 3; margin: 0 var(--m) 28px; background: rgba(246,239,232,.97); color: var(--ink); border-radius: var(--r); padding: 10px; display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: stretch; box-shadow: 0 30px 60px -30px rgba(0,0,0,.45); }
+.quick__tabs { display: flex; flex-direction: column; gap: 6px; background: var(--sand-2); border-radius: 16px; padding: 6px; }
+.quick__tabs button { border: 0; background: transparent; border-radius: 12px; padding: 10px 18px; cursor: pointer; font-weight: 600; color: var(--soft); text-align: left; transition: background-color 220ms, color 220ms; }
+.quick__tabs button[aria-selected="true"] { background: var(--lagoon); color: var(--sand); }
+.quick form { display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 10px; align-items: end; }
+.quick form[hidden] { display: none; }
+.quick label { display: grid; gap: 4px; padding: 8px 16px; border-radius: 14px; background: #fff; font-size: .8rem; color: var(--soft); font-weight: 500; }
+.quick input, .quick select { border: 0; padding: 0; font: 500 1.05rem var(--sans); color: var(--ink); background: transparent; outline: none; min-width: 0; }
+.quick .btn { min-height: 64px; border-radius: 16px; background: var(--lagoon); color: var(--sand); padding: 0 28px; }
+@media (hover: hover) and (pointer: fine) { .quick .btn:hover { background: var(--lagoon-3); } }
 
-/* ---------- PORTADA: el ventanal en arco se abre ---------- */
-.hero { position: relative; height: 260vh; background: var(--ink); }
-.hero__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
-.hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; will-change: clip-path, transform; }
-.hero__shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,7,.82), rgba(8,8,7,.15) 55%, rgba(8,8,7,.35)); opacity: 0; pointer-events: none; }
-.hero__title { position: absolute; left: 0; right: 0; top: clamp(90px, 13vh, 140px); text-align: center; z-index: 3; will-change: transform, opacity; }
-.hero__title .pre { color: var(--mute); font-style: italic; font-size: clamp(1.1rem, 1rem + .5vw, 1.5rem); }
-.hero__title h1 { font-family: var(--goth); line-height: .88; margin-top: 6px; }
-.hero__title h1 .l1 { display: block; font-size: clamp(2.2rem, 1rem + 3.6vw, 5rem); }
-.hero__title h1 .l2 { display: block; font-size: clamp(4.6rem, 1rem + 11vw, 13rem); }
-.hero__hint { position: absolute; left: 0; right: 0; bottom: 34px; text-align: center; z-index: 3; color: var(--mute); }
-.hero__hint i { display: block; margin: 8px auto 0; width: 1px; height: 36px; background: currentColor; transform-origin: top; animation: hint 1.8s var(--ease-io) infinite; }
-@keyframes hint { 0% { transform: scaleY(0) } 50% { transform: scaleY(1); transform-origin: top } 51% { transform-origin: bottom } 100% { transform: scaleY(0); transform-origin: bottom } }
-.hero__end { position: absolute; left: 0; right: 0; bottom: clamp(48px, 10vh, 110px); z-index: 4; text-align: center; padding-inline: var(--m); opacity: 0; transform: translateY(30px); pointer-events: none; }
-.hero__end.on { pointer-events: auto; }
-.hero__end h2 { font-family: var(--goth); font-size: clamp(3rem, 1.2rem + 6vw, 7.6rem); line-height: 1; }
-.hero__end p { margin: 14px auto 0; max-width: 36ch; font-size: clamp(1.2rem, 1.05rem + .6vw, 1.7rem); font-style: italic; }
-.hero__end .btns { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+/* ---------- cifras ---------- */
+.nums { padding-block: clamp(70px, 8vw, 110px); }
+.nums .w { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.num b { display: block; font-family: var(--serif); font-size: clamp(3.4rem, 2rem + 4vw, 6rem); line-height: 1; color: var(--lagoon); }
+.num span { display: block; margin-top: 8px; color: var(--soft); max-width: 22ch; }
 
-/* ---------- bandas en movimiento ---------- */
-.band { overflow: hidden; background: var(--ox); color: var(--bone); padding-block: clamp(10px, 1.4vw, 18px); position: relative; z-index: 2; }
-.band__row { display: flex; width: max-content; animation: marquee 32s linear infinite; }
-.band__row span { font-family: var(--goth); font-size: clamp(2.4rem, 1rem + 4vw, 5.4rem); line-height: 1.1; padding-right: .6em; white-space: nowrap; }
-.band__row span::after { content: "\2726"; font-family: var(--serif); font-size: .35em; vertical-align: .6em; margin-left: .6em; color: var(--stone); }
-.band--rev .band__row { animation-direction: reverse; }
-.band--stone { background: transparent; color: var(--stone-d); }
-@keyframes marquee { to { transform: translateX(-50%); } }
-.checks { height: 26px; background-color: var(--bone); background-image: repeating-conic-gradient(var(--ink) 0 25%, var(--bone) 0 50%); background-size: 26px 26px; animation: checks 16s linear infinite; position: relative; z-index: 2; }
-@keyframes checks { to { background-position: 52px 0; } }
+/* ---------- dos puertas ---------- */
+.doors { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-inline: 16px; }
+.door { position: relative; min-height: 78vh; border-radius: var(--r); overflow: hidden; color: var(--sand); text-decoration: none; display: flex; align-items: flex-end; isolation: isolate; }
+.door img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1400ms var(--ease); }
+.door::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(10,42,43,.85), rgba(10,42,43,0) 60%); }
+.door__txt { padding: clamp(24px, 3vw, 48px); width: 100%; display: flex; justify-content: space-between; align-items: end; gap: 20px; }
+.door small { color: var(--flamingo); font-size: .95rem; font-weight: 500; }
+.door h3 { font-size: clamp(3rem, 1.5rem + 4vw, 6rem); line-height: .95; margin-top: 6px; }
+.door p { margin-top: 10px; color: var(--mist); max-width: 34ch; }
+.door__go { flex: none; width: 64px; height: 64px; border-radius: 50%; background: var(--sand); color: var(--lagoon); display: grid; place-items: center; transition: transform 500ms var(--ease), background-color 300ms; }
+.door__go svg { width: 22px; height: 22px; }
+@media (hover: hover) and (pointer: fine) { .door:hover img { transform: scale(1.06); } .door:hover .door__go { transform: rotate(-45deg); background: var(--flamingo); } }
 
-/* ---------- placas colgantes ---------- */
-.sign-wrap { display: flex; justify-content: center; padding-top: 44px; }
-.sign { position: relative; display: inline-block; padding: 16px clamp(26px, 4vw, 56px) 20px; transform-origin: 50% -44px; background: var(--bone); color: var(--ink); box-shadow: inset 0 0 0 4px var(--bone), inset 0 0 0 5.5px var(--ink); }
-.sign::before, .sign::after { content: ""; position: absolute; top: -44px; width: 2px; height: 44px; background: var(--stone); }
-.sign::before { left: 18%; } .sign::after { right: 18%; }
-.sign h2 { font-family: var(--goth); font-size: clamp(3rem, 1.4rem + 6vw, 7.6rem); line-height: 1; }
-.day .sign { background: var(--ink); color: var(--bone); box-shadow: inset 0 0 0 4px var(--ink), inset 0 0 0 5.5px var(--bone); }
-.day .sign::before, .day .sign::after { background: var(--stone-d); }
-.lead { text-align: center; max-width: 32ch; margin: clamp(26px, 3.6vw, 40px) auto 0; font-size: clamp(1.45rem, 1.15rem + 1.1vw, 2.3rem); line-height: 1.22; }
+/* ---------- títulos de sección ---------- */
+.head { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: end; margin-bottom: clamp(48px, 6vw, 80px); }
+.head small { display: block; color: var(--rose-ink); font-weight: 600; margin-bottom: 14px; }
+.head h2 { font-size: clamp(3rem, 1.4rem + 5vw, 6.6rem); line-height: .95; }
+.head h2 em { color: var(--rose-ink); }
+.head p { color: var(--soft); max-width: 46ch; font-size: 1.1rem; }
+.dark { background: var(--lagoon); color: var(--sand); }
+.dark .head small, .dark .head h2 em { color: var(--flamingo); }
+.dark .head p { color: var(--mist); }
 
-/* ---------- RESTAURANTE: noche, recorrido horizontal ---------- */
-.rest-intro { padding: clamp(80px, 10vw, 140px) 0 clamp(40px, 5vw, 70px); text-align: center; }
-.hs { position: relative; }
-.hs__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: flex; align-items: center; }
-.hs__track { display: flex; gap: 0; height: 100%; will-change: transform; }
-.panel { flex: 0 0 auto; width: min(92vw, 1320px); height: 100%; display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 4vw, 72px); align-items: center; padding: 90px clamp(24px, 4vw, 64px) 60px; }
-.panel:first-child { padding-left: var(--m); }
-.panel__txt .when { color: var(--stone); font-style: italic; font-size: 1.35rem; }
-.panel__txt h3 { font-family: var(--goth); font-size: clamp(3.4rem, 1rem + 7.4vw, 9.6rem); line-height: .92; margin-top: 8px; }
-.panel__txt p { margin-top: 22px; max-width: 34ch; color: var(--mute); font-size: clamp(1.15rem, 1.05rem + .4vw, 1.45rem); }
-.panel__pic { height: min(74vh, 720px); overflow: hidden; border-radius: var(--arch); position: relative; }
-.panel__pic img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.15); will-change: transform; }
-.hs__count { position: absolute; right: var(--m); bottom: 36px; font-family: var(--goth); font-size: 2rem; color: var(--stone); z-index: 3; }
+/* ---------- RESTAURANTE ---------- */
+.rest { padding-block: var(--gap); }
+.svc-tabs { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(28px, 4vw, 72px); align-items: stretch; }
+.svc-list { display: grid; align-content: start; }
+.svc-list button { all: unset; box-sizing: border-box; cursor: pointer; display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 4px 20px; padding: 22px 0; border-top: 1px solid rgba(19,35,34,.14); transition: padding-left 400ms var(--ease); }
+.svc-list button:last-child { border-bottom: 1px solid rgba(19,35,34,.14); }
+.svc-list b { font-family: var(--serif); font-weight: 400; font-size: clamp(1.9rem, 1.3rem + 1.6vw, 2.9rem); line-height: 1.05; color: var(--soft); transition: color 300ms; }
+.svc-list span { font-size: .92rem; color: var(--soft); }
+.svc-list p { grid-column: 1 / -1; color: var(--soft); max-width: 44ch; max-height: 0; overflow: hidden; opacity: 0; transition: max-height 500ms var(--ease), opacity 400ms ease, margin 400ms var(--ease); }
+.svc-list button[aria-selected="true"] { padding-left: 18px; }
+.svc-list button[aria-selected="true"] b { color: var(--ink); }
+.svc-list button[aria-selected="true"] p { max-height: 120px; opacity: 1; margin-top: 8px; }
+.svc-list button:focus-visible { outline: 2px solid var(--flamingo-d); outline-offset: 4px; }
+@media (hover: hover) and (pointer: fine) { .svc-list button:hover b { color: var(--ink); } }
+.svc-view { position: relative; border-radius: var(--r); overflow: hidden; min-height: 560px; background: var(--sand-2); }
+.svc-view img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; clip-path: inset(0 0 0 100%); transform: scale(1.08); transition: clip-path 900ms var(--ease-io), transform 1400ms var(--ease); }
+.svc-view img.on { clip-path: inset(0 0 0 0); transform: scale(1); z-index: 1; }
+.svc-view img.was { clip-path: inset(0 0 0 0); z-index: 0; }
+.svc-view .tag { position: absolute; left: 20px; bottom: 20px; z-index: 2; background: var(--sand); color: var(--lagoon); border-radius: 999px; padding: 10px 18px; font-weight: 600; font-size: .95rem; }
 
-.salones { padding: clamp(80px, 9vw, 130px) 0 0; }
-.salones__head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 26px; }
-.salones__head h3 { font-family: var(--goth); font-size: clamp(2.6rem, 1.4rem + 3.4vw, 5rem); line-height: 1; }
-.salones__head p { color: var(--mute); max-width: 36ch; margin-top: 8px; }
-.nav2 { display: flex; gap: 10px; }
-.nav2 button { width: 54px; height: 54px; border: 1.5px solid currentColor; background: transparent; color: var(--bone); display: grid; place-items: center; cursor: pointer; transition: transform 160ms var(--ease-out), background-color 200ms, color 200ms; }
-.nav2 button:active { transform: scale(.95); }
-.nav2 svg { width: 20px; height: 20px; }
-@media (hover: hover) and (pointer: fine) { .nav2 button:hover { background: var(--bone); color: var(--ink); } }
-.rail { display: flex; gap: clamp(12px, 1.4vw, 20px); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-inline: var(--m); scroll-padding-inline: var(--m); cursor: grab; }
-.rail::-webkit-scrollbar { display: none; }
-.rail.drag { cursor: grabbing; scroll-snap-type: none; }
-.rail figure { margin: 0; flex: 0 0 clamp(250px, 24vw, 380px); scroll-snap-align: start; }
-.rail .ph { aspect-ratio: 3/4; overflow: hidden; border-radius: var(--arch); }
-.rail img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; user-select: none; transition: transform 900ms var(--ease-out); }
-@media (hover: hover) and (pointer: fine) { .rail figure:hover img { transform: scale(1.06); } }
-.rail figcaption { margin-top: 12px; text-align: center; font-style: italic; color: var(--mute); }
+.quote { margin-top: var(--gap); display: grid; grid-template-columns: auto 1fr; gap: clamp(20px, 3vw, 48px); align-items: start; }
+.quote svg { width: clamp(56px, 6vw, 88px); color: var(--flamingo); }
+.quote blockquote { margin: 0; font-family: var(--serif); font-size: clamp(1.8rem, 1.1rem + 2.2vw, 3.4rem); line-height: 1.12; max-width: 28ch; }
+.quote cite { display: block; margin-top: 18px; font-family: var(--sans); font-style: normal; color: var(--soft); font-size: .95rem; }
 
-.reserve { margin: clamp(80px, 9vw, 130px) auto 0; max-width: 980px; text-align: center; padding: clamp(36px, 5vw, 64px) clamp(20px, 4vw, 56px); box-shadow: inset 0 0 0 1px var(--stone), inset 0 0 0 7px var(--ink), inset 0 0 0 8px var(--stone); }
-.reserve h3 { font-family: var(--goth); font-size: clamp(2.6rem, 1.4rem + 3.6vw, 5rem); line-height: 1; }
-.reserve p { margin: 14px auto 0; max-width: 42ch; color: var(--mute); }
-.reserve .tel { display: inline-block; margin-top: 18px; font-size: clamp(2.4rem, 1.4rem + 2.6vw, 3.8rem); line-height: 1; text-decoration: none; }
-.reserve .btns { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-.rest-end { padding-bottom: clamp(90px, 10vw, 140px); }
+.rest-cta { margin-top: var(--gap); background: var(--flamingo); color: var(--lagoon); border-radius: var(--r); padding: clamp(32px, 5vw, 72px); display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items: center; overflow: hidden; position: relative; }
+.rest-cta h3 { font-size: clamp(2.6rem, 1.4rem + 3.6vw, 5.2rem); line-height: .95; }
+.rest-cta p { margin-top: 14px; max-width: 42ch; }
+.rest-cta .btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
 
-/* ---------- AMANECER: de la noche al día ---------- */
-.dawn { position: relative; height: 210vh; background: var(--ink); }
-.dawn__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
-.dawn__sun { position: absolute; inset: 0; background: var(--bone); color: var(--ink); clip-path: circle(0px at 50% 108%); will-change: clip-path; display: grid; place-items: center; text-align: center; padding: 0 var(--m); }
-.dawn__sky { position: absolute; left: 0; right: 0; top: 18vh; text-align: center; color: var(--mute); font-style: italic; font-size: 1.3rem; }
-.dawn__sky span { font-family: var(--goth); font-size: clamp(2.6rem, 1.2rem + 5vw, 6.4rem); color: var(--bone); display: block; line-height: 1; }
-.dawn__in { opacity: 0; transform: translateY(30px); }
-.dawn__in .stars { margin-top: 16px; letter-spacing: .5em; color: var(--ox); }
+/* ---------- HOTEL ---------- */
+.hotel { padding-block: var(--gap); }
+.rooms { position: relative; }
+.rooms__track { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-inline: var(--m); scroll-padding-inline: var(--m); padding-bottom: 6px; cursor: grab; }
+.rooms__track::-webkit-scrollbar { display: none; }
+.rooms__track.drag { cursor: grabbing; scroll-snap-type: none; }
+.room { flex: 0 0 clamp(290px, 31vw, 450px); scroll-snap-align: start; background: var(--lagoon-2); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; transition: transform 500ms var(--ease); }
+.room__pic { aspect-ratio: 4/3.2; overflow: hidden; }
+.room__pic img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; transition: transform 1200ms var(--ease); }
+@media (hover: hover) and (pointer: fine) { .room:hover { transform: translateY(-6px); } .room:hover .room__pic img { transform: scale(1.06); } }
+.room__txt { padding: 24px 24px 26px; display: grid; gap: 12px; flex: 1; align-content: start; }
+.room__txt h3 { font-size: 2.4rem; line-height: 1; }
+.room__txt p { color: var(--mist); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips span { font-size: .82rem; padding: 6px 12px; border-radius: 999px; background: rgba(246,239,232,.1); color: var(--sand); }
+.room__txt a { margin-top: 6px; justify-self: start; color: var(--flamingo); font-weight: 600; text-decoration: none; display: inline-flex; gap: 8px; align-items: center; }
+.room__txt a svg { width: 16px; height: 16px; transition: transform 300ms var(--ease); }
+@media (hover: hover) and (pointer: fine) { .room__txt a:hover svg { transform: translateX(4px); } }
+.rooms__nav { display: flex; gap: 10px; justify-content: space-between; align-items: center; margin-top: 26px; }
+.rooms__bar { flex: 1; height: 2px; background: rgba(246,239,232,.18); border-radius: 2px; overflow: hidden; }
+.rooms__bar i { display: block; height: 100%; width: 30%; background: var(--flamingo); transform-origin: left; transition: transform 200ms linear; }
+.rooms__nav button { width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(246,239,232,.4); background: transparent; color: var(--sand); cursor: pointer; display: grid; place-items: center; transition: background-color 220ms, color 220ms, transform 160ms var(--ease); }
+.rooms__nav button:active { transform: scale(.94); }
+.rooms__nav svg { width: 20px; height: 20px; }
+@media (hover: hover) and (pointer: fine) { .rooms__nav button:hover { background: var(--sand); color: var(--lagoon); } }
 
-/* ---------- HOTEL: día ---------- */
-.day { background: var(--bone); color: var(--ink); }
-.hotel { padding-bottom: clamp(90px, 10vw, 140px); }
-.facts { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; padding-top: 10px; }
-.facts div { padding: 8px 12px; }
-.facts div + div { border-left: 1px solid rgba(14,14,13,.18); }
-.facts b { display: block; font-family: var(--goth); font-weight: 400; font-size: clamp(3rem, 2rem + 3vw, 5.4rem); line-height: 1; }
-.facts span { display: block; margin-top: 6px; color: var(--soft); }
+.amen { margin-top: var(--gap); display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 4vw, 72px); align-items: start; }
+.amen h3 { font-size: clamp(2.6rem, 1.4rem + 3.4vw, 4.8rem); line-height: .98; }
+.amen > div > p { margin-top: 16px; color: var(--mist); max-width: 40ch; }
+.amen ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.amen li { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: center; padding: 16px; border-radius: 16px; background: rgba(246,239,232,.06); transition: background-color 300ms; }
+@media (hover: hover) and (pointer: fine) { .amen li:hover { background: rgba(246,239,232,.12); } }
+.amen li svg { width: 46px; height: 46px; padding: 11px; border-radius: 12px; background: var(--flamingo); color: var(--lagoon); }
+.amen li b { display: block; font-weight: 600; }
+.amen li span { color: var(--mist); font-size: .92rem; }
 
-.cards-head { margin-top: clamp(80px, 9vw, 130px); text-align: center; }
-.cards-head h3 { font-family: var(--goth); font-size: clamp(2.8rem, 1.4rem + 4vw, 5.6rem); line-height: 1; }
-.cards-head p { margin-top: 10px; color: var(--soft); }
-.cards { margin-top: clamp(36px, 4vw, 56px); display: grid; gap: 30px; }
-.card { position: sticky; top: calc(92px + var(--k) * 16px); min-height: min(76vh, 700px); background: var(--paper); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 64px); align-items: center; padding: clamp(22px, 3vw, 44px); box-shadow: inset 0 0 0 1px var(--stone-d), inset 0 0 0 8px var(--paper), inset 0 0 0 9px var(--stone-d); transform-origin: 50% 0; will-change: transform; }
-.card:nth-child(even) { background: #ebe3d3; }
-.card__pic { height: min(64vh, 600px); overflow: hidden; border-radius: var(--arch); }
-.card__pic img { width: 100%; height: 100%; object-fit: cover; }
-.card__txt .sc { color: var(--ox); font-size: 1.2rem; }
-.card__txt h4 { font-family: var(--goth); font-size: clamp(3rem, 1.4rem + 4.4vw, 6.4rem); line-height: .95; margin-top: 6px; }
-.card__txt p { margin-top: 16px; max-width: 36ch; color: var(--soft); font-size: clamp(1.15rem, 1.05rem + .35vw, 1.4rem); }
-.card__txt ul { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.card__txt li { padding: 5px 14px; box-shadow: inset 0 0 0 1px var(--stone-d); font-variant-caps: all-small-caps; letter-spacing: .08em; font-size: 1.05rem; }
+/* ---------- galería ---------- */
+.gallery { padding-block: var(--gap); }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.filters button { border: 0; border-radius: 999px; padding: 10px 20px; background: var(--sand-2); color: var(--soft); font-weight: 600; cursor: pointer; transition: background-color 220ms, color 220ms, transform 160ms var(--ease); }
+.filters button:active { transform: scale(.96); }
+.filters button[aria-pressed="true"] { background: var(--lagoon); color: var(--sand); }
+.grid { columns: 3; column-gap: 16px; }
+.grid figure { margin: 0 0 16px; break-inside: avoid; border-radius: 16px; overflow: hidden; cursor: zoom-in; position: relative; transition: opacity 400ms ease, transform 500ms var(--ease); }
+.grid figure.hide { display: none; }
+.grid img { width: 100%; height: auto; transition: transform 1000ms var(--ease); }
+.grid figcaption { position: absolute; left: 12px; bottom: 12px; background: rgba(246,239,232,.92); color: var(--lagoon); border-radius: 999px; padding: 6px 14px; font-size: .85rem; font-weight: 600; opacity: 0; transform: translateY(8px); transition: opacity 300ms, transform 400ms var(--ease); }
+@media (hover: hover) and (pointer: fine) { .grid figure:hover img { transform: scale(1.05); } .grid figure:hover figcaption { opacity: 1; transform: none; } }
+.lb { position: fixed; inset: 0; z-index: 80; background: rgba(10,42,43,.94); display: grid; place-items: center; padding: 40px var(--m); opacity: 0; pointer-events: none; transition: opacity 300ms ease; }
+.lb.on { opacity: 1; pointer-events: auto; }
+.lb img { max-height: 82vh; max-width: 100%; border-radius: 12px; transform: scale(.94); transition: transform 400ms var(--ease); }
+.lb.on img { transform: none; }
+.lb p { color: var(--sand); margin-top: 14px; text-align: center; font-family: var(--serif); font-size: 1.4rem; }
+.lb button { position: absolute; width: 52px; height: 52px; border-radius: 50%; border: 0; background: rgba(246,239,232,.12); color: var(--sand); cursor: pointer; display: grid; place-items: center; }
+.lb button svg { width: 22px; height: 22px; }
+.lb .x { top: 22px; right: 22px; } .lb .pv { left: 22px; top: 50%; } .lb .nx { right: 22px; top: 50%; }
 
-.stay { margin-top: clamp(90px, 10vw, 140px); display: grid; grid-template-columns: 5fr 6fr; gap: clamp(32px, 5vw, 96px); align-items: center; }
-.stay h3 { font-family: var(--goth); font-size: clamp(2.6rem, 1.4rem + 3.4vw, 5rem); line-height: 1; }
-.svc { margin: 22px 0 0; padding: 0; list-style: none; columns: 2; column-gap: 32px; }
-.svc li { break-inside: avoid; padding: 9px 0 9px 26px; position: relative; }
-.svc li::before { content: "\2726"; position: absolute; left: 0; top: 12px; font-size: .8rem; color: var(--ox); }
-.svc b { font-weight: 500; display: block; }
-.svc span { color: var(--soft); font-size: 1rem; }
-.slider__win { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--paper); touch-action: pan-y; cursor: grab; box-shadow: 0 0 0 1px var(--stone-d), 0 0 0 8px var(--bone), 0 0 0 9px var(--stone-d); margin: 9px; }
-.slider__track { display: flex; height: 100%; transition: transform 700ms var(--ease-out); }
-.slider__track figure { margin: 0; flex: 0 0 100%; height: 100%; }
-.slider__track img { width: 100%; height: 100%; object-fit: cover; user-select: none; -webkit-user-drag: none; }
-.slider__bar { margin-top: 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-.slider__cap { font-style: italic; font-size: 1.3rem; }
-.slider__ctrl { display: flex; align-items: center; gap: 10px; }
-.slider__count { color: var(--soft); margin-right: 6px; font-variant-numeric: tabular-nums; }
-.slider__ctrl button { width: 48px; height: 48px; border: 1.5px solid var(--ink); background: transparent; color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: transform 160ms var(--ease-out), background-color 200ms, color 200ms; }
-.slider__ctrl button:active { transform: scale(.95); }
-.slider__ctrl svg { width: 20px; height: 20px; }
-@media (hover: hover) and (pointer: fine) { .slider__ctrl button:hover { background: var(--ink); color: var(--bone); } }
-.day .reserve { box-shadow: inset 0 0 0 1px var(--stone-d), inset 0 0 0 7px var(--bone), inset 0 0 0 8px var(--stone-d); }
-.day .reserve p { color: var(--soft); }
+/* ---------- laguna ---------- */
+.lake { position: relative; min-height: 92vh; display: grid; align-items: end; color: var(--sand); overflow: hidden; }
+.lake img { position: absolute; inset: -10% 0; width: 100%; height: 120%; object-fit: cover; will-change: transform; }
+.lake::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgba(10,42,43,.9), rgba(10,42,43,.1) 65%); }
+.lake .w { position: relative; z-index: 2; padding-bottom: clamp(48px, 7vw, 100px); display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: end; width: 100%; }
+.lake h2 { font-size: clamp(3.2rem, 1.4rem + 5.6vw, 7.4rem); line-height: .92; }
+.lake h2 em { color: var(--flamingo); }
+.lake p { color: var(--mist); max-width: 42ch; font-size: 1.1rem; }
+.lake__more { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+.lake__more span { padding: 8px 14px; border-radius: 999px; background: rgba(246,239,232,.12); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); font-size: .9rem; }
 
-/* ---------- LAGUNA ---------- */
-.lake { background: var(--paper); color: var(--ink); padding: clamp(40px, 5vw, 70px) 0 clamp(90px, 10vw, 140px); overflow: hidden; }
-.lake .band--stone { margin-bottom: clamp(10px, 2vw, 30px); }
-.lake__grid { margin-top: clamp(50px, 6vw, 90px); display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: clamp(14px, 2vw, 28px); align-items: end; }
-.lake__grid figure { margin: 0; }
-.lake__grid .ph { overflow: hidden; border-radius: var(--arch); }
-.lake__grid .ph img { width: 100%; height: 115%; object-fit: cover; will-change: transform; }
-.lake__grid figure:nth-child(1) .ph, .lake__grid figure:nth-child(3) .ph { aspect-ratio: 3/4; }
-.lake__grid figure:nth-child(2) .ph { aspect-ratio: 4/5; }
-.lake__grid figcaption { margin-top: 12px; text-align: center; font-style: italic; color: var(--soft); }
-.lake__text { margin: clamp(36px, 4vw, 56px) auto 0; max-width: 60ch; text-align: center; color: var(--soft); }
-
-/* ---------- CONTACTO ---------- */
-.contact { padding-bottom: clamp(90px, 10vw, 140px); }
-.contact__grid { margin-top: clamp(50px, 6vw, 90px); display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 4vw, 72px); align-items: start; }
-.map { position: relative; min-height: 560px; overflow: hidden; background: var(--ink-2); box-shadow: 0 0 0 1px var(--stone), 0 0 0 8px var(--ink), 0 0 0 9px var(--stone); margin: 9px; }
-.map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(.4) contrast(1.05); }
-.cside { display: grid; gap: 30px; }
-.cside h3 { font-variant-caps: all-small-caps; letter-spacing: .12em; color: var(--stone); font-size: 1.2rem; margin-bottom: 6px; }
-.cside .tel { font-family: var(--goth); font-size: clamp(3rem, 1.8rem + 3vw, 5rem); line-height: 1; text-decoration: none; }
-.cside address { font-style: normal; font-size: 1.35rem; line-height: 1.4; }
-.cside .btns { display: flex; flex-wrap: wrap; gap: 12px; }
-.social { display: flex; flex-wrap: wrap; gap: 10px; }
-.social a { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 20px 0 16px; text-decoration: none; box-shadow: inset 0 0 0 1.5px var(--bone); font-variant-caps: all-small-caps; letter-spacing: .1em; font-size: 1.15rem; transition: background-color 200ms, color 200ms, transform 160ms var(--ease-out); }
+/* ---------- contacto ---------- */
+.contact { padding-block: var(--gap); }
+.contact__grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
+.map { position: relative; min-height: 560px; border-radius: var(--r); overflow: hidden; background: var(--sand-2); }
+.map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.card-info { background: var(--lagoon); color: var(--sand); border-radius: var(--r); padding: clamp(28px, 3.4vw, 48px); display: grid; gap: 28px; align-content: start; }
+.card-info small { display: block; color: var(--flamingo); font-weight: 600; font-size: .85rem; margin-bottom: 6px; }
+.card-info .tel { font-family: var(--serif); font-size: clamp(2.6rem, 1.6rem + 2.6vw, 4rem); line-height: 1; text-decoration: none; }
+.card-info address { font-style: normal; font-size: 1.15rem; line-height: 1.5; }
+.card-info .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.social { display: flex; gap: 10px; flex-wrap: wrap; }
+.social a { width: 52px; height: 52px; border-radius: 50%; background: rgba(246,239,232,.1); display: grid; place-items: center; transition: background-color 220ms, color 220ms, transform 160ms var(--ease); }
 .social a[hidden] { display: none; }
-.social a:active { transform: scale(.97); }
+.social a:active { transform: scale(.94); }
 .social svg { width: 22px; height: 22px; }
-@media (hover: hover) and (pointer: fine) { .social a:hover { background: var(--bone); color: var(--ink); } }
-.fachada { overflow: hidden; aspect-ratio: 16/9; }
-.fachada img { width: 100%; height: 100%; object-fit: cover; }
+@media (hover: hover) and (pointer: fine) { .social a:hover { background: var(--flamingo); color: var(--lagoon); } }
 
-/* ---------- pie: el rótulo del tejado ---------- */
-.foot { background: var(--bone); color: var(--ink); padding: clamp(60px, 8vw, 110px) 0 60px; }
-.roof { background: var(--ink); color: var(--bone); padding: clamp(16px, 2vw, 28px) clamp(16px, 3vw, 40px); display: flex; justify-content: space-between; align-items: baseline; gap: 2vw; font-family: var(--goth); line-height: 1; transform-origin: center bottom; }
-.roof span { font-size: clamp(1.6rem, .6rem + 3.4vw, 4.8rem); white-space: nowrap; }
-.roof span.big { font-size: clamp(2.4rem, 1rem + 6vw, 8.6rem); }
-.foot__row { margin-top: 44px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-.foot__row h4 { font-variant-caps: all-small-caps; letter-spacing: .12em; color: var(--stone-d); margin-bottom: 8px; font-size: 1.1rem; }
-.foot__row ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+/* ---------- pie ---------- */
+.foot { background: var(--deep); color: var(--mist); padding-block: clamp(70px, 8vw, 110px) 36px; overflow: hidden; }
+.foot__big { font-family: var(--goth); color: var(--sand); font-size: clamp(5rem, 1rem + 17vw, 19rem); line-height: .9; white-space: nowrap; }
+.foot__row { margin-top: 48px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; font-size: .95rem; }
+.foot__row h4 { font-family: var(--sans); font-weight: 600; color: var(--sand); font-size: .95rem; margin-bottom: 10px; }
+.foot__row ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .foot__row a { text-decoration: none; }
-.credits { margin-top: 40px; font-size: .95rem; color: var(--soft); max-width: 110ch; }
-.foot__end { margin-top: 18px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: .95rem; color: var(--soft); }
+@media (hover: hover) and (pointer: fine) { .foot__row a:hover { color: var(--flamingo); } }
+.credits { margin-top: 40px; font-size: .82rem; opacity: .75; max-width: 110ch; }
+.foot__end { margin-top: 18px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: .85rem; opacity: .75; }
 
-/* ---------- entradas ---------- */
+/* ---------- llamada flotante (móvil) ---------- */
+.float { position: fixed; z-index: 45; right: 16px; bottom: 16px; display: none; gap: 8px; }
+.float a { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; box-shadow: 0 12px 30px -10px rgba(0,0,0,.45); }
+.float a:first-child { background: var(--flamingo); color: var(--lagoon); }
+.float a:last-child { background: var(--lagoon); color: var(--sand); }
+.float svg { width: 24px; height: 24px; }
+
+/* ---------- animaciones ---------- */
 @media (prefers-reduced-motion: no-preference) {
-  .js .rise { opacity: 0; transform: translateY(26px); transition: opacity 700ms var(--ease-out), transform 800ms var(--ease-out); transition-delay: calc(var(--i, 0) * 70ms); }
-  .js .rise.in { opacity: 1; transform: none; }
-  .js .sign { opacity: 0; transform: translateY(-50px) rotate(-6deg); transition: opacity 600ms var(--ease-out), transform 1300ms cubic-bezier(.34, 1.56, .64, 1); }
-  .js .sign.in { opacity: 1; transform: none; }
-  .js .hero__title .ch { display: inline-block; opacity: 0; transform: translateY(20px); filter: blur(8px); transition: opacity 700ms var(--ease-out), transform 900ms var(--ease-out), filter 700ms var(--ease-out); transition-delay: calc(var(--c) * 42ms); }
-  .js.ready .hero__title .ch { opacity: 1; transform: none; filter: none; }
-  .js .reveal { clip-path: inset(100% 0 0 0); transition: clip-path 1100ms var(--ease-io); transition-delay: calc(var(--i, 0) * 110ms); }
-  .js .reveal.in { clip-path: inset(0 0 0 0); }
-  .js .roof { transform: scaleY(.2); opacity: 0; transition: transform 900ms var(--ease-out), opacity 500ms ease; }
-  .js .roof.in { transform: none; opacity: 1; }
+  .js .hero h1 .ln > span { transform: translateY(110%); transition: transform 1200ms var(--ease); }
+  .js .hero h1 .ln:nth-child(2) > span { transition-delay: 120ms; }
+  .js .hero h1 .ln:nth-child(3) > span { transition-delay: 240ms; }
+  .js .hero.in h1 .ln > span { transform: none; }
+  .js .hero .fade { opacity: 0; transform: translateY(20px); transition: opacity 900ms var(--ease) 500ms, transform 1000ms var(--ease) 500ms; }
+  .js .hero.in .fade { opacity: 1; transform: none; }
+  .js .quick { transform: translateY(40px); opacity: 0; transition: transform 1000ms var(--ease) 800ms, opacity 800ms ease 800ms; }
+  .js .hero.in .quick { transform: none; opacity: 1; }
+  .js .up { opacity: 0; transform: translateY(36px); transition: opacity 900ms var(--ease), transform 1000ms var(--ease); transition-delay: calc(var(--i, 0) * 80ms); }
+  .js .up.in { opacity: 1; transform: none; }
+  .js .head h2 .wd { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .1em; margin-bottom: -.1em; }
+  .js .head h2 .wd > span { display: inline-block; transform: translateY(105%); transition: transform 1000ms var(--ease); transition-delay: calc(var(--w) * 70ms); }
+  .js .head.in h2 .wd > span { transform: none; }
+  .js .door { clip-path: inset(12% 6% 0 6% round var(--r)); transition: clip-path 1400ms var(--ease-io); }
+  .js .door.in { clip-path: inset(0 0 0 0 round var(--r)); }
+  .js .door img { transform: scale(1.2); transition: transform 1800ms var(--ease); }
+  .js .door.in img { transform: scale(1); }
+  .js .room { opacity: 0; transform: translateX(60px); transition: opacity 800ms var(--ease), transform 1000ms var(--ease); transition-delay: calc(var(--i, 0) * 90ms); }
+  .js .rooms.in .room { opacity: 1; transform: none; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .loader { display: none; }
-  .band__row, .checks, .voyage__boat svg, .hero__hint i { animation: none; }
-  .hero { height: auto; } .hero__stage { position: relative; }
-  .hero__shade { opacity: 1; } .hero__end { opacity: 1; transform: none; pointer-events: auto; } .hero__title, .hero__hint { display: none; }
-  .hs__stage { position: relative; height: auto; } .hs__track { flex-direction: column; height: auto; } .panel { width: 100%; height: auto; }
-  .dawn { height: auto; } .dawn__stage { position: relative; height: auto; } .dawn__sun { position: relative; clip-path: none; padding-block: 90px; } .dawn__in { opacity: 1; transform: none; } .dawn__sky { display: none; }
-  .card { position: relative; top: 0; }
-}
+@media (prefers-reduced-motion: reduce) { .slides img { transition: opacity 600ms ease; transform: none !important; } .badge, .badge span { animation: none; } }
 
-/* ---------- tablet ---------- */
+/* ---------- responsive ---------- */
 @media (max-width: 1080px) {
-  .bar nav a.hide { display: none; }
-  .stay, .contact__grid { grid-template-columns: 1fr; }
+  .nav a.hide { display: none; }
+  .quick { grid-template-columns: 1fr; }
+  .quick__tabs { flex-direction: row; }
+  .head, .svc-tabs, .amen, .contact__grid, .lake .w, .rest-cta { grid-template-columns: 1fr; }
+  .rest-cta .btns { justify-content: flex-start; }
+  .nums .w { grid-template-columns: repeat(2, 1fr); row-gap: 36px; }
+  .grid { columns: 2; }
 }
-/* ---------- teléfono ---------- */
 @media (max-width: 760px) {
-  .brand { font-size: 1.6rem; }
-  .bar .btn { min-height: 40px; padding: 0 16px; }
-  .hero__title h1 .l2 { font-size: 21vw; white-space: nowrap; }
-  .hero__end .btns .btn { flex: 1 1 140px; }
-  .hs { height: auto !important; }
-  .hs__stage { position: relative; height: auto; display: block; }
-  .hs__track { flex-direction: column; height: auto; transform: none !important; }
-  .panel { width: 100%; height: auto; grid-template-columns: 1fr; padding: 40px var(--m); gap: 18px; }
-  .panel__pic { height: 62vh; order: -1; }
-  .panel__txt h3 { font-size: 15vw; }
-  .hs__count { display: none; }
-  .salones__head { flex-direction: column; align-items: start; }
-  .nav2 { display: none; }
-  .rail figure { flex-basis: 74vw; }
-  .facts { grid-template-columns: 1fr 1fr; row-gap: 26px; }
-  .facts div:nth-child(3) { border-left: 0; }
-  .card { grid-template-columns: 1fr; min-height: 0; top: calc(76px + var(--k) * 10px); gap: 16px; }
-  .card__pic { height: 42vh; }
-  .card__txt h4 { font-size: 13vw; }
-  .svc { columns: 1; }
-  .lake__grid { grid-template-columns: 1fr 1fr; }
-  .lake__grid figure:nth-child(2) { grid-column: 1 / -1; grid-row: 1; }
+  .logo b { font-size: 1.7rem; }
+  .nav .tel, .bar .btn { display: none; }
+  .burger { display: grid; }
+  .hero__in { padding-top: 110px; }
+  .hero h1 { font-size: 15vw; }
+  .badge { display: none; }
+  .hero__dots, .hero__cap { display: none; }
+  .quick form { grid-template-columns: 1fr 1fr; }
+  .quick form .btn { grid-column: 1 / -1; min-height: 56px; }
+  .quick form label:first-child { grid-column: 1 / -1; }
+  .doors { grid-template-columns: 1fr; padding-inline: 10px; }
+  .door { min-height: 62vh; }
+  .svc-view { min-height: 340px; order: -1; }
+  .amen ul { grid-template-columns: 1fr; }
+  .room { flex-basis: 82vw; }
+  .grid { columns: 2; column-gap: 10px; }
+  .grid figure { margin-bottom: 10px; border-radius: 12px; }
   .map { min-height: 380px; }
-  .roof { flex-wrap: wrap; justify-content: center; }
-  .roof span.end { display: none; }
   .foot__row { grid-template-columns: 1fr 1fr; }
-  .voyage { bottom: 6px; }
+  .float { display: grid; }
+  .menu-open .nav { display: flex; }
 }
+/* menú móvil */
+.mnav { position: fixed; inset: 0; z-index: 70; background: var(--lagoon); color: var(--sand); display: grid; align-content: center; gap: 8px; padding: 0 var(--m); clip-path: circle(0 at calc(100% - 42px) 42px); transition: clip-path 700ms var(--ease-io); }
+.mnav.on { clip-path: circle(150% at calc(100% - 42px) 42px); }
+.mnav a { font-family: var(--serif); font-size: 3rem; text-decoration: none; line-height: 1.2; }
+.mnav .close { position: absolute; top: 18px; right: 18px; width: 48px; height: 48px; border-radius: 50%; border: 0; background: rgba(255,255,255,.12); color: inherit; display: grid; place-items: center; }
+.mnav .close svg { width: 22px; height: 22px; }
+.mnav .btn { margin-top: 20px; justify-self: start; }
 </style>
 </head>
-<body class="loading">
+<body>
 
-<!-- iconos reutilizables -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="boat" viewBox="0 0 64 34"><path d="M31 2v20M31 3l15 17H31z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M31 6 20 20h11z" fill="currentColor" opacity=".55"/><path d="M4 23h56l-7 9H11z" fill="currentColor"/></symbol>
-  <symbol id="wave" viewBox="0 0 120 10" preserveAspectRatio="none"><path d="M0 5 Q15 0 30 5 T60 5 T90 5 T120 5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="arl" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></symbol>
 </svg>
 
-<div class="loader" id="loader" aria-hidden="true">
-  <div class="loader__in">
-    <b>La Barca</b>
-    <div class="loader__sea">
-      <svg class="wave" viewBox="0 0 600 14" preserveAspectRatio="none"><path d="M0 7 Q25 0 50 7 T100 7 T150 7 T200 7 T250 7 T300 7 T350 7 T400 7 T450 7 T500 7 T550 7 T600 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-      <svg class="loader__boat" viewBox="0 0 64 34"><use href="#boat"/></svg>
-    </div>
-  </div>
-</div>
-
-<div class="cur" id="cur" aria-hidden="true"></div>
-
-<div class="voyage" aria-hidden="true">
-  <svg class="wave" viewBox="0 0 1200 10" preserveAspectRatio="none"><path d="M0 5 Q15 0 30 5 T60 5 T90 5 T120 5 T150 5 T180 5 T210 5 T240 5 T270 5 T300 5 T330 5 T360 5 T390 5 T420 5 T450 5 T480 5 T510 5 T540 5 T570 5 T600 5 T630 5 T660 5 T690 5 T720 5 T750 5 T780 5 T810 5 T840 5 T870 5 T900 5 T930 5 T960 5 T990 5 T1020 5 T1050 5 T1080 5 T1110 5 T1140 5 T1170 5 T1200 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
-  <div class="voyage__boat" id="vboat"><svg viewBox="0 0 64 34"><use href="#boat"/></svg></div>
-</div>
-
 <header class="bar" id="bar">
-  <a class="brand" href="#inicio" aria-label="Hotel Restaurante La Barca, inicio"><small>Hotel</small>La Barca</a>
-  <nav aria-label="Principal">
-    <a class="hide" href="#restaurante">Restaurante</a>
-    <a class="hide" href="#hotel">Hotel</a>
-    <a class="hide" href="#laguna">La laguna</a>
-    <a class="hide" href="#contacto">Contacto</a>
-    <a class="btn" href="tel:+34722856875">Llamar</a>
-  </nav>
+  <div class="w">
+    <a class="logo" href="#inicio" aria-label="Hotel Restaurante La Barca, inicio"><b>La Barca</b><span>Hotel · Restaurante</span></a>
+    <nav class="nav" aria-label="Principal">
+      <a class="hide" href="#restaurante">Restaurante</a>
+      <a class="hide" href="#hotel">Hotel</a>
+      <a class="hide" href="#galeria">Galería</a>
+      <a class="hide" href="#laguna">La laguna</a>
+      <a class="hide" href="#contacto">Contacto</a>
+      <a class="tel" href="tel:+34722856875">722 85 68 75</a>
+      <a class="btn" href="#reservar">Reservar</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-controls="mnav" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16M4 16h16"/></svg></button>
+    </nav>
+  </div>
 </header>
 
+<div class="mnav" id="mnav" aria-hidden="true">
+  <button class="close" id="mclose" aria-label="Cerrar menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <a href="#restaurante">Restaurante</a><a href="#hotel">Hotel</a><a href="#galeria">Galería</a><a href="#laguna">La laguna</a><a href="#contacto">Contacto</a>
+  <a class="btn" href="tel:+34722856875"><svg><use href="#phone"/></svg>722 85 68 75</a>
+</div>
+
 <main>
-  <!-- ===== PORTADA: el ventanal en arco del comedor se abre ===== -->
+  <!-- ===== PORTADA ===== -->
   <section class="hero" id="inicio" aria-labelledby="t-hero">
-    <div class="hero__stage" id="heroStage">
-      <img class="hero__img" id="heroImg" src="img/comedor.jpg" alt="Comedor del restaurante La Barca con ventanales en arco" width="1800" height="1201">
-      <div class="hero__shade" id="heroShade"></div>
-      <div class="hero__title" id="heroTitle">
-        <p class="pre">Hotel de tres estrellas en Pedro Muñoz, La Mancha</p>
-        <h1 id="t-hero"><span class="l1">Hotel Restaurante</span><span class="l2">La Barca</span></h1>
+    <div class="slides" id="slides">
+      <img class="on" src="img/laguna.jpg" alt="" data-cap="La Laguna del Pueblo" width="1800" height="1200">
+      <img src="img/comedor.jpg" alt="" data-cap="El comedor" width="1800" height="1201">
+      <img src="img/hab-doble.jpg" alt="" data-cap="Habitación doble" width="1800" height="1345">
+      <img src="img/terraza-2.jpg" alt="" data-cap="La terraza" width="1800" height="1201">
+    </div>
+    <div class="hero__dots" id="dots" role="tablist" aria-label="Fotos de portada"></div>
+    <p class="hero__cap" id="heroCap" aria-live="polite">La Laguna del Pueblo</p>
+    <div class="badge fade" aria-hidden="true"><span>a 5 min<br>de los<br>flamencos</span></div>
+
+    <div class="w hero__in">
+      <h1 id="t-hero"><span class="ln"><span>Come bien,</span></span><span class="ln"><span>duerme junto</span></span><span class="ln"><span>a la <em>laguna</em></span></span></h1>
+      <p class="hero__sub fade">Hotel de tres estrellas y restaurante en Pedro Muñoz, donde los flamencos se paran a descansar. Cocina de la tierra abajo, dieciséis habitaciones arriba.</p>
+    </div>
+
+    <div class="quick" id="reservar">
+      <div class="quick__tabs" role="tablist" aria-label="Tipo de reserva">
+        <button role="tab" aria-selected="true" aria-controls="fHotel" id="tHotel">Habitación</button>
+        <button role="tab" aria-selected="false" aria-controls="fMesa" id="tMesa">Mesa</button>
       </div>
-      <p class="hero__hint" id="heroHint">Baja para entrar<i></i></p>
-      <div class="hero__end" id="heroEnd">
-        <h2>Pase y siéntese</h2>
-        <p>Buena mesa y buen descanso, a un paseo de la laguna.</p>
-        <div class="btns"><a class="btn" href="#restaurante">El restaurante</a><a class="btn btn--line" href="#hotel">El hotel</a></div>
-      </div>
+      <form id="fHotel" role="tabpanel" aria-labelledby="tHotel">
+        <label>Llegada<input type="date" name="in" required></label>
+        <label>Salida<input type="date" name="out" required></label>
+        <label>Personas<select name="p"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></label>
+        <button class="btn" type="submit">Consultar disponibilidad <svg><use href="#arr"/></svg></button>
+      </form>
+      <form id="fMesa" role="tabpanel" aria-labelledby="tMesa" hidden>
+        <label>Día<input type="date" name="d" required></label>
+        <label>Hora<select name="h"><option>13:30</option><option selected>14:00</option><option>14:30</option><option>15:00</option><option>21:00</option><option>21:30</option><option>22:00</option></select></label>
+        <label>Comensales<select name="c"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10+</option></select></label>
+        <button class="btn" type="submit">Reservar mesa <svg><use href="#arr"/></svg></button>
+      </form>
     </div>
   </section>
 
-  <div class="band" aria-hidden="true"><div class="band__row">
-    <span>Menú del día</span><span>Comidas y cenas</span><span>Desayunos</span><span>Terraza</span><span>Bar y cafetería</span>
-    <span>Menú del día</span><span>Comidas y cenas</span><span>Desayunos</span><span>Terraza</span><span>Bar y cafetería</span>
-  </div></div>
-
-  <!-- ===== RESTAURANTE: la noche ===== -->
-  <section id="restaurante" aria-labelledby="t-rest">
-    <div class="w rest-intro">
-      <div class="sign-wrap"><div class="sign" data-swing><h2 id="t-rest">Restaurante</h2></div></div>
-      <p class="lead rise">Cocina de la tierra, raciones generosas y vino de la zona, del primer café a la última copa.</p>
-    </div>
-
-    <div class="hs" id="hs">
-      <div class="hs__stage">
-        <div class="hs__track" id="hsTrack">
-          <article class="panel"><div class="panel__txt"><p class="when">Cada mañana</p><h3>Desayunos</h3><p>Desayuno típico de la zona en la cafetería, para empezar el día o antes de salir de ruta.</p></div><div class="panel__pic"><img src="img/cafeteria.jpg" alt="Cafetería del restaurante"></div></article>
-          <article class="panel"><div class="panel__txt"><p class="when">Al mediodía</p><h3>Menú del día</h3><p>Cocina casera con primero, segundo y postre, a buen precio y sin quedarse con hambre.</p></div><div class="panel__pic"><img src="img/mesa.jpg" alt="Mesa vestida con mantel blanco y copas"></div></article>
-          <article class="panel"><div class="panel__txt"><p class="when">Mediodía y noche</p><h3>Comidas y cenas</h3><p>Comedor interior para familias, grupos y viajeros. Pregunte por los platos de la casa.</p></div><div class="panel__pic"><img src="img/comedor-2.jpg" alt="Comedor con paredes granate y mesas vestidas"></div></article>
-          <article class="panel"><div class="panel__txt"><p class="when">Todo el día</p><h3>La barra</h3><p>La barra de piedra de La Barca, para el café, la caña y el tempranillo joven de la tierra.</p></div><div class="panel__pic"><img src="img/bar.jpg" alt="Barra de piedra con el rótulo La Barca"></div></article>
-          <article class="panel"><div class="panel__txt"><p class="when">Con buen tiempo</p><h3>La terraza</h3><p>Bajo el toldo granate, para comer, tomar algo o alargar la sobremesa.</p></div><div class="panel__pic"><img src="img/terraza.jpg" alt="Terraza con toldo granate y sillas blancas"></div></article>
-        </div>
-        <div class="hs__count" id="hsCount" aria-hidden="true">i / v</div>
-      </div>
-    </div>
-
-    <div class="salones">
-      <div class="w salones__head">
-        <div><h3 class="rise">Los salones</h3><p class="rise" style="--i:1">Arrastre las fotos o use las flechas.</p></div>
-        <div class="nav2"><button type="button" id="railPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" id="railNext" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
-      </div>
-      <div class="rail" id="rail">
-        <figure><div class="ph"><img src="img/comedor.jpg" alt="Comedor principal con ventanales en arco" loading="lazy"></div><figcaption>Comedor principal</figcaption></figure>
-        <figure><div class="ph"><img src="img/comedor-3.jpg" alt="Comedor de suelo ajedrezado" loading="lazy"></div><figcaption>Comedor ajedrezado</figcaption></figure>
-        <figure><div class="ph"><img src="img/terraza-2.jpg" alt="Terraza con toldo granate" loading="lazy"></div><figcaption>La terraza</figcaption></figure>
-        <figure><div class="ph"><img src="img/bar-2.jpg" alt="Barra con cafetera y vitrina" loading="lazy"></div><figcaption>La cafetería</figcaption></figure>
-        <figure><div class="ph"><img src="img/terraza-3.jpg" alt="Mesas blancas en la terraza" loading="lazy"></div><figcaption>Rincón de la terraza</figcaption></figure>
-        <figure><div class="ph"><img src="img/entrada.jpg" alt="Entrada con porche y columnas" loading="lazy"></div><figcaption>La entrada</figcaption></figure>
-      </div>
-    </div>
-
-    <div class="w rest-end">
-      <div class="reserve rise">
-        <h3>Reserve su mesa</h3>
-        <p>Llámenos para reservar o para preguntar el menú de hoy. Grupos y celebraciones, consúltenos.</p>
-        <a class="tel" href="tel:+34722856875">722 85 68 75</a>
-        <div class="btns"><a class="btn" href="tel:+34722856875">Llamar</a><a class="btn btn--line" href="https://wa.me/34722856875?text=Hola%2C%20quer%C3%ADa%20reservar%20mesa%20en%20La%20Barca" target="_blank" rel="noopener">WhatsApp</a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== AMANECER: de la noche del restaurante al día del hotel ===== -->
-  <section class="dawn" id="hotel" aria-labelledby="t-hotel">
-    <div class="dawn__stage">
-      <p class="dawn__sky" id="dawnSky">Después de la cena<span>se hace de día</span></p>
-      <div class="dawn__sun day" id="dawnSun">
-        <div class="dawn__in" id="dawnIn">
-          <div class="sign-wrap"><div class="sign" data-swing><h2 id="t-hotel">Hotel</h2></div></div>
-          <p class="lead">Dieciséis habitaciones en la avenida de la Constitución: aparque en la puerta, cene abajo y descanse arriba.</p>
-          <p class="stars">★ ★ ★</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="day hotel" aria-label="Habitaciones y servicios del hotel">
+  <!-- ===== CIFRAS ===== -->
+  <section class="nums" aria-label="La Barca en cifras">
     <div class="w">
-      <div class="facts">
-        <div class="rise"><b data-count="16">16</b><span>habitaciones</span></div>
-        <div class="rise" style="--i:1"><b data-count="5">5</b><span>tipos de habitación</span></div>
-        <div class="rise" style="--i:2"><b>Wi-Fi</b><span>gratis en todo el hotel</span></div>
-        <div class="rise" style="--i:3"><b>P</b><span>parking gratuito</span></div>
-      </div>
+      <div class="num up"><b data-n="16">16</b><span>habitaciones con baño privado y aire acondicionado</span></div>
+      <div class="num up" style="--i:1"><b data-n="3">3</b><span>estrellas, en la avenida de la Constitución</span></div>
+      <div class="num up" style="--i:2"><b data-n="5">5</b><span>minutos a pie hasta la Laguna del Pueblo</span></div>
+      <div class="num up" style="--i:3"><b>0 €</b><span>por aparcar y por el Wi-Fi</span></div>
+    </div>
+  </section>
 
-      <div class="cards-head"><h3 class="rise">Las habitaciones</h3><p class="rise" style="--i:1">Baje y vaya abriendo puertas.</p></div>
-      <div class="cards" id="cards">
-        <article class="card" style="--k:0"><div class="card__pic"><img src="img/hab-doble.jpg" alt="Habitación doble con colcha granate"></div><div class="card__txt"><p class="sc">Para dos</p><h4>Doble</h4><p>Cama de matrimonio, cabecero de madera y colores cálidos para descansar a gusto.</p><ul><li>Matrimonio</li><li>Baño privado</li><li>Aire acondicionado</li><li>Wi-Fi</li></ul></div></article>
-        <article class="card" style="--k:1"><div class="card__pic"><img src="img/hab-twin.jpg" alt="Habitación con dos camas"></div><div class="card__txt"><p class="sc">Para amigos o trabajo</p><h4>Dos camas</h4><p>Dos camas individuales y mesa, perfecta para compañeros de viaje o de ruta.</p><ul><li>2 individuales</li><li>Mesa</li><li>Calefacción</li><li>TV</li></ul></div></article>
-        <article class="card" style="--k:2"><div class="card__pic"><img src="img/hab-triple.jpg" alt="Habitación triple"></div><div class="card__txt"><p class="sc">Para familias</p><h4>Triple</h4><p>Espacio para tres, todos juntos y con su propio baño.</p><ul><li>3 camas</li><li>Familias</li><li>Baño privado</li><li>Secador</li></ul></div></article>
-        <article class="card" style="--k:3"><div class="card__pic"><img src="img/jacuzzi.jpg" alt="Bañera de hidromasaje"></div><div class="card__txt"><p class="sc">Un capricho</p><h4>Hidromasaje</h4><p>Habitación con bañera de hidromasaje para un descanso extra después del viaje.</p><ul><li>Hidromasaje</li><li>Toallas</li><li>Aire acondicionado</li></ul></div></article>
-        <article class="card" style="--k:4"><div class="card__pic"><img src="img/hab-balcon.jpg" alt="Habitación con puertas al balcón"></div><div class="card__txt"><p class="sc">Con luz natural</p><h4>Con balcón</h4><p>Salida al balcón de balaustrada, con vistas a la avenida.</p><ul><li>Balcón</li><li>Luz natural</li><li>Wi-Fi</li></ul></div></article>
-      </div>
+  <!-- ===== DOS PUERTAS ===== -->
+  <section class="doors" aria-label="Restaurante y hotel">
+    <a class="door" href="#restaurante"><img src="img/comedor-2.jpg" alt="Comedor del restaurante con mesas vestidas"><div class="door__txt"><div><small>Restaurante</small><h3>Comer y cenar</h3><p>Desayunos, menú del día, comidas, cenas y terraza.</p></div><span class="door__go"><svg><use href="#arr"/></svg></span></div></a>
+    <a class="door" href="#hotel"><img src="img/hab-triple.jpg" alt="Habitación triple del hotel"><div class="door__txt"><div><small>Hotel</small><h3>Dormir aquí</h3><p>Dieciséis habitaciones con parking y Wi-Fi gratis.</p></div><span class="door__go"><svg><use href="#arr"/></svg></span></div></a>
+  </section>
 
-      <div class="stay">
-        <div>
-          <h3 class="rise">Todo para su estancia</h3>
-          <ul class="svc">
-            <li class="rise"><b>Wi-Fi gratis</b><span>En habitaciones y zonas comunes</span></li>
-            <li class="rise"><b>Parking gratuito</b><span>Junto al hotel</span></li>
-            <li class="rise"><b>Aire acondicionado</b><span>Y calefacción en invierno</span></li>
-            <li class="rise"><b>Baño privado</b><span>Secador, toallas, ducha o bañera</span></li>
-            <li class="rise"><b>Restaurante y bar</b><span>Desayuno típico, comidas y cenas</span></li>
-            <li class="rise"><b>Terraza-solárium</b><span>Y bar lounge</span></li>
-            <li class="rise"><b>Admite mascotas</b><span>Con suplemento</span></li>
-            <li class="rise"><b>Consigna de equipaje</b><span>A la llegada o a la salida</span></li>
-          </ul>
+  <!-- ===== RESTAURANTE ===== -->
+  <section class="rest light" id="restaurante" aria-labelledby="t-rest">
+    <div class="w">
+      <div class="head"><div><small>El restaurante</small><h2 id="t-rest" class="split">Cocina de la tierra, <em>sin prisas</em></h2></div><p class="up">Raciones generosas, vino joven de la zona y un comedor amplio. Del primer café de la mañana a la cena con amigos.</p></div>
+
+      <div class="svc-tabs">
+        <div class="svc-list" role="tablist" aria-label="Servicios del restaurante" id="svcList">
+          <button role="tab" aria-selected="true" data-k="0"><b>Desayunos</b><span>Cada mañana</span><p>Desayuno típico de la zona en la cafetería, para empezar el día o antes de salir de ruta.</p></button>
+          <button role="tab" aria-selected="false" data-k="1"><b>Menú del día</b><span>Al mediodía</span><p>Cocina casera con primero, segundo y postre, a buen precio y sin quedarse con hambre.</p></button>
+          <button role="tab" aria-selected="false" data-k="2"><b>Comidas y cenas</b><span>Mediodía y noche</span><p>Comedor interior para familias, grupos y viajeros. Pregunte por los platos de la casa.</p></button>
+          <button role="tab" aria-selected="false" data-k="3"><b>Bar y cafetería</b><span>Todo el día</span><p>La barra de piedra para el café, la caña y el tempranillo de la tierra.</p></button>
+          <button role="tab" aria-selected="false" data-k="4"><b>Terraza</b><span>Con buen tiempo</span><p>Terraza cubierta con toldo para comer, tomar algo o alargar la sobremesa.</p></button>
         </div>
-        <div class="slider rise" id="slider" role="region" aria-roledescription="carrusel" aria-label="Fotos del hotel" tabindex="0">
-          <div class="slider__win"><div class="slider__track" id="strack">
-            <figure><img src="img/salon.jpg" alt="Salón con sofá de piel" loading="lazy"></figure>
-            <figure><img src="img/balcon.jpg" alt="Balcón con balaustrada" loading="lazy"></figure>
-            <figure><img src="img/bano.jpg" alt="Baño con lavabo" loading="lazy"></figure>
-            <figure><img src="img/escalera.jpg" alt="Escalera de las habitaciones" loading="lazy"></figure>
-            <figure><img src="img/hab-roja.jpg" alt="Habitación con toallas sobre la cama" loading="lazy"></figure>
-          </div></div>
-          <div class="slider__bar"><p class="slider__cap" id="scap" aria-live="polite">El salón</p>
-            <div class="slider__ctrl"><span class="slider__count" id="scount">1 / 5</span>
-              <button type="button" id="sprev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
-              <button type="button" id="snext" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
+        <div class="svc-view up" id="svcView">
+          <img class="on" src="img/cafeteria.jpg" alt="Cafetería del restaurante">
+          <img src="img/mesa.jpg" alt="Mesa preparada con mantel y copas" loading="lazy">
+          <img src="img/comedor.jpg" alt="Comedor con ventanales en arco" loading="lazy">
+          <img src="img/bar.jpg" alt="Barra de piedra con el rótulo La Barca" loading="lazy">
+          <img src="img/terraza.jpg" alt="Terraza con toldo granate" loading="lazy">
+          <span class="tag" id="svcTag">La cafetería</span>
         </div>
       </div>
 
-      <div class="reserve rise">
-        <h3>Reserve su habitación</h3>
-        <p>Llámenos o escríbanos por WhatsApp y le confirmamos disponibilidad y precio para sus fechas.</p>
-        <a class="tel" href="tel:+34722856875">722 85 68 75</a>
-        <div class="btns"><a class="btn btn--ink" href="tel:+34722856875">Llamar</a><a class="btn btn--line" href="https://wa.me/34722856875?text=Hola%2C%20quer%C3%ADa%20consultar%20disponibilidad%20en%20el%20Hotel%20La%20Barca" target="_blank" rel="noopener">WhatsApp</a></div>
+      <div class="quote up">
+        <svg viewBox="0 0 64 48" fill="currentColor" aria-hidden="true"><path d="M0 48V28C0 12 8 3 24 0l3 6C17 9 13 15 13 22h11v26zm36 0V28c0-16 8-25 24-28l3 6c-10 3-14 9-14 16h11v26z"/></svg>
+        <div><blockquote>Muy buena la relación entre precio y menú. No son rácanos en las raciones, ni el vino, que es un tempranillo joven de la zona.</blockquote><cite>Opinión de un cliente en Tripadvisor</cite></div>
+      </div>
+
+      <div class="rest-cta up">
+        <div><h3>¿Le guardamos mesa?</h3><p>Llámenos para reservar o para preguntar el menú de hoy. Grupos y celebraciones, consúltenos.</p></div>
+        <div class="btns"><a class="btn btn--dark" href="tel:+34722856875"><svg><use href="#phone"/></svg>722 85 68 75</a><a class="btn btn--ghost" href="https://wa.me/34722856875?text=Hola%2C%20quer%C3%ADa%20reservar%20mesa%20en%20La%20Barca" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a></div>
       </div>
     </div>
   </section>
-  <div class="checks" aria-hidden="true"></div>
 
-  <!-- ===== LA LAGUNA ===== -->
-  <section class="lake day" id="laguna" aria-labelledby="t-lake">
-    <div class="band band--stone" aria-hidden="true"><div class="band__row">
-      <span>Laguna del Pueblo</span><span>Flamencos</span><span>Aves de paso</span><span>Atardeceres</span>
-      <span>Laguna del Pueblo</span><span>Flamencos</span><span>Aves de paso</span><span>Atardeceres</span>
-    </div></div>
+  <!-- ===== HOTEL ===== -->
+  <section class="hotel dark" id="hotel" aria-labelledby="t-hotel">
     <div class="w">
-      <div class="sign-wrap"><div class="sign" data-swing><h2 id="t-lake">La laguna</h2></div></div>
-      <p class="lead rise">Donde la barca tiene su nombre: flamencos y aves de paso sobre el agua, a pocos minutos de su habitación.</p>
-      <div class="lake__grid">
-        <figure><div class="ph reveal" style="--i:0"><img src="img/laguna-2.jpg" alt="Laguna con aves al fondo y carrizo" loading="lazy" data-par=".08"></div><figcaption>Laguna del Pueblo</figcaption></figure>
-        <figure><div class="ph reveal" style="--i:1"><img src="img/laguna.jpg" alt="Laguna del Pueblo con flamencos" loading="lazy" data-par=".12"></div><figcaption>Flamencos en la laguna</figcaption></figure>
-        <figure><div class="ph reveal" style="--i:2"><img src="img/iglesia.jpg" alt="Iglesia de San Pedro Apóstol" loading="lazy" data-par=".08"></div><figcaption>San Pedro Apóstol</figcaption></figure>
+      <div class="head"><div><small>El hotel</small><h2 id="t-hotel" class="split">Descanse <em>a dos pasos</em> del agua</h2></div><p class="up">Dieciséis habitaciones cuidadas, con aparcamiento en la puerta y el restaurante abajo. Elija la suya.</p></div>
+    </div>
+    <div class="rooms" id="rooms">
+      <div class="rooms__track" id="rtrack">
+        <article class="room" style="--i:0"><div class="room__pic"><img src="img/hab-doble.jpg" alt="Habitación doble"></div><div class="room__txt"><h3>Doble</h3><p>Cama de matrimonio, cabecero de madera y colores cálidos.</p><div class="chips"><span>2 personas</span><span>Matrimonio</span><span>Baño privado</span></div><a href="#reservar" data-room="Doble">Consultar disponibilidad <svg><use href="#arr"/></svg></a></div></article>
+        <article class="room" style="--i:1"><div class="room__pic"><img src="img/hab-twin.jpg" alt="Habitación con dos camas"></div><div class="room__txt"><h3>Dos camas</h3><p>Dos camas individuales y mesa, ideal para amigos o viajes de trabajo.</p><div class="chips"><span>2 personas</span><span>2 individuales</span><span>Mesa</span></div><a href="#reservar" data-room="Dos camas">Consultar disponibilidad <svg><use href="#arr"/></svg></a></div></article>
+        <article class="room" style="--i:2"><div class="room__pic"><img src="img/hab-triple.jpg" alt="Habitación triple"></div><div class="room__txt"><h3>Triple</h3><p>Espacio para tres: perfecta para familias con niños.</p><div class="chips"><span>3 personas</span><span>Familias</span><span>Baño privado</span></div><a href="#reservar" data-room="Triple">Consultar disponibilidad <svg><use href="#arr"/></svg></a></div></article>
+        <article class="room" style="--i:3"><div class="room__pic"><img src="img/jacuzzi.jpg" alt="Bañera de hidromasaje"></div><div class="room__txt"><h3>Hidromasaje</h3><p>Con bañera de hidromasaje para un descanso extra después del viaje.</p><div class="chips"><span>2 personas</span><span>Hidromasaje</span><span>Aire acondicionado</span></div><a href="#reservar" data-room="Hidromasaje">Consultar disponibilidad <svg><use href="#arr"/></svg></a></div></article>
+        <article class="room" style="--i:4"><div class="room__pic"><img src="img/hab-balcon.jpg" alt="Habitación con balcón"></div><div class="room__txt"><h3>Con balcón</h3><p>Salida al balcón de balaustrada, con luz natural.</p><div class="chips"><span>2 personas</span><span>Balcón</span><span>Luz natural</span></div><a href="#reservar" data-room="Con balcón">Consultar disponibilidad <svg><use href="#arr"/></svg></a></div></article>
       </div>
-      <p class="lake__text rise">Pedro Muñoz es tierra de lagunas, vino y harina. Desde el hotel se llega a pie a la Laguna del Pueblo y al Centro de Interpretación de los Humedales. Y si quiere más Mancha, los molinos y los pueblos del Quijote quedan a un paso en coche.</p>
+      <div class="w rooms__nav"><div class="rooms__bar"><i id="rbar"></i></div><button id="rprev" aria-label="Habitación anterior"><svg><use href="#arl"/></svg></button><button id="rnext" aria-label="Habitación siguiente"><svg><use href="#arr"/></svg></button></div>
+    </div>
+
+    <div class="w amen">
+      <div><h3 class="up">Todo incluido en su estancia</h3><p class="up" style="--i:1">Si viaja con su perro, también es bienvenido. Guardamos su equipaje a la llegada y a la salida.</p></div>
+      <ul>
+        <li class="up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg><div><b>Wi-Fi gratis</b><span>En todo el hotel</span></div></li>
+        <li class="up" style="--i:1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 17V8h3.5a2.5 2.5 0 0 1 0 5H9"/></svg><div><b>Parking gratuito</b><span>Junto a la entrada</span></div></li>
+        <li class="up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v20M4 6l16 12M20 6 4 18"/></svg><div><b>Aire acondicionado</b><span>Y calefacción en invierno</span></div></li>
+        <li class="up" style="--i:1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 12h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM6 12V5a2 2 0 0 1 4 0"/></svg><div><b>Baño privado</b><span>Secador, toallas, ducha o bañera</span></div></li>
+        <li class="up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 3v8a2 2 0 0 0 4 0V3M9 11v10M17 21V3c-2 1-3 4-3 7h3"/></svg><div><b>Restaurante y bar</b><span>Desayuno típico, comidas y cenas</span></div></li>
+        <li class="up" style="--i:1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></svg><div><b>Terraza-solárium</b><span>Y bar lounge</span></div></li>
+        <li class="up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="9" r="2"/><circle cx="10" cy="5" r="2"/><circle cx="14" cy="5" r="2"/><circle cx="18" cy="9" r="2"/><path d="M8 17c0-3 2-5 4-5s4 2 4 5-2 3-4 3-4 0-4-3z"/></svg><div><b>Admite mascotas</b><span>Con suplemento</span></div></li>
+        <li class="up" style="--i:1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="5" y="7" width="14" height="13" rx="2"/><path d="M9 7V4h6v3M5 12h14"/></svg><div><b>Consigna de equipaje</b><span>A la llegada o a la salida</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== GALERÍA ===== -->
+  <section class="gallery" id="galeria" aria-labelledby="t-gal">
+    <div class="w">
+      <div class="head"><div><small>Galería</small><h2 id="t-gal" class="split">Pase y <em>mire</em></h2></div><p class="up">Toque cualquier foto para verla en grande.</p></div>
+      <div class="filters" role="group" aria-label="Filtrar fotos"><button aria-pressed="true" data-f="todo">Todo</button><button aria-pressed="false" data-f="rest">Restaurante</button><button aria-pressed="false" data-f="hotel">Hotel</button></div>
+      <div class="grid" id="grid">
+        <figure data-c="rest" class="up"><img src="img/comedor.jpg" alt="Comedor principal" loading="lazy"><figcaption>Comedor principal</figcaption></figure>
+        <figure data-c="hotel" class="up"><img src="img/hab-roja.jpg" alt="Habitación doble con toallas" loading="lazy"><figcaption>Habitación doble</figcaption></figure>
+        <figure data-c="rest" class="up"><img src="img/bar-2.jpg" alt="Barra y cafetería" loading="lazy"><figcaption>La cafetería</figcaption></figure>
+        <figure data-c="hotel" class="up"><img src="img/salon.jpg" alt="Salón con sofá" loading="lazy"><figcaption>El salón</figcaption></figure>
+        <figure data-c="rest" class="up"><img src="img/comedor-3.jpg" alt="Comedor de suelo ajedrezado" loading="lazy"><figcaption>Comedor ajedrezado</figcaption></figure>
+        <figure data-c="hotel" class="up"><img src="img/bano.jpg" alt="Baño" loading="lazy"><figcaption>El baño</figcaption></figure>
+        <figure data-c="rest" class="up"><img src="img/terraza-3.jpg" alt="Terraza con mesas blancas" loading="lazy"><figcaption>La terraza</figcaption></figure>
+        <figure data-c="hotel" class="up"><img src="img/balcon.jpg" alt="Balcón con balaustrada" loading="lazy"><figcaption>El balcón</figcaption></figure>
+        <figure data-c="hotel" class="up"><img src="img/entrada.jpg" alt="Entrada con porche" loading="lazy"><figcaption>La entrada</figcaption></figure>
+        <figure data-c="hotel" class="up"><img src="img/hab-menta.jpg" alt="Habitación con dos camas y paredes verdes" loading="lazy"><figcaption>Habitación dos camas</figcaption></figure>
+        <figure data-c="rest" class="up"><img src="img/mesa.jpg" alt="Mesa vestida" loading="lazy"><figcaption>Mesa lista</figcaption></figure>
+        <figure data-c="hotel" class="up"><img src="img/escalera.jpg" alt="Escalera" loading="lazy"><figcaption>Zonas comunes</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LAGUNA ===== -->
+  <section class="lake" id="laguna" aria-labelledby="t-lake">
+    <img src="img/laguna-2.jpg" alt="Laguna del Pueblo con aves al fondo y carrizo" id="lakeImg" loading="lazy">
+    <div class="w">
+      <h2 id="t-lake" class="up">Flamencos a la <em>vuelta de la esquina</em></h2>
+      <div><p class="up" style="--i:1">Desde el hotel se llega a pie a la Laguna del Pueblo y al Centro de Interpretación de los Humedales. Pedro Muñoz es tierra de lagunas, vino y harina, y los molinos y pueblos del Quijote quedan a un paso en coche.</p>
+        <div class="lake__more up" style="--i:2"><span>Laguna del Pueblo</span><span>Centro de Humedales</span><span>Iglesia de San Pedro</span><span>Ruta del Quijote</span></div></div>
     </div>
   </section>
 
   <!-- ===== CONTACTO ===== -->
   <section class="contact" id="contacto" aria-labelledby="t-contact">
     <div class="w">
-      <div class="sign-wrap"><div class="sign" data-swing><h2 id="t-contact">Cómo llegar</h2></div></div>
-      <p class="lead rise">En la avenida de la Constitución, a la entrada de Pedro Muñoz, junto al Parque Gloria.</p>
+      <div class="head"><div><small>Contacto</small><h2 id="t-contact" class="split">Le <em>esperamos</em></h2></div><p class="up">Avenida de la Constitución, 34, a la entrada de Pedro Muñoz, junto al Parque Gloria.</p></div>
       <div class="contact__grid">
-        <div class="map rise"><iframe title="Mapa del Hotel Restaurante La Barca" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Hotel%20Restaurante%20La%20Barca%2C%20Av.%20de%20la%20Constituci%C3%B3n%2034%2C%2013620%20Pedro%20Mu%C3%B1oz&z=16&output=embed"></iframe></div>
-        <div class="cside">
-          <div class="rise"><h3>Teléfono</h3><a class="tel" href="tel:+34722856875">722 85 68 75</a></div>
-          <div class="rise" style="--i:1"><h3>Dirección</h3><address>Av. de la Constitución, 34<br>13620 Pedro Muñoz, Ciudad Real</address></div>
-          <div class="btns rise" style="--i:2"><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Restaurante%20La%20Barca%2C%20Pedro%20Mu%C3%B1oz" target="_blank" rel="noopener">Cómo llegar</a><a class="btn btn--ox" href="tel:+34722856875">Llamar ahora</a></div>
-          <div class="rise" style="--i:3"><h3>Síganos</h3>
+        <div class="map up"><iframe title="Mapa del Hotel Restaurante La Barca" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Hotel%20Restaurante%20La%20Barca%2C%20Av.%20de%20la%20Constituci%C3%B3n%2034%2C%2013620%20Pedro%20Mu%C3%B1oz&z=16&output=embed"></iframe></div>
+        <div class="card-info up" style="--i:1">
+          <div><small>Teléfono y WhatsApp</small><a class="tel" href="tel:+34722856875">722 85 68 75</a></div>
+          <div><small>Dirección</small><address>Av. de la Constitución, 34<br>13620 Pedro Muñoz, Ciudad Real</address></div>
+          <div class="btns"><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Restaurante%20La%20Barca%2C%20Pedro%20Mu%C3%B1oz" target="_blank" rel="noopener">Cómo llegar <svg><use href="#arr"/></svg></a><a class="btn btn--ghost" href="https://wa.me/34722856875" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a></div>
+          <div><small>Síganos</small>
             <div class="social">
-              <a href="https://wa.me/34722856875" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>WhatsApp</a>
-              <a href="https://www.google.com/maps/place/Hotel+Restaurante+La+Barca/@39.4068909,-2.9505723,17z" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Google Maps</a>
+              <a href="https://wa.me/34722856875" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#wa"/></svg></a>
+              <a href="https://www.google.com/maps/place/Hotel+Restaurante+La+Barca/@39.4068909,-2.9505723,17z" target="_blank" rel="noopener" aria-label="Google Maps"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></a>
               <!-- Instagram: pendiente del enlace. Para activarlo, quitar "hidden" y poner el href. -->
-              <a href="#" hidden data-red="instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</a>
+              <a href="#" hidden data-red="instagram" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
             </div>
           </div>
-          <figure class="fachada" style="margin:0"><img src="img/fachada.jpg" alt="Fachada del Hotel Restaurante La Barca con su rótulo" loading="lazy"></figure>
         </div>
       </div>
     </div>
@@ -548,190 +549,148 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 90; pointer-event
 
 <footer class="foot">
   <div class="w">
-    <div class="roof" id="roof" aria-hidden="true"><span>Hotel</span><span class="big">Restaurante La Barca</span><span class="end">Hotel</span></div>
+    <div class="foot__big" aria-hidden="true">La Barca</div>
     <div class="foot__row">
       <div><h4>Restaurante</h4><ul><li><a href="#restaurante">Desayunos</a></li><li><a href="#restaurante">Menú del día</a></li><li><a href="#restaurante">Comidas y cenas</a></li><li><a href="#restaurante">Terraza</a></li></ul></div>
-      <div><h4>Hotel</h4><ul><li><a href="#hotel">Habitaciones</a></li><li><a href="#hotel">Servicios</a></li><li><a href="#laguna">La laguna</a></li></ul></div>
+      <div><h4>Hotel</h4><ul><li><a href="#hotel">Habitaciones</a></li><li><a href="#hotel">Servicios</a></li><li><a href="#galeria">Galería</a></li><li><a href="#laguna">La laguna</a></li></ul></div>
       <div><h4>Contacto</h4><ul><li><a href="tel:+34722856875">722 85 68 75</a></li><li><a href="https://wa.me/34722856875" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
       <div><h4>Dónde</h4><p>Av. de la Constitución, 34<br>13620 Pedro Muñoz, Ciudad Real</p></div>
     </div>
-    <p class="credits">Fotos del entorno: <a href="https://commons.wikimedia.org/w/index.php?curid=57626977">“Laguna del Pueblo, Pedro Muñoz - 1”</a> y <a href="https://commons.wikimedia.org/w/index.php?curid=57627264">“- 2”</a> de Gato Preto, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>; <a href="https://commons.wikimedia.org/w/index.php?curid=4752667">“Parroquia de San Pedro Apóstol en Pedro Muñoz”</a> de Thor8, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>; vía Wikimedia Commons.</p>
+    <p class="credits">Fotos de la laguna: <a href="https://commons.wikimedia.org/w/index.php?curid=57626977">“Laguna del Pueblo, Pedro Muñoz - 1”</a> y <a href="https://commons.wikimedia.org/w/index.php?curid=57627264">“- 2”</a> de Gato Preto, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, vía Wikimedia Commons.</p>
     <div class="foot__end"><span>© <span id="year">2026</span> Hotel Restaurante La Barca · Pedro Muñoz</span><span>Hotel ★★★</span></div>
   </div>
 </footer>
 
+<div class="float"><a href="tel:+34722856875" aria-label="Llamar"><svg><use href="#phone"/></svg></a><a href="https://wa.me/34722856875" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#wa"/></svg></a></div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button class="x" id="lbx" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="pv" id="lbp" aria-label="Anterior"><svg><use href="#arl"/></svg></button>
+  <button class="nx" id="lbn" aria-label="Siguiente"><svg><use href="#arr"/></svg></button>
+  <figure style="margin:0"><img id="lbimg" src="img/comedor.jpg" alt=""><p id="lbcap"></p></figure>
+</div>
+
 <script>
 (() => {
-  const root = document.documentElement; root.classList.add('js');
+  document.documentElement.classList.add('js');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-  const eio = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-  const mobile = () => innerWidth <= 760;
   $('#year').textContent = new Date().getFullYear();
+  const PHONE = '34722856875';
 
-  // título de portada letra a letra
-  let c = 0;
-  $$('.hero__title h1 > span').forEach(sp => { const t = sp.textContent; sp.textContent = ''; [...t].forEach(ch => { if (ch === ' ') { sp.append(' '); return; } const e = document.createElement('span'); e.className = 'ch'; e.style.setProperty('--c', c++); e.textContent = ch; sp.appendChild(e); }); });
+  // cabecera
+  const bar = $('#bar');
+  const onScroll = () => bar.classList.toggle('solid', scrollY > 60);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-  // pantalla de carga
-  const loader = $('#loader');
-  let intro = reduce ? 1 : 0, introStart = 0;
-  function start() {
-    document.body.classList.remove('loading');
-    loader.classList.add('done');
-    root.classList.add('ready');
-    introStart = performance.now();
-    setTimeout(() => loader.remove(), 1100);
+  // menú móvil
+  const mnav = $('#mnav'), burger = $('#burger');
+  const openM = o => { mnav.classList.toggle('on', o); mnav.setAttribute('aria-hidden', !o); burger.setAttribute('aria-expanded', o); };
+  burger.addEventListener('click', () => openM(true)); $('#mclose').addEventListener('click', () => openM(false));
+  mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => openM(false)));
+
+  // portada: pase de fotos de cine
+  const slides = $$('#slides img'), dots = $('#dots'), cap = $('#heroCap');
+  let si = 0, st;
+  slides.forEach((_, i) => { const b = document.createElement('button'); b.setAttribute('aria-label', 'Foto ' + (i + 1)); b.addEventListener('click', () => show(i)); dots.appendChild(b); });
+  function show(i) {
+    si = (i + slides.length) % slides.length;
+    slides.forEach((im, j) => im.classList.toggle('on', j === si));
+    [...dots.children].forEach((d, j) => d.setAttribute('aria-current', j === si));
+    cap.textContent = slides[si].dataset.cap;
+    clearTimeout(st); st = setTimeout(() => show(si + 1), 6000);
   }
-  if (reduce) { loader.remove(); document.body.classList.remove('loading'); root.classList.add('ready'); }
-  else { const go = () => setTimeout(start, 1750); if (document.readyState === 'complete') go(); else addEventListener('load', go); setTimeout(() => { if (document.body.classList.contains('loading')) start(); }, 4500); }
+  show(0);
 
-  // elementos de las escenas
-  const heroStage = $('#heroStage'), hero = $('.hero'), heroImg = $('#heroImg'), heroTitle = $('#heroTitle'), heroEnd = $('#heroEnd'), heroShade = $('#heroShade'), heroHint = $('#heroHint');
-  const hs = $('#hs'), hsTrack = $('#hsTrack'), hsCount = $('#hsCount'), panels = $$('.panel'), panelImgs = $$('.panel__pic img');
-  const dawn = $('#hotel'), dawnSun = $('#dawnSun'), dawnIn = $('#dawnIn'), dawnSky = $('#dawnSky');
-  const cards = $$('.card'), par = $$('[data-par]');
-  const bar = $('#bar'), vboat = $('#vboat');
-  const roman = ['i', 'ii', 'iii', 'iv', 'v'];
-  const days = $$('.day');
+  // reserva rápida: pestañas y envío por WhatsApp
+  const tabs = [$('#tHotel'), $('#tMesa')], forms = [$('#fHotel'), $('#fMesa')];
+  tabs.forEach((t, i) => t.addEventListener('click', () => { tabs.forEach((x, j) => x.setAttribute('aria-selected', i === j)); forms.forEach((f, j) => f.hidden = i !== j); }));
+  const today = new Date().toISOString().slice(0, 10);
+  $$('.quick input[type=date]').forEach(d => d.min = today);
+  const fmt = v => v ? new Date(v + 'T12:00').toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' }) : '';
+  let roomPick = '';
+  $$('[data-room]').forEach(a => a.addEventListener('click', () => { roomPick = a.dataset.room; tabs[0].click(); }));
+  forms[0].addEventListener('submit', e => { e.preventDefault(); const f = new FormData(e.target);
+    const msg = `Hola, quería consultar disponibilidad en el Hotel La Barca${roomPick ? ' (habitación ' + roomPick + ')' : ''}: llegada el ${fmt(f.get('in'))}, salida el ${fmt(f.get('out'))}, ${f.get('p')} persona(s). Gracias.`;
+    window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg), '_blank', 'noopener'); });
+  forms[1].addEventListener('submit', e => { e.preventDefault(); const f = new FormData(e.target);
+    const msg = `Hola, quería reservar mesa en La Barca el ${fmt(f.get('d'))} a las ${f.get('h')} para ${f.get('c')} persona(s). Gracias.`;
+    window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg), '_blank', 'noopener'); });
 
-  function sizeHS() {
-    if (mobile() || reduce) { hs.style.height = ''; return; }
-    hs.style.height = (hsTrack.scrollWidth - innerWidth + innerHeight) + 'px';
+  // restaurante: lista con foto que se barre
+  const sbtn = $$('#svcList button'), simg = $$('#svcView img'), stag = $('#svcTag');
+  const stags = ['La cafetería', 'Mesa lista', 'El comedor', 'La barra de piedra', 'La terraza'];
+  let sc = 0, stm;
+  function svc(k) {
+    if (k === sc) return;
+    sbtn.forEach((b, j) => b.setAttribute('aria-selected', j === k));
+    simg.forEach(im => { im.classList.toggle('was', im.classList.contains('on')); im.classList.remove('on'); });
+    simg[k].classList.add('on'); stag.textContent = stags[k]; sc = k;
+    clearTimeout(stm); stm = setTimeout(() => simg.forEach(im => im.classList.remove('was')), 950);
   }
-  addEventListener('resize', sizeHS); addEventListener('load', sizeHS); sizeHS();
+  sbtn.forEach(b => { b.addEventListener('click', () => svc(+b.dataset.k)); if (fine) b.addEventListener('pointerenter', () => svc(+b.dataset.k)); });
+  $('#svcList').addEventListener('keydown', e => { const d = e.key === 'ArrowDown' ? 1 : e.key === 'ArrowUp' ? -1 : 0; if (d) { e.preventDefault(); const k = (sc + d + 5) % 5; svc(k); sbtn[k].focus(); } });
 
-  let lastY = scrollY;
-  function frame(now) {
-    const W = innerWidth, H = innerHeight, y = scrollY;
-
-    // cabecera: sólida fuera de la portada, clara en el "día", se esconde al bajar
-    const heroEndY = hero.offsetTop + hero.offsetHeight - H;
-    bar.classList.toggle('solid', y > heroEndY - 10);
-    const dayZone = days.some(el => { const r = el.getBoundingClientRect(); return r.top < 60 && r.bottom > 60; });
-    bar.classList.toggle('is-day', dayZone);
-    if (y > H && y > lastY + 4) bar.classList.add('is-hidden'); else if (y < lastY - 4 || y < H) bar.classList.remove('is-hidden');
-    lastY = y;
-
-    // la barca de la travesía (progreso de lectura)
-    const prog = clamp(y / (document.documentElement.scrollHeight - H));
-    vboat.style.transform = `translateX(${prog * (W - 58)}px)`;
-
-    if (!reduce) {
-      // PORTADA: intro (el arco crece desde una línea) + scroll (el arco se abre hasta llenar la pantalla)
-      if (introStart) intro = clamp((now - introStart) / 1300);
-      const ip = eio(intro);
-      const p = clamp(-hero.getBoundingClientRect().top / (hero.offsetHeight - H));
-      const e = eio(clamp(p / .78));
-      const aw = mobile() ? W * .62 : Math.min(W * .3, 460), ah = H * (mobile() ? .44 : .5);
-      const top0 = H - ah - H * .05;
-      const left = (W - aw) / 2 * (1 - e), bottom = H * .05 * (1 - e);
-      const topBase = top0 * (1 - e);
-      const top = H - (H - topBase) * ip; // durante la intro sube desde abajo
-      const r = (aw / 2) * (1 - e);
-      heroImg.style.clipPath = `inset(${top}px ${left}px ${bottom}px ${left}px round ${r}px ${r}px 0 0)`;
-      heroImg.style.transform = `scale(${1.25 - .25 * e})`;
-      heroTitle.style.transform = `translateY(${-e * H * .25}px)`;
-      heroTitle.style.opacity = 1 - clamp(p / .45);
-      heroHint.style.opacity = (1 - clamp(p / .15)) * ip;
-      heroShade.style.opacity = clamp((p - .55) / .3);
-      const k = clamp((p - .7) / .22);
-      heroEnd.style.opacity = k; heroEnd.style.transform = `translateY(${(1 - k) * 30}px)`;
-      heroEnd.classList.toggle('on', k > .5);
-
-      // RESTAURANTE: recorrido horizontal
-      if (!mobile()) {
-        const q = clamp(-hs.getBoundingClientRect().top / (hs.offsetHeight - H));
-        const dist = hsTrack.scrollWidth - W;
-        hsTrack.style.transform = `translate3d(${-q * dist}px,0,0)`;
-        panelImgs.forEach((im, i) => { const pr = panels[i].getBoundingClientRect(); const d = (pr.left + pr.width / 2 - W / 2) / W; im.style.transform = `scale(1.15) translateX(${d * -8}%)`; });
-        hsCount.textContent = `${roman[Math.min(4, Math.round(q * 4))]} / v`;
-      }
-
-      // AMANECER: el día sale por el horizonte
-      const dp = clamp(-dawn.getBoundingClientRect().top / (dawn.offsetHeight - H));
-      const R = Math.hypot(W / 2, H * 1.08) * 1.05;
-      dawnSun.style.clipPath = `circle(${eio(clamp(dp / .7)) * R}px at 50% 108%)`;
-      const di = clamp((dp - .55) / .3);
-      dawnIn.style.opacity = di; dawnIn.style.transform = `translateY(${(1 - di) * 30}px)`;
-      dawnSky.style.opacity = 1 - clamp(dp / .45);
-      dawnSky.style.transform = `translateY(${-dp * 60}px)`;
-
-      // HABITACIONES: las tarjetas se apilan
-      if (!mobile()) cards.forEach((cd, i) => {
-        const next = cards[i + 1]; if (!next) { cd.style.transform = ''; return; }
-        const nt = next.getBoundingClientRect().top, ct = cd.getBoundingClientRect().top;
-        const q = clamp((H - nt) / (H - ct));
-        cd.style.transform = `scale(${1 - q * .06})`;
-        cd.style.filter = `brightness(${1 - q * .12})`;
-      });
-
-      // parallax suave en la laguna
-      par.forEach(im => { const b = im.parentElement.getBoundingClientRect(); if (b.bottom < 0 || b.top > H) return; const t = (b.top + b.height / 2 - H / 2) / H; im.style.transform = `translateY(${t * -100 * +im.dataset.par}%)`; });
-    }
-    requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-
-  // placas colgantes con muelle
-  const signs = $$('[data-swing]').map(el => ({ el, a: 0, v: 0, ready: false }));
-  let pY = scrollY;
-  (function swing() { const y = scrollY, kick = (y - pY) * .06; pY = y; signs.forEach(s => { if (!s.ready) return; s.v += -s.a * .06 - s.v * .12 + kick * .5; s.a = clamp(s.a + s.v, -7, 7); s.el.style.transform = `rotate(${s.a.toFixed(2)}deg)`; }); if (!reduce) requestAnimationFrame(swing); })();
-
-  // cursor (sólo ratón)
-  if (fine && !reduce) {
-    const cur = $('#cur'); let x = -100, y = -100, tx = -100, ty = -100;
-    addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
-    document.addEventListener('pointerover', e => { cur.classList.toggle('big', !!e.target.closest('a, button, .rail figure, .panel__pic, .card__pic, .slider__win')); });
-    (function f() { x += (tx - x) * .2; y += (ty - y) * .2; cur.style.transform = `translate(${x}px, ${y}px)`; requestAnimationFrame(f); })();
-  }
-
-  // salones: carril que se arrastra
-  const rail = $('#rail'); const step = () => rail.querySelector('figure').offsetWidth + 20;
-  $('#railNext').addEventListener('click', () => rail.scrollBy({ left: step(), behavior: reduce ? 'auto' : 'smooth' }));
-  $('#railPrev').addEventListener('click', () => rail.scrollBy({ left: -step(), behavior: reduce ? 'auto' : 'smooth' }));
+  // habitaciones: carril arrastrable con barra de progreso
+  const rt = $('#rtrack'), rbar = $('#rbar');
+  const step = () => rt.querySelector('.room').offsetWidth + 18;
+  $('#rnext').addEventListener('click', () => rt.scrollBy({ left: step(), behavior: reduce ? 'auto' : 'smooth' }));
+  $('#rprev').addEventListener('click', () => rt.scrollBy({ left: -step(), behavior: reduce ? 'auto' : 'smooth' }));
+  const upd = () => { const max = rt.scrollWidth - rt.clientWidth; const vis = rt.clientWidth / rt.scrollWidth; rbar.style.width = (vis * 100) + '%'; rbar.style.transform = `translateX(${max ? (rt.scrollLeft / max) * (1 / vis - 1) * 100 : 0}%)`; };
+  rt.addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd); upd();
   if (fine) {
-    let down = false, sx = 0, sl = 0;
-    rail.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; sx = e.clientX; sl = rail.scrollLeft; rail.classList.add('drag'); rail.setPointerCapture(e.pointerId); });
-    rail.addEventListener('pointermove', e => { if (down) rail.scrollLeft = sl - (e.clientX - sx); });
-    const up = () => { if (!down) return; down = false; rail.classList.remove('drag'); const w = step(); rail.scrollTo({ left: Math.round(rail.scrollLeft / w) * w, behavior: 'smooth' }); };
-    rail.addEventListener('pointerup', up); rail.addEventListener('pointercancel', up);
+    let down = false, sx = 0, sl = 0, moved = false;
+    rt.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = rt.scrollLeft; });
+    addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - sx; if (Math.abs(dx) > 4) { moved = true; rt.classList.add('drag'); } rt.scrollLeft = sl - dx; });
+    addEventListener('pointerup', () => { if (!down) return; down = false; rt.classList.remove('drag'); const w = step(); rt.scrollTo({ left: Math.round(rt.scrollLeft / w) * w, behavior: 'smooth' }); });
+    rt.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
   }
 
-  // carrusel del hotel
-  (() => {
-    const sl = $('#slider'), track = $('#strack'), n = track.children.length, DUR = 5000;
-    const caps = ['El salón', 'El balcón', 'El baño', 'La escalera', 'Habitación lista'];
-    let i = 0, tm, vis = false, hov = false;
-    function go(k) { i = (k + n) % n; track.style.transform = `translateX(${-i * 100}%)`; $('#scap').textContent = caps[i]; $('#scount').textContent = `${i + 1} / ${n}`; plan(); }
-    function plan() { clearTimeout(tm); if (!reduce && vis && !hov) tm = setTimeout(() => go(i + 1), DUR); }
-    $('#snext').addEventListener('click', () => go(i + 1)); $('#sprev').addEventListener('click', () => go(i - 1));
-    sl.addEventListener('keydown', e => { if (e.key === 'ArrowRight') go(i + 1); if (e.key === 'ArrowLeft') go(i - 1); });
-    sl.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { hov = true; plan(); } });
-    sl.addEventListener('pointerleave', () => { hov = false; plan(); });
-    const win = sl.querySelector('.slider__win'); let x0 = null, dx = 0, t0 = 0;
-    win.addEventListener('pointerdown', e => { x0 = e.clientX; dx = 0; t0 = performance.now(); track.style.transition = 'none'; win.setPointerCapture(e.pointerId); });
-    win.addEventListener('pointermove', e => { if (x0 === null) return; dx = e.clientX - x0; track.style.transform = `translateX(calc(${-i * 100}% + ${dx}px))`; });
-    const end = () => { if (x0 === null) return; track.style.transition = ''; const v = Math.abs(dx) / (performance.now() - t0); x0 = null; if (Math.abs(dx) > win.offsetWidth * .15 || v > .11) go(i + (dx < 0 ? 1 : -1)); else go(i); };
-    win.addEventListener('pointerup', end); win.addEventListener('pointercancel', end);
-    new IntersectionObserver(es => { vis = es[0].isIntersecting; plan(); }, { threshold: .4 }).observe(sl);
-    go(0);
-  })();
+  // galería: filtros y visor
+  const figs = $$('#grid figure');
+  $$('.filters button').forEach(b => b.addEventListener('click', () => {
+    $$('.filters button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    const f = b.dataset.f;
+    figs.forEach(fg => { const show = f === 'todo' || fg.dataset.c === f; fg.classList.toggle('hide', !show); });
+  }));
+  const lb = $('#lb'), lbimg = $('#lbimg'), lbcap = $('#lbcap'); let li = 0, lastFocus;
+  const visible = () => figs.filter(f => !f.classList.contains('hide'));
+  function openLb(fig) { const v = visible(); li = v.indexOf(fig); paint(); lastFocus = document.activeElement; lb.classList.add('on'); $('#lbx').focus(); }
+  function paint() { const f = visible()[li]; const im = f.querySelector('img'); lbimg.src = im.src; lbimg.alt = im.alt; lbcap.textContent = f.querySelector('figcaption').textContent; }
+  const closeLb = () => { lb.classList.remove('on'); if (lastFocus) lastFocus.focus(); };
+  figs.forEach(f => { f.tabIndex = 0; f.addEventListener('click', () => openLb(f)); f.addEventListener('keydown', e => { if (e.key === 'Enter') openLb(f); }); });
+  $('#lbx').addEventListener('click', closeLb);
+  $('#lbn').addEventListener('click', () => { li = (li + 1) % visible().length; paint(); });
+  $('#lbp').addEventListener('click', () => { li = (li - 1 + visible().length) % visible().length; paint(); });
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  addEventListener('keydown', e => { if (!lb.classList.contains('on')) return; if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowRight') $('#lbn').click(); if (e.key === 'ArrowLeft') $('#lbp').click(); });
 
-  // contadores y entradas
-  function count(el) { const to = +el.dataset.count, t0 = performance.now(); (function f(t) { const k = clamp((t - t0) / 1100); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(f); })(t0); }
+  // laguna: parallax
+  const lake = $('#laguna'), lakeImg = $('#lakeImg');
+  if (!reduce) (function par() { const r = lake.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) { const t = (r.top + r.height / 2 - innerHeight / 2) / innerHeight; lakeImg.style.transform = `translateY(${t * -12}%)`; } requestAnimationFrame(par); })();
+
+  // títulos palabra a palabra
+  $$('.split').forEach(h => {
+    const nodes = [...h.childNodes]; h.textContent = ''; let w = 0;
+    nodes.forEach(n => {
+      const isEm = n.nodeType === 1; const words = n.textContent.trim().split(/\s+/).filter(Boolean);
+      words.forEach(word => { const o = document.createElement('span'); o.className = 'wd'; o.style.setProperty('--w', w++); const i = document.createElement(isEm ? 'em' : 'span'); i.textContent = word; if (isEm) { const s = document.createElement('span'); s.appendChild(i); o.appendChild(s); } else o.appendChild(i); h.appendChild(o); h.append(' '); });
+    });
+  });
+
+  // contadores
+  function count(el) { const to = +el.dataset.n, t0 = performance.now(); (function f(t) { const k = clamp((t - t0) / 1200); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(f); })(t0); }
+
+  // entradas
+  const hero = $('.hero');
+  requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('in')));
   const io = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target; el.classList.add('in'); io.unobserve(el);
-    el.querySelectorAll(':scope > .reveal').forEach(r => r.classList.add('in'));
-    if (!reduce) el.querySelectorAll('[data-count]').forEach(count);
-    const s = signs.find(x => x.el === el);
-    if (s) setTimeout(() => { el.style.transition = 'opacity 600ms'; s.ready = true; }, 1350);
-  }), { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-  $$('.rise, .sign, #roof').forEach(el => io.observe(el));
-  $$('.reveal').forEach(r => io.observe(r.parentElement));
+    if (!e.isIntersecting) return; const el = e.target; el.classList.add('in'); io.unobserve(el);
+    if (!reduce) el.querySelectorAll('[data-n]').forEach(count);
+  }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+  $$('.up, .head, .door, .rooms').forEach(el => io.observe(el));
 })();
 </script>
 </body>
