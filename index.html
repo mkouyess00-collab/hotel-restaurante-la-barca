@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hotel Restaurante La Barca · Pedro Muñoz, junto a la laguna</title>
-<meta name="description" content="Hotel de tres estrellas y restaurante en Pedro Muñoz (Ciudad Real), a cinco minutos de la Laguna del Pueblo. Menú del día, comidas, cenas, terraza y dieciséis habitaciones con parking gratuito.">
+<title>Hotel Restaurante La Barca · Pedro Muñoz</title>
+<meta name="description" content="Hotel de tres estrellas y restaurante en Pedro Muñoz (Ciudad Real). Desayunos, hamburguesas, ensaladas, tostas, platos combinados, postres caseros y dieciséis habitaciones con parking gratuito.">
 <meta name="theme-color" content="#15263d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 <style>
 /* ===================================================================
-   LA BARCA · Laguna al atardecer
-   Verde laguna profundo, rosa flamenco y arena. Serif editorial + Inter.
+   LA BARCA · Hotel Restaurante
+   Azul noche, dorado viejo y arena. Serif editorial + Inter.
    =================================================================== */
 :root {
   --lagoon: #15263d;
@@ -86,7 +86,7 @@ button { font: inherit; }
 .slides img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.12); transition: opacity 1600ms ease, transform 9000ms linear; }
 .slides img.on { opacity: 1; transform: scale(1); }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(21,38,61,.96) 0%, rgba(21,38,61,.78) 34%, rgba(21,38,61,.15) 70%), linear-gradient(0deg, rgba(14,26,43,.7), transparent 40%); }
-.hero__in { position: relative; z-index: 2; align-self: center; padding-top: 120px; }
+.hero__in { position: relative; z-index: 2; align-self: center; padding-top: 120px; width: 100%; }
 .hero h1 { font-size: clamp(3.4rem, 1.2rem + 7.4vw, 9.6rem); line-height: .92; max-width: 11ch; }
 .hero h1 .ln { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
 .hero h1 .ln > span { display: block; }
@@ -260,17 +260,6 @@ button { font: inherit; }
 .lb button svg { width: 22px; height: 22px; }
 .lb .x { top: 22px; right: 22px; } .lb .pv { left: 22px; top: 50%; } .lb .nx { right: 22px; top: 50%; }
 
-/* ---------- laguna ---------- */
-.lake { position: relative; min-height: 92vh; display: grid; align-items: end; color: var(--sand); overflow: hidden; }
-.lake img { position: absolute; inset: -10% 0; width: 100%; height: 120%; object-fit: cover; will-change: transform; }
-.lake::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgba(14,26,43,.9), rgba(14,26,43,.1) 65%); }
-.lake .w { position: relative; z-index: 2; padding-bottom: clamp(48px, 7vw, 100px); display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: end; width: 100%; }
-.lake h2 { font-size: clamp(3.2rem, 1.4rem + 5.6vw, 7.4rem); line-height: .92; }
-.lake h2 em { color: var(--flamingo); }
-.lake p { color: var(--mist); max-width: 42ch; font-size: 1.1rem; }
-.lake__more { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
-.lake__more span { padding: 8px 14px; border-radius: 999px; background: rgba(246,239,232,.12); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); font-size: .9rem; }
-
 /* ---------- contacto ---------- */
 .contact { padding-block: var(--gap); }
 .contact__grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
@@ -389,7 +378,6 @@ button { font: inherit; }
       <a class="hide" href="#carta">Carta</a>
       <a class="hide" href="#hotel">Hotel</a>
       <a class="hide" href="#galeria">Galería</a>
-      <a class="hide" href="#laguna">La laguna</a>
       <a class="hide" href="#contacto">Contacto</a>
       <a class="tel" href="tel:+34722856875">722 85 68 75</a>
       <a class="btn" href="#reservar">Reservar</a>
@@ -400,7 +388,7 @@ button { font: inherit; }
 
 <div class="mnav" id="mnav" aria-hidden="true">
   <button class="close" id="mclose" aria-label="Cerrar menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-  <a href="#restaurante">Restaurante</a><a href="#carta">Carta</a><a href="#hotel">Hotel</a><a href="#galeria">Galería</a><a href="#laguna">La laguna</a><a href="#contacto">Contacto</a>
+  <a href="#restaurante">Restaurante</a><a href="#carta">Carta</a><a href="#hotel">Hotel</a><a href="#galeria">Galería</a><a href="#contacto">Contacto</a>
   <a class="btn" href="tel:+34722856875"><svg><use href="#phone"/></svg>722 85 68 75</a>
 </div>
 
@@ -408,18 +396,18 @@ button { font: inherit; }
   <!-- ===== PORTADA ===== -->
   <section class="hero" id="inicio" aria-labelledby="t-hero">
     <div class="slides" id="slides">
-      <img class="on" src="img/laguna.jpg" alt="" data-cap="La Laguna del Pueblo" width="1800" height="1200">
-      <img src="img/comedor.jpg" alt="" data-cap="El comedor" width="1800" height="1201">
+      <img class="on" src="img/comedor.jpg" alt="" data-cap="El comedor" width="1800" height="1201">
       <img src="img/hab-doble.jpg" alt="" data-cap="Habitación doble" width="1800" height="1345">
       <img src="img/terraza-2.jpg" alt="" data-cap="La terraza" width="1800" height="1201">
+      <img src="img/bar.jpg" alt="" data-cap="La barra" width="1800" height="1202">
     </div>
     <div class="hero__dots" id="dots" role="tablist" aria-label="Fotos de portada"></div>
-    <p class="hero__cap" id="heroCap" aria-live="polite">La Laguna del Pueblo</p>
-    <div class="badge fade" aria-hidden="true"><span>a 5 min<br>de los<br>flamencos</span></div>
+    <p class="hero__cap" id="heroCap" aria-live="polite">El comedor</p>
+    <div class="badge fade" aria-hidden="true"><span>cocina<br>casera<br>todo el día</span></div>
 
     <div class="w hero__in">
-      <h1 id="t-hero"><span class="ln"><span>Come bien,</span></span><span class="ln"><span>duerme junto</span></span><span class="ln"><span>a la <em>laguna</em></span></span></h1>
-      <p class="hero__sub fade">Hotel de tres estrellas y restaurante en Pedro Muñoz, donde los flamencos se paran a descansar. Cocina de la tierra abajo, dieciséis habitaciones arriba.</p>
+      <h1 id="t-hero"><span class="ln"><span>Buena mesa,</span></span><span class="ln"><span>buen descanso</span></span><span class="ln"><span>y trato de <em>casa</em></span></span></h1>
+      <p class="hero__sub fade">Hotel de tres estrellas y restaurante en la avenida de la Constitución de Pedro Muñoz. Desayunos, hamburguesas y platos combinados abajo; dieciséis habitaciones con parking gratis arriba.</p>
     </div>
 
     <div class="quick" id="reservar">
@@ -447,7 +435,7 @@ button { font: inherit; }
     <div class="w">
       <div class="num up"><b data-n="16">16</b><span>habitaciones con baño privado y aire acondicionado</span></div>
       <div class="num up" style="--i:1"><b data-n="3">3</b><span>estrellas, en la avenida de la Constitución</span></div>
-      <div class="num up" style="--i:2"><b data-n="5">5</b><span>minutos a pie hasta la Laguna del Pueblo</span></div>
+      <div class="num up" style="--i:2"><b data-n="65">65</b><span>platos en carta, del desayuno al postre casero</span></div>
       <div class="num up" style="--i:3"><b>0 €</b><span>por aparcar y por el Wi-Fi</span></div>
     </div>
   </section>
@@ -502,7 +490,7 @@ button { font: inherit; }
   <!-- ===== HOTEL ===== -->
   <section class="hotel dark" id="hotel" aria-labelledby="t-hotel">
     <div class="w">
-      <div class="head"><div><small>El hotel</small><h2 id="t-hotel" class="split">Descanse <em>a dos pasos</em> del agua</h2></div><p class="up">Dieciséis habitaciones cuidadas, con aparcamiento en la puerta y el restaurante abajo. Elija la suya.</p></div>
+      <div class="head"><div><small>El hotel</small><h2 id="t-hotel" class="split">Descanse <em>como en casa</em></h2></div><p class="up">Dieciséis habitaciones cuidadas, con aparcamiento en la puerta y el restaurante abajo. Elija la suya.</p></div>
     </div>
     <div class="rooms" id="rooms">
       <div class="rooms__track" id="rtrack">
@@ -552,15 +540,6 @@ button { font: inherit; }
     </div>
   </section>
 
-  <!-- ===== LAGUNA ===== -->
-  <section class="lake" id="laguna" aria-labelledby="t-lake">
-    <img src="img/laguna-2.jpg" alt="Laguna del Pueblo con aves al fondo y carrizo" id="lakeImg" loading="lazy">
-    <div class="w">
-      <h2 id="t-lake" class="up">Flamencos a la <em>vuelta de la esquina</em></h2>
-      <div><p class="up" style="--i:1">Desde el hotel se llega a pie a la Laguna del Pueblo y al Centro de Interpretación de los Humedales. Pedro Muñoz es tierra de lagunas, vino y harina, y los molinos y pueblos del Quijote quedan a un paso en coche.</p>
-        <div class="lake__more up" style="--i:2"><span>Laguna del Pueblo</span><span>Centro de Humedales</span><span>Iglesia de San Pedro</span><span>Ruta del Quijote</span></div></div>
-    </div>
-  </section>
 
   <!-- ===== CONTACTO ===== -->
   <section class="contact" id="contacto" aria-labelledby="t-contact">
@@ -590,11 +569,10 @@ button { font: inherit; }
     <div class="foot__big" aria-hidden="true">La Barca</div>
     <div class="foot__row">
       <div><h4>Restaurante</h4><ul><li><a href="#restaurante">Desayunos</a></li><li><a href="#restaurante">Menú del día</a></li><li><a href="#restaurante">Comidas y cenas</a></li><li><a href="#restaurante">Terraza</a></li><li><a href="#carta">La carta</a></li></ul></div>
-      <div><h4>Hotel</h4><ul><li><a href="#hotel">Habitaciones</a></li><li><a href="#hotel">Servicios</a></li><li><a href="#galeria">Galería</a></li><li><a href="#laguna">La laguna</a></li></ul></div>
+      <div><h4>Hotel</h4><ul><li><a href="#hotel">Habitaciones</a></li><li><a href="#hotel">Servicios</a></li><li><a href="#galeria">Galería</a></li></ul></div>
       <div><h4>Contacto</h4><ul><li><a href="tel:+34722856875">722 85 68 75</a></li><li><a href="https://wa.me/34722856875" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://www.instagram.com/hotel.restaurante.labarca/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
       <div><h4>Dónde</h4><p>Av. de la Constitución, 34<br>13620 Pedro Muñoz, Ciudad Real</p></div>
     </div>
-    <p class="credits">Fotos de la laguna: <a href="https://commons.wikimedia.org/w/index.php?curid=57626977">“Laguna del Pueblo, Pedro Muñoz - 1”</a> y <a href="https://commons.wikimedia.org/w/index.php?curid=57627264">“- 2”</a> de Gato Preto, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, vía Wikimedia Commons.</p>
     <div class="foot__end"><span>© <span id="year">2026</span> Hotel Restaurante La Barca · Pedro Muñoz</span><span>Hotel ★★★</span></div>
   </div>
 </footer>
@@ -715,10 +693,6 @@ button { font: inherit; }
   $('#lbp').addEventListener('click', () => { li = (li - 1 + visible().length) % visible().length; paint(); });
   lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
   addEventListener('keydown', e => { if (!lb.classList.contains('on')) return; if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowRight') $('#lbn').click(); if (e.key === 'ArrowLeft') $('#lbp').click(); });
-
-  // laguna: parallax
-  const lake = $('#laguna'), lakeImg = $('#lakeImg');
-  if (!reduce) (function par() { const r = lake.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) { const t = (r.top + r.height / 2 - innerHeight / 2) / innerHeight; lakeImg.style.transform = `translateY(${t * -12}%)`; } requestAnimationFrame(par); })();
 
   // títulos palabra a palabra
   $$('.split').forEach(h => {
