@@ -112,6 +112,23 @@ button { font: inherit; }
 .quick .btn { min-height: 64px; border-radius: 16px; background: var(--lagoon); color: var(--sand); padding: 0 28px; }
 @media (hover: hover) and (pointer: fine) { .quick .btn:hover { background: var(--lagoon-3); } }
 
+/* ---------- aviso abierto / cerrado ---------- */
+.status { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 26px; padding: 10px 18px 10px 14px; border-radius: 999px; background: rgba(14,26,43,.55); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: inset 0 0 0 1px rgba(246,239,232,.18); color: var(--sand); font-weight: 500; font-size: .98rem; text-decoration: none; transition: background-color 220ms ease; }
+.status b { font-weight: 600; }
+.status span.when { color: var(--mist); }
+.light-dot { position: relative; width: 12px; height: 12px; border-radius: 50%; background: #9aa3ad; flex: none; }
+.light-dot::after { content: ""; position: absolute; inset: -5px; border-radius: 50%; background: currentColor; opacity: 0; }
+.status.open .light-dot { background: #2fbf71; color: #2fbf71; box-shadow: 0 0 10px 2px rgba(47,191,113,.65); }
+.status.closed .light-dot { background: #e5484d; color: #e5484d; box-shadow: 0 0 10px 2px rgba(229,72,77,.6); }
+.status.unknown .light-dot { background: #e2a336; color: #e2a336; box-shadow: 0 0 10px 2px rgba(226,163,54,.55); }
+@media (prefers-reduced-motion: no-preference) { .status .light-dot::after { animation: ping 1.8s cubic-bezier(0,0,.2,1) infinite; } }
+@keyframes ping { 0% { transform: scale(.6); opacity: .55; } 80%, 100% { transform: scale(1.9); opacity: 0; } }
+@media (hover: hover) and (pointer: fine) { .status:hover { background: rgba(14,26,43,.75); } }
+.hours { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.hours th, .hours td { padding: 7px 0; text-align: left; font-weight: 400; border-bottom: 1px solid rgba(246,239,232,.12); }
+.hours td { text-align: right; }
+.hours tr.today th, .hours tr.today td { color: var(--flamingo); font-weight: 600; }
+
 /* ---------- cifras ---------- */
 .nums { padding-block: clamp(70px, 8vw, 110px); }
 .nums .w { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -406,6 +423,7 @@ button { font: inherit; }
     <div class="badge fade" aria-hidden="true"><span>cocina<br>casera<br>todo el día</span></div>
 
     <div class="w hero__in">
+      <a class="status fade" id="status" href="#horario" aria-live="polite"><i class="light-dot" aria-hidden="true"></i><b id="stMain">Consultando horario…</b><span class="when" id="stWhen"></span></a>
       <h1 id="t-hero"><span class="ln"><span>Buena mesa,</span></span><span class="ln"><span>buen descanso</span></span><span class="ln"><span>y trato de <em>casa</em></span></span></h1>
       <p class="hero__sub fade">Hotel de tres estrellas y restaurante en la avenida de la Constitución de Pedro Muñoz. Desayunos, hamburguesas y platos combinados abajo; dieciséis habitaciones con parking gratis arriba.</p>
     </div>
@@ -549,6 +567,7 @@ button { font: inherit; }
         <div class="map up"><iframe title="Mapa del Hotel Restaurante La Barca" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Hotel%20Restaurante%20La%20Barca%2C%20Av.%20de%20la%20Constituci%C3%B3n%2034%2C%2013620%20Pedro%20Mu%C3%B1oz&z=16&output=embed"></iframe></div>
         <div class="card-info up" style="--i:1">
           <div><small>Teléfono y WhatsApp</small><a class="tel" href="tel:+34722856875">722 85 68 75</a></div>
+          <div id="horario"><small>Horario del restaurante y bar</small><table class="hours" id="hoursTable"><caption class="sr">Horario semanal</caption><tbody></tbody></table></div>
           <div><small>Dirección</small><address>Av. de la Constitución, 34<br>13620 Pedro Muñoz, Ciudad Real</address></div>
           <div class="btns"><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Restaurante%20La%20Barca%2C%20Pedro%20Mu%C3%B1oz" target="_blank" rel="noopener">Cómo llegar <svg><use href="#arr"/></svg></a><a class="btn btn--ghost" href="https://wa.me/34722856875" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a></div>
           <div><small>Síganos</small>
@@ -606,6 +625,38 @@ button { font: inherit; }
   const openM = o => { mnav.classList.toggle('on', o); mnav.setAttribute('aria-hidden', !o); burger.setAttribute('aria-expanded', o); };
   burger.addEventListener('click', () => openM(true)); $('#mclose').addEventListener('click', () => openM(false));
   mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => openM(false)));
+
+  // ---- abierto / cerrado (horario de su Instagram) ----
+  // 0 domingo … 6 sábado; horas en decimal, 24 = medianoche; null = por confirmar
+  const HOURS = { 1: [7.5, 22], 2: [7.5, 22], 3: [7.5, 22], 4: [7.5, 22], 5: [7.5, 24], 6: [8.5, 24], 0: null };
+  const DAYS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+  const ORDER = [1, 2, 3, 4, 5, 6, 0];
+  const hhmm = h => { const H = Math.floor(h) % 24, M = Math.round((h % 1) * 60); return (H === 0 && h >= 24 ? '00' : String(H)) + ':' + String(M).padStart(2, '0'); };
+  function madrid() {
+    const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Madrid', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(new Date());
+    const g = t => (parts.find(x => x.type === t) || {}).value;
+    return { d: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(g('weekday')), h: +g('hour') + (+g('minute')) / 60 };
+  }
+  function updStatus() {
+    const { d, h } = madrid(), el = $('#status'), main = $('#stMain'), when = $('#stWhen');
+    const o = HOURS[d];
+    el.classList.remove('open', 'closed', 'unknown');
+    if (o === null) { el.classList.add('unknown'); main.textContent = 'Hoy domingo'; when.textContent = 'llámenos para confirmar el horario'; return; }
+    if (h >= o[0] && h < o[1]) {
+      el.classList.add('open'); main.textContent = 'Abierto ahora';
+      when.textContent = 'cierra a las ' + hhmm(o[1]); return;
+    }
+    el.classList.add('closed'); main.textContent = 'Cerrado ahora';
+    if (h < o[0]) { when.textContent = 'abre hoy a las ' + hhmm(o[0]); return; }
+    for (let k = 1; k <= 7; k++) {
+      const nd = (d + k) % 7, no = HOURS[nd];
+      if (no) { when.textContent = 'abre ' + (k === 1 ? 'mañana' : 'el ' + DAYS[nd]) + ' a las ' + hhmm(no[0]); return; }
+      if (no === null && k === 1) { when.textContent = 'consulte el horario de mañana'; return; }
+    }
+  }
+  const tb = $('#hoursTable tbody'), hoy = madrid().d;
+  ORDER.forEach(d => { const tr = document.createElement('tr'); if (d === hoy) tr.className = 'today'; const th = document.createElement('th'); th.scope = 'row'; th.textContent = DAYS[d][0].toUpperCase() + DAYS[d].slice(1); const td = document.createElement('td'); td.textContent = HOURS[d] ? hhmm(HOURS[d][0]) + ' – ' + hhmm(HOURS[d][1]) : 'Por confirmar'; tr.append(th, td); tb.appendChild(tr); });
+  updStatus(); setInterval(updStatus, 30000);
 
   // portada: pase de fotos de cine
   const slides = $$('#slides img'), dots = $('#dots'), cap = $('#heroCap');
