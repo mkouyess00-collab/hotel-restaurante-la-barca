@@ -627,7 +627,7 @@ button { font: inherit; }
   mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => openM(false)));
 
   // ---- abierto / cerrado (horario de su Instagram) ----
-  // 0 domingo … 6 sábado; horas en decimal, 24 = medianoche; null = por confirmar
+  // 0 domingo … 6 sábado; horas en decimal, 24 = medianoche; null = cerrado todo el día
   const HOURS = { 1: [7.5, 22], 2: [7.5, 22], 3: [7.5, 22], 4: [7.5, 22], 5: [7.5, 24], 6: [8.5, 24], 0: null };
   const DAYS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
   const ORDER = [1, 2, 3, 4, 5, 6, 0];
@@ -641,21 +641,19 @@ button { font: inherit; }
     const { d, h } = madrid(), el = $('#status'), main = $('#stMain'), when = $('#stWhen');
     const o = HOURS[d];
     el.classList.remove('open', 'closed', 'unknown');
-    if (o === null) { el.classList.add('unknown'); main.textContent = 'Hoy domingo'; when.textContent = 'llámenos para confirmar el horario'; return; }
-    if (h >= o[0] && h < o[1]) {
+    if (o && h >= o[0] && h < o[1]) {
       el.classList.add('open'); main.textContent = 'Abierto ahora';
       when.textContent = 'cierra a las ' + hhmm(o[1]); return;
     }
     el.classList.add('closed'); main.textContent = 'Cerrado ahora';
-    if (h < o[0]) { when.textContent = 'abre hoy a las ' + hhmm(o[0]); return; }
+    if (o && h < o[0]) { when.textContent = 'abre hoy a las ' + hhmm(o[0]); return; }
     for (let k = 1; k <= 7; k++) {
       const nd = (d + k) % 7, no = HOURS[nd];
       if (no) { when.textContent = 'abre ' + (k === 1 ? 'mañana' : 'el ' + DAYS[nd]) + ' a las ' + hhmm(no[0]); return; }
-      if (no === null && k === 1) { when.textContent = 'consulte el horario de mañana'; return; }
     }
   }
   const tb = $('#hoursTable tbody'), hoy = madrid().d;
-  ORDER.forEach(d => { const tr = document.createElement('tr'); if (d === hoy) tr.className = 'today'; const th = document.createElement('th'); th.scope = 'row'; th.textContent = DAYS[d][0].toUpperCase() + DAYS[d].slice(1); const td = document.createElement('td'); td.textContent = HOURS[d] ? hhmm(HOURS[d][0]) + ' – ' + hhmm(HOURS[d][1]) : 'Por confirmar'; tr.append(th, td); tb.appendChild(tr); });
+  ORDER.forEach(d => { const tr = document.createElement('tr'); if (d === hoy) tr.className = 'today'; const th = document.createElement('th'); th.scope = 'row'; th.textContent = DAYS[d][0].toUpperCase() + DAYS[d].slice(1); const td = document.createElement('td'); td.textContent = HOURS[d] ? hhmm(HOURS[d][0]) + ' – ' + hhmm(HOURS[d][1]) : 'Cerrado'; tr.append(th, td); tb.appendChild(tr); });
   updStatus(); setInterval(updStatus, 30000);
 
   // portada: pase de fotos de cine
