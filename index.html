@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-3FYU604AtJtiE62nV+mSQiG8Q91XDnZtZ7xnehn6vkA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://maps.google.com https://www.google.com; connect-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hotel Restaurante La Barca · Pedro Muñoz</title>
 <meta name="description" content="Hotel de tres estrellas y restaurante en Pedro Muñoz (Ciudad Real). Desayunos, hamburguesas, ensaladas, tostas, platos combinados, postres caseros y dieciséis habitaciones con parking gratuito.">
@@ -564,7 +566,7 @@ button { font: inherit; }
     <div class="w">
       <div class="head"><div><small>Contacto</small><h2 id="t-contact" class="split">Le <em>esperamos</em></h2></div><p class="up">Avenida de la Constitución, 34, a la entrada de Pedro Muñoz, junto al Parque Gloria.</p></div>
       <div class="contact__grid">
-        <div class="map up"><iframe title="Mapa del Hotel Restaurante La Barca" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Hotel%20Restaurante%20La%20Barca%2C%20Av.%20de%20la%20Constituci%C3%B3n%2034%2C%2013620%20Pedro%20Mu%C3%B1oz&z=16&output=embed"></iframe></div>
+        <div class="map up"><iframe sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" title="Mapa del Hotel Restaurante La Barca" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Hotel%20Restaurante%20La%20Barca%2C%20Av.%20de%20la%20Constituci%C3%B3n%2034%2C%2013620%20Pedro%20Mu%C3%B1oz&z=16&output=embed"></iframe></div>
         <div class="card-info up" style="--i:1">
           <div><small>Teléfono y WhatsApp</small><a class="tel" href="tel:+34722856875">722 85 68 75</a></div>
           <div id="horario"><small>Horario del restaurante y bar</small><table class="hours" id="hoursTable"><caption class="sr">Horario semanal</caption><tbody></tbody></table></div>
@@ -607,6 +609,8 @@ button { font: inherit; }
 
 <script>
 (() => {
+  if (window.top !== window.self) { try { window.top.location = window.self.location; } catch (e) { document.documentElement.style.display = 'none'; } }
+
   document.documentElement.classList.add('js');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
