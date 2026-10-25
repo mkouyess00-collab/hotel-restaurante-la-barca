@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-3FYU604AtJtiE62nV+mSQiG8Q91XDnZtZ7xnehn6vkA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://maps.google.com https://www.google.com; connect-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-GpmGXnRBhgHP/FflWWp5CrtzCqal3IR1aZG9fvWeKHA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://maps.google.com https://www.google.com; connect-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hotel Restaurante La Barca · Pedro Muñoz</title>
@@ -415,10 +415,10 @@ button { font: inherit; }
   <!-- ===== PORTADA ===== -->
   <section class="hero" id="inicio" aria-labelledby="t-hero">
     <div class="slides" id="slides">
-      <img class="on" src="img/comedor.jpg" alt="" data-cap="El comedor" width="1800" height="1201">
-      <img src="img/hab-doble.jpg" alt="" data-cap="Habitación doble" width="1800" height="1345">
+      <img class="on" src="img/comedor-grande.jpg" alt="" data-cap="El comedor" width="1800" height="1350">
+      <img src="img/hab-doble-gatos.jpg" alt="" data-cap="Habitación doble" width="1350" height="1800">
       <img src="img/terraza-2.jpg" alt="" data-cap="La terraza" width="1800" height="1201">
-      <img src="img/bar.jpg" alt="" data-cap="La barra" width="1800" height="1202">
+      <img src="img/barra-nueva.jpg" alt="" data-cap="La barra" width="1800" height="1350">
     </div>
     <div class="hero__dots" id="dots" role="tablist" aria-label="Fotos de portada"></div>
     <p class="hero__cap" id="heroCap" aria-live="polite">El comedor</p>
@@ -462,8 +462,8 @@ button { font: inherit; }
 
   <!-- ===== DOS PUERTAS ===== -->
   <section class="doors" aria-label="Restaurante y hotel">
-    <a class="door" href="#restaurante"><img src="img/comedor-2.jpg" alt="Comedor del restaurante con mesas vestidas"><div class="door__txt"><div><small>Restaurante</small><h2>Comer y cenar</h2><p>Desayunos, menú del día, comidas, cenas y terraza.</p></div><span class="door__go"><svg><use href="#arr"/></svg></span></div></a>
-    <a class="door" href="#hotel"><img src="img/hab-triple.jpg" alt="Habitación triple del hotel"><div class="door__txt"><div><small>Hotel</small><h2>Dormir aquí</h2><p>Dieciséis habitaciones con parking y Wi-Fi gratis.</p></div><span class="door__go"><svg><use href="#arr"/></svg></span></div></a>
+    <a class="door" href="#restaurante"><img src="img/comedor-rojo.jpg" alt="Comedor del restaurante con mesas vestidas en granate"><div class="door__txt"><div><small>Restaurante</small><h2>Comer y cenar</h2><p>Desayunos, menú del día, comidas, cenas y terraza.</p></div><span class="door__go"><svg><use href="#arr"/></svg></span></div></a>
+    <a class="door" href="#hotel"><img src="img/hab-dos-camas.jpg" alt="Habitación con dos camas del hotel"><div class="door__txt"><div><small>Hotel</small><h2>Dormir aquí</h2><p>Dieciséis habitaciones con parking y Wi-Fi gratis.</p></div><span class="door__go"><svg><use href="#arr"/></svg></span></div></a>
   </section>
 
   <!-- ===== RESTAURANTE ===== -->
@@ -480,12 +480,12 @@ button { font: inherit; }
           <button role="tab" aria-selected="false" data-k="4"><b>Terraza</b><span>Con buen tiempo</span><p>Terraza cubierta con toldo para comer, tomar algo o alargar la sobremesa.</p></button>
         </div>
         <div class="svc-view up" id="svcView">
-          <img class="on" src="img/cafeteria.jpg" alt="Cafetería del restaurante">
-          <img src="img/mesa.jpg" alt="Mesa preparada con mantel y copas" loading="lazy">
-          <img src="img/comedor.jpg" alt="Comedor con ventanales en arco" loading="lazy">
-          <img src="img/bar.jpg" alt="Barra de piedra con el rótulo La Barca" loading="lazy">
+          <img class="on" src="img/barra-nueva.jpg" alt="Barra y cafetería con el rótulo La Barca">
+          <img src="img/comedor-salmon.jpg" alt="Comedor con mesas preparadas" loading="lazy">
+          <img src="img/comedor-grande.jpg" alt="Comedor grande con suelo ajedrezado" loading="lazy">
+          <img src="img/comedor-rojo.jpg" alt="Comedor con mesas en granate" loading="lazy">
           <img src="img/terraza.jpg" alt="Terraza con toldo granate" loading="lazy">
-          <span class="tag" id="svcTag">La cafetería</span>
+          <span class="tag" id="svcTag">La barra</span>
         </div>
       </div>
 
@@ -514,11 +514,11 @@ button { font: inherit; }
     </div>
     <div class="rooms" id="rooms">
       <div class="rooms__track" id="rtrack">
-        <article class="room" style="--i:0"><div class="room__pic"><img src="img/hab-doble.jpg" alt="Habitación doble"></div><div class="room__txt"><h3>Doble</h3><p>Cama de matrimonio, cabecero de madera y colores cálidos.</p><div class="chips"><span>2 personas</span><span>Matrimonio</span><span>Baño privado</span></div><a href="#reservar" data-room="Doble">Consultar disponibilidad <svg><use href="#arr"/></svg></a></div></article>
-        <article class="room" style="--i:1"><div class="room__pic"><img src="img/hab-twin.jpg" alt="Habitación con dos camas"></div><div class="room__txt"><h3>Dos camas</h3><p>Dos camas individuales y mesa, ideal para amigos o viajes de trabajo.</p><div class="chips"><span>2 personas</span><span>2 individuales</span><span>Mesa</span></div><a href="#reservar" data-room="Dos camas">Consultar disponibilidad <svg><use href="#arr"/></svg></a></div></article>
-        <article class="room" style="--i:2"><div class="room__pic"><img src="img/hab-triple.jpg" alt="Habitación triple"></div><div class="room__txt"><h3>Triple</h3><p>Espacio para tres: perfecta para familias con niños.</p><div class="chips"><span>3 personas</span><span>Familias</span><span>Baño privado</span></div><a href="#reservar" data-room="Triple">Consultar disponibilidad <svg><use href="#arr"/></svg></a></div></article>
+        <article class="room" style="--i:0"><div class="room__pic"><img src="img/hab-doble-gatos.jpg" alt="Habitación doble con cama de matrimonio"></div><div class="room__txt"><h3>Doble</h3><p>Cama de matrimonio, cabecero de madera y armario empotrado.</p><div class="chips"><span>2 personas</span><span>Matrimonio</span><span>Baño privado</span></div><a href="#reservar" data-room="Doble">Consultar disponibilidad <svg><use href="#arr"/></svg></a></div></article>
+        <article class="room" style="--i:1"><div class="room__pic"><img src="img/hab-dos-camas.jpg" alt="Habitación con dos camas"></div><div class="room__txt"><h3>Dos camas</h3><p>Dos camas individuales y mesa, ideal para amigos o viajes de trabajo.</p><div class="chips"><span>2 personas</span><span>2 individuales</span><span>Mesa</span></div><a href="#reservar" data-room="Dos camas">Consultar disponibilidad <svg><use href="#arr"/></svg></a></div></article>
+        <article class="room" style="--i:2"><div class="room__pic"><img src="img/hab-triple-nueva.jpg" alt="Habitación triple con tres camas"></div><div class="room__txt"><h3>Triple</h3><p>Espacio para tres: perfecta para familias con niños.</p><div class="chips"><span>3 personas</span><span>Familias</span><span>Baño privado</span></div><a href="#reservar" data-room="Triple">Consultar disponibilidad <svg><use href="#arr"/></svg></a></div></article>
         <article class="room" style="--i:3"><div class="room__pic"><img src="img/jacuzzi.jpg" alt="Bañera de hidromasaje"></div><div class="room__txt"><h3>Hidromasaje</h3><p>Con bañera de hidromasaje para un descanso extra después del viaje.</p><div class="chips"><span>2 personas</span><span>Hidromasaje</span><span>Aire acondicionado</span></div><a href="#reservar" data-room="Hidromasaje">Consultar disponibilidad <svg><use href="#arr"/></svg></a></div></article>
-        <article class="room" style="--i:4"><div class="room__pic"><img src="img/hab-balcon.jpg" alt="Habitación con balcón"></div><div class="room__txt"><h3>Con balcón</h3><p>Salida al balcón de balaustrada, con luz natural.</p><div class="chips"><span>2 personas</span><span>Balcón</span><span>Luz natural</span></div><a href="#reservar" data-room="Con balcón">Consultar disponibilidad <svg><use href="#arr"/></svg></a></div></article>
+        <article class="room" style="--i:4"><div class="room__pic"><img src="img/hab-individual.jpg" alt="Habitación individual con escritorio"></div><div class="room__txt"><h3>Individual</h3><p>Para viajar solo: cama individual, escritorio y teléfono.</p><div class="chips"><span>1 persona</span><span>Escritorio</span><span>Baño privado</span></div><a href="#reservar" data-room="Individual">Consultar disponibilidad <svg><use href="#arr"/></svg></a></div></article>
       </div>
       <div class="w rooms__nav"><div class="rooms__bar"><i id="rbar"></i></div><button id="rprev" aria-label="Habitación anterior"><svg><use href="#arl"/></svg></button><button id="rnext" aria-label="Habitación siguiente"><svg><use href="#arr"/></svg></button></div>
     </div>
@@ -544,18 +544,18 @@ button { font: inherit; }
       <div class="head"><div><small>Galería</small><h2 id="t-gal" class="split">Pase y <em>mire</em></h2></div><p class="up">Toque cualquier foto para verla en grande.</p></div>
       <div class="filters" role="group" aria-label="Filtrar fotos"><button aria-pressed="true" data-f="rest">Restaurante</button><button aria-pressed="false" data-f="hotel">Hotel</button></div>
       <div class="grid" id="grid">
-        <figure data-c="rest" class="up" style="--i:0"><img src="img/comedor.jpg" alt="Comedor principal"><figcaption>Comedor principal</figcaption></figure>
+        <figure data-c="rest" class="up" style="--i:0"><img src="img/comedor-grande.jpg" alt="Comedor principal"><figcaption>Comedor principal</figcaption></figure>
         <figure data-c="rest" class="up" style="--i:1"><img src="img/terraza.jpg" alt="La terraza"><figcaption>La terraza</figcaption></figure>
-        <figure data-c="rest" class="up" style="--i:2"><img src="img/bar.jpg" alt="La barra"><figcaption>La barra</figcaption></figure>
-        <figure data-c="rest" class="up" style="--i:0"><img src="img/comedor-3.jpg" alt="Comedor ajedrezado"><figcaption>Comedor ajedrezado</figcaption></figure>
+        <figure data-c="rest" class="up" style="--i:2"><img src="img/barra-nueva.jpg" alt="La barra"><figcaption>La barra</figcaption></figure>
+        <figure data-c="rest" class="up" style="--i:0"><img src="img/comedor-rojo.jpg" alt="Comedor granate"><figcaption>Comedor granate</figcaption></figure>
         <figure data-c="rest" class="up" style="--i:1"><img src="img/terraza-2.jpg" alt="Terraza con toldo"><figcaption>Terraza con toldo</figcaption></figure>
-        <figure data-c="rest" class="up" style="--i:2"><img src="img/mesa.jpg" alt="Mesa lista"><figcaption>Mesa lista</figcaption></figure>
-        <figure data-c="hotel" class="up" style="--i:0"><img src="img/hab-roja.jpg" alt="Habitación doble"><figcaption>Habitación doble</figcaption></figure>
-        <figure data-c="hotel" class="up" style="--i:1"><img src="img/hab-menta.jpg" alt="Habitación dos camas"><figcaption>Habitación dos camas</figcaption></figure>
-        <figure data-c="hotel" class="up" style="--i:2"><img src="img/hab-lila.jpg" alt="Habitación con cama de matrimonio"><figcaption>Habitación con cama de matrimonio</figcaption></figure>
-        <figure data-c="hotel" class="up" style="--i:0"><img src="img/salon.jpg" alt="El salón"><figcaption>El salón</figcaption></figure>
-        <figure data-c="hotel" class="up" style="--i:1"><img src="img/bano.jpg" alt="El baño"><figcaption>El baño</figcaption></figure>
-        <figure data-c="hotel" class="up" style="--i:2"><img src="img/balcon.jpg" alt="El balcón"><figcaption>El balcón</figcaption></figure>
+        <figure data-c="rest" class="up" style="--i:2"><img src="img/comedor-salmon.jpg" alt="Comedor preparado"><figcaption>Comedor preparado</figcaption></figure>
+        <figure data-c="hotel" class="up" style="--i:0"><img src="img/hab-doble-gatos.jpg" alt="Habitación doble"><figcaption>Habitación doble</figcaption></figure>
+        <figure data-c="hotel" class="up" style="--i:1"><img src="img/hab-dos-camas.jpg" alt="Habitación dos camas"><figcaption>Habitación dos camas</figcaption></figure>
+        <figure data-c="hotel" class="up" style="--i:2"><img src="img/hab-doble-armario.jpg" alt="Habitación doble con armario"><figcaption>Habitación doble con armario</figcaption></figure>
+        <figure data-c="hotel" class="up" style="--i:0"><img src="img/hab-triple-nueva.jpg" alt="Habitación triple"><figcaption>Habitación triple</figcaption></figure>
+        <figure data-c="hotel" class="up" style="--i:1"><img src="img/hab-individual.jpg" alt="Habitación individual"><figcaption>Habitación individual</figcaption></figure>
+        <figure data-c="hotel" class="up" style="--i:2"><img src="img/bano-nuevo.jpg" alt="Baño con lavabo e inodoro"><figcaption>El baño</figcaption></figure>
       </div>
     </div>
   </section>
@@ -604,7 +604,7 @@ button { font: inherit; }
   <button class="x" id="lbx" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   <button class="pv" id="lbp" aria-label="Anterior"><svg><use href="#arl"/></svg></button>
   <button class="nx" id="lbn" aria-label="Siguiente"><svg><use href="#arr"/></svg></button>
-  <figure style="margin:0"><img id="lbimg" src="img/comedor.jpg" alt=""><p id="lbcap"></p></figure>
+  <figure style="margin:0"><img id="lbimg" src="img/comedor-grande.jpg" alt=""><p id="lbcap"></p></figure>
 </div>
 
 <script>
@@ -632,7 +632,7 @@ button { font: inherit; }
 
   // ---- abierto / cerrado (horario de su Instagram) ----
   // 0 domingo … 6 sábado; horas en decimal, 24 = medianoche; null = cerrado todo el día
-  const HOURS = { 1: [7.5, 22], 2: [7.5, 22], 3: [7.5, 22], 4: [7.5, 22], 5: [7.5, 24], 6: [8.5, 24], 0: null };
+  const HOURS = { 1: [7.5, 22], 2: [7.5, 22], 3: null, 4: [7.5, 22], 5: [7.5, 24], 6: [8.5, 24], 0: [8.5, 24] };
   const DAYS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
   const ORDER = [1, 2, 3, 4, 5, 6, 0];
   const hhmm = h => { const H = Math.floor(h) % 24, M = Math.round((h % 1) * 60); return (H === 0 && h >= 24 ? '00' : String(H)) + ':' + String(M).padStart(2, '0'); };
@@ -690,7 +690,7 @@ button { font: inherit; }
 
   // restaurante: lista con foto que se barre
   const sbtn = $$('#svcList button'), simg = $$('#svcView img'), stag = $('#svcTag');
-  const stags = ['La cafetería', 'Mesa lista', 'El comedor', 'La barra de piedra', 'La terraza'];
+  const stags = ['La barra', 'Comedor preparado', 'El comedor grande', 'Comedor granate', 'La terraza'];
   let sc = 0, stm;
   function svc(k) {
     if (k === sc) return;
