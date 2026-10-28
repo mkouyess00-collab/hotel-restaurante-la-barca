@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-GpmGXnRBhgHP/FflWWp5CrtzCqal3IR1aZG9fvWeKHA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://maps.google.com https://www.google.com; connect-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-GPez4J/LPlcYP7SgEF0k3SF0vjDYb8Mx3ZKUJEV4pgA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://maps.google.com https://www.google.com; connect-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hotel Restaurante La Barca · Pedro Muñoz</title>
@@ -371,6 +371,12 @@ button { font: inherit; }
 .contact__grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
 .map { position: relative; min-height: 560px; border-radius: var(--r); overflow: hidden; background: var(--sand-2); }
 .map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.map__gate { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 14px; padding: 32px; text-align: center; color: var(--lagoon); }
+.map__gate svg { width: 44px; height: 44px; color: var(--flamingo); }
+.map__t { font-family: "Instrument Serif", serif; font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.1; }
+.map__s { max-width: 36ch; font-size: .92rem; opacity: .8; }
+.map__s a { color: inherit; }
+.map__b { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 6px; }
 .card-info { background: var(--lagoon); color: var(--sand); border-radius: var(--r); padding: clamp(28px, 3.4vw, 48px); display: grid; gap: 28px; align-content: start; }
 .card-info small { display: block; color: var(--flamingo); font-weight: 600; font-size: .85rem; margin-bottom: 6px; }
 .card-info .tel { font-family: var(--serif); font-size: clamp(2.6rem, 1.6rem + 2.6vw, 4rem); line-height: 1; text-decoration: none; }
@@ -653,7 +659,7 @@ button { font: inherit; }
     <div class="w">
       <div class="head"><div><small>Contacto</small><h2 id="t-contact" class="split">Le <em>esperamos</em></h2></div><p class="up">Avenida de la Constitución, 34, a la entrada de Pedro Muñoz, junto al Parque Gloria.</p></div>
       <div class="contact__grid">
-        <div class="map up"><iframe sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" title="Mapa del Hotel Restaurante La Barca" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Hotel%20Restaurante%20La%20Barca%2C%20Av.%20de%20la%20Constituci%C3%B3n%2034%2C%2013620%20Pedro%20Mu%C3%B1oz&z=16&output=embed"></iframe></div>
+        <div class="map up" id="map" data-src="https://maps.google.com/maps?q=Hotel%20Restaurante%20La%20Barca%2C%20Av.%20de%20la%20Constituci%C3%B3n%2034%2C%2013620%20Pedro%20Mu%C3%B1oz&amp;z=16&amp;output=embed"><div class="map__gate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><p class="map__t">Av. de la Constitución, 34 · Pedro Muñoz</p><p class="map__s">El mapa es de Google y, al cargarlo, Google puede usar cookies. <a href="cookies.html">Más información</a></p><div class="map__b"><button class="btn btn--dark" type="button" id="mapLoad">Ver mapa</button><a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Restaurante%20La%20Barca%2C%20Av.%20de%20la%20Constituci%C3%B3n%2034%2C%20Pedro%20Mu%C3%B1oz" target="_blank" rel="noopener">Abrir en Google Maps</a></div></div></div>
         <div class="card-info up" style="--i:1">
           <div><small>Teléfono y WhatsApp</small><a class="tel" href="tel:+34722856875">722 85 68 75</a></div>
           <div id="horario"><small>Horario del restaurante y bar</small><table class="hours" id="hoursTable"><caption class="sr">Horario semanal</caption><tbody></tbody></table></div>
@@ -681,7 +687,7 @@ button { font: inherit; }
       <div><h4>Contacto</h4><ul><li><a href="tel:+34722856875">722 85 68 75</a></li><li><a href="https://wa.me/34722856875" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://www.instagram.com/hotel.restaurante.labarca/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
       <div><h4>Dónde</h4><p>Av. de la Constitución, 34<br>13620 Pedro Muñoz, Ciudad Real</p></div>
     </div>
-    <div class="foot__end"><span>© <span id="year">2026</span> Hotel Restaurante La Barca · Pedro Muñoz</span><span>Hotel ★★</span></div>
+    <div class="foot__end"><span>© <span id="year">2026</span> Hotel Restaurante La Barca · Pedro Muñoz</span><span><a href="cookies.html">Política de cookies</a> · Hotel ★★</span></div>
   </div>
 </footer>
 
@@ -854,6 +860,14 @@ button { font: inherit; }
     if (!reduce) el.querySelectorAll('[data-n]').forEach(count);
   }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
   $$('.up, .head, .door, .rooms').forEach(el => io.observe(el));
+
+  // mapa de Google solo a petición: sin él no hay cookies de terceros
+  $('#mapLoad').addEventListener('click', () => {
+    const m = $('#map'), f = document.createElement('iframe');
+    f.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox');
+    f.title = 'Mapa del Hotel Restaurante La Barca'; f.referrerPolicy = 'no-referrer-when-downgrade'; f.src = m.dataset.src;
+    m.replaceChildren(f);
+  });
 })();
 </script>
 </body>
