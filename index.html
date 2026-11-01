@@ -13,7 +13,7 @@
 <meta property="og:locale" content="es_ES">
 <meta property="og:url" content="https://hotelrestaurantelabarca.es/">
 <meta property="og:title" content="Hotel Restaurante La Barca · Pedro Muñoz">
-<meta property="og:description" content="Hotel de dos estrellas y restaurante en Pedro Muñoz. Menú, carta, habitaciones con parking gratis. Reservas: 722 85 68 75.">
+<meta property="og:description" content="Hotel de dos estrellas y restaurante en Pedro Muñoz. Menú, carta, habitaciones con parking gratis. Tel. 926 30 44 18 · WhatsApp 722 85 68 75.">
 <meta property="og:image" content="https://hotelrestaurantelabarca.es/img/og-la-barca.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
@@ -28,7 +28,7 @@
    "@type": "Hotel",
    "@id": "https://hotelrestaurantelabarca.es/#hotel",
    "name": "Hotel La Barca",
-   "telephone": "+34722856875",
+   "telephone": "+34926304418",
    "address": {
     "@type": "PostalAddress",
     "streetAddress": "Av. de la Constitución, 34",
@@ -55,7 +55,7 @@
    "@type": "Restaurant",
    "@id": "https://hotelrestaurantelabarca.es/#restaurante",
    "name": "Restaurante La Barca",
-   "telephone": "+34722856875",
+   "telephone": "+34926304418",
    "address": {
     "@type": "PostalAddress",
     "streetAddress": "Av. de la Constitución, 34",
@@ -106,6 +106,10 @@
  ]
 }
 </script>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="img/icono-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="img/icono-192.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <meta name="theme-color" content="#15263d">
 <link href="fonts.css" rel="stylesheet">
 <style>
@@ -168,8 +172,8 @@ button { font: inherit; }
 .bar .w { display: flex; align-items: center; justify-content: space-between; gap: 20px; max-width: none; }
 .bar.solid { background: rgba(21,38,61,.93); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); padding-block: 12px; }
 .logo { display: flex; flex-direction: column; text-decoration: none; line-height: 1; }
-.logo b { font-family: var(--goth); font-weight: 400; font-size: 2rem; }
-.logo span { font-size: .72rem; letter-spacing: .02em; opacity: .75; margin-top: 4px; }
+.logo img { display: block; height: 76px; width: auto; transition: height 400ms var(--ease); }
+.bar.solid .logo img { height: 58px; }
 .nav { display: flex; align-items: center; gap: clamp(18px, 2.4vw, 36px); font-size: .95rem; }
 .nav a:not(.btn) { text-decoration: none; position: relative; padding-block: 6px; }
 .nav a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform 400ms var(--ease); }
@@ -452,7 +456,7 @@ button { font: inherit; }
   .grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 760px) {
-  .logo b { font-size: 1.7rem; }
+  .logo img { height: 60px; } .bar.solid .logo img { height: 50px; }
   .nav .tel, .bar .btn { display: none; }
   .burger { display: grid; }
   .hero__in { padding-top: 110px; }
@@ -494,14 +498,14 @@ button { font: inherit; }
 
 <header class="bar" id="bar">
   <div class="w">
-    <a class="logo" href="#inicio" aria-label="Hotel Restaurante La Barca, inicio"><b>La Barca</b><span>Hotel · Restaurante</span></a>
+    <a class="logo" href="#inicio" aria-label="Hotel Restaurante La Barca, inicio"><img src="img/logo-la-barca.png" width="268" height="228" alt="La Barca · Pedro Muñoz"></a>
     <nav class="nav" aria-label="Principal">
       <a class="hide" href="#restaurante">Restaurante</a>
       <a class="hide" href="#carta">Carta</a>
       <a class="hide" href="#hotel">Hotel</a>
       <a class="hide" href="#galeria">Galería</a>
       <a class="hide" href="#contacto">Contacto</a>
-      <a class="tel" href="tel:+34722856875">722 85 68 75</a>
+      <a class="tel" href="tel:+34926304418">926 30 44 18</a>
       <a class="btn" href="#reservar">Reservar</a>
       <button class="burger" id="burger" aria-label="Abrir menú" aria-controls="mnav" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16M4 16h16"/></svg></button>
     </nav>
@@ -511,7 +515,7 @@ button { font: inherit; }
 <div class="mnav" id="mnav" aria-hidden="true">
   <button class="close" id="mclose" aria-label="Cerrar menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   <a href="#restaurante">Restaurante</a><a href="#carta">Carta</a><a href="#hotel">Hotel</a><a href="#galeria">Galería</a><a href="#contacto">Contacto</a>
-  <a class="btn" href="tel:+34722856875"><svg><use href="#phone"/></svg>722 85 68 75</a>
+  <a class="btn" href="tel:+34926304418"><svg><use href="#phone"/></svg>926 30 44 18</a>
 </div>
 
 <main>
@@ -605,7 +609,7 @@ button { font: inherit; }
 
       <div class="rest-cta up">
         <div><h3>¿Le guardamos mesa?</h3><p>Llámenos para reservar o para preguntar el menú de hoy. Grupos y celebraciones, consúltenos.</p></div>
-        <div class="btns"><a class="btn" href="tel:+34722856875"><svg><use href="#phone"/></svg>722 85 68 75</a><a class="btn btn--ghost" href="https://wa.me/34722856875?text=Hola%2C%20quer%C3%ADa%20reservar%20mesa%20en%20La%20Barca" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a></div>
+        <div class="btns"><a class="btn" href="tel:+34926304418"><svg><use href="#phone"/></svg>926 30 44 18</a><a class="btn btn--ghost" href="https://wa.me/34722856875?text=Hola%2C%20quer%C3%ADa%20reservar%20mesa%20en%20La%20Barca" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a></div>
       </div>
     </div>
   </section>
@@ -672,7 +676,8 @@ button { font: inherit; }
       <div class="contact__grid">
         <div class="map up" id="map" data-src="https://maps.google.com/maps?q=Hotel%20Restaurante%20La%20Barca%2C%20Av.%20de%20la%20Constituci%C3%B3n%2034%2C%2013620%20Pedro%20Mu%C3%B1oz&amp;z=16&amp;output=embed"><div class="map__gate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><p class="map__t">Av. de la Constitución, 34 · Pedro Muñoz</p><p class="map__s">El mapa es de Google y, al cargarlo, Google puede usar cookies. <a href="cookies.html">Más información</a></p><div class="map__b"><button class="btn btn--dark" type="button" id="mapLoad">Ver mapa</button><a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Restaurante%20La%20Barca%2C%20Av.%20de%20la%20Constituci%C3%B3n%2034%2C%20Pedro%20Mu%C3%B1oz" target="_blank" rel="noopener">Abrir en Google Maps</a></div></div></div>
         <div class="card-info up" style="--i:1">
-          <div><small>Teléfono y WhatsApp</small><a class="tel" href="tel:+34722856875">722 85 68 75</a></div>
+          <div><small>Teléfono fijo · llamadas</small><a class="tel" href="tel:+34926304418">926 30 44 18</a></div>
+          <div><small>WhatsApp · solo mensajes</small><a class="tel" href="https://wa.me/34722856875" target="_blank" rel="noopener">722 85 68 75</a></div>
           <div id="horario"><small>Horario del restaurante y bar</small><table class="hours" id="hoursTable"><caption class="sr">Horario semanal</caption><tbody></tbody></table></div>
           <div><small>Dirección</small><address>Av. de la Constitución, 34<br>13620 Pedro Muñoz, Ciudad Real</address></div>
           <div class="btns"><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Restaurante%20La%20Barca%2C%20Pedro%20Mu%C3%B1oz" target="_blank" rel="noopener">Cómo llegar <svg><use href="#arr"/></svg></a><a class="btn btn--ghost" href="https://wa.me/34722856875" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a></div>
@@ -695,14 +700,14 @@ button { font: inherit; }
     <div class="foot__row">
       <div><h4>Restaurante</h4><ul><li><a href="#restaurante">Desayunos</a></li><li><a href="#restaurante">Menú del día</a></li><li><a href="#restaurante">Comidas y cenas</a></li><li><a href="#restaurante">Terraza</a></li><li><a href="#carta">La carta</a></li></ul></div>
       <div><h4>Hotel</h4><ul><li><a href="#hotel">Habitaciones</a></li><li><a href="#hotel">Servicios</a></li><li><a href="#galeria">Galería</a></li></ul></div>
-      <div><h4>Contacto</h4><ul><li><a href="tel:+34722856875">722 85 68 75</a></li><li><a href="https://wa.me/34722856875" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://www.instagram.com/hotel.restaurante.labarca/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+      <div><h4>Contacto</h4><ul><li><a href="tel:+34926304418">Llamar: 926 30 44 18</a></li><li><a href="https://wa.me/34722856875" target="_blank" rel="noopener">WhatsApp: 722 85 68 75</a></li><li><a href="https://www.instagram.com/hotel.restaurante.labarca/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
       <div><h4>Dónde</h4><p>Av. de la Constitución, 34<br>13620 Pedro Muñoz, Ciudad Real</p></div>
     </div>
     <div class="foot__end"><span>© <span id="year">2026</span> Hotel Restaurante La Barca · Pedro Muñoz</span><span><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · Hotel ★★</span></div>
   </div>
 </footer>
 
-<div class="float"><a href="tel:+34722856875" aria-label="Llamar"><svg><use href="#phone"/></svg></a><a href="https://wa.me/34722856875" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#wa"/></svg></a></div>
+<div class="float"><a href="tel:+34926304418" aria-label="Llamar al 926 30 44 18"><svg><use href="#phone"/></svg></a><a href="https://wa.me/34722856875" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#wa"/></svg></a></div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada">
   <button class="x" id="lbx" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
